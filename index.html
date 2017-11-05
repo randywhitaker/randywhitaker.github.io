@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barney On the Move</title>
+    <style media="screen">
+    
+      body {
+        font-family: Roboto, Arial, sans-serif;
+        background: #ECEFF1;
+        color: rgba(0,0,0,0.87);
+        margin: 0;
+      }
+
+      a {
+        color: rgb(3,155,229);
+      }
+    
+      .site-bander {
+        margin-bottom: 30px;
+        width: 100%;
+        height: 300px;
+        background-image: url('images/Bander.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      .site-bander h1 {
+        padding: 5%;
+        color: #fff;
+      }
+
+      .fixed-nav { 
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: #1d59ba;
+        color: white;
+        padding: 5px;
+      }
+      .nav-panel {
+        padding: 0px 15px;
+        overflow: hidden;
+      }
+      .band-name {
+        font-size: 1.2em;
+      }
+      .user-status {
+        float: right;
+        display: inline-block;
+        text-align: right;
+      }
+      
+      .data-form {
+        width: 80%;
+        margin: 1% auto;
+        padding: 5px;
+      }
+      .data-form table {
+        border: 1px solid #000;
+        width: 100%;
+      }
+      .data-form td:first-child {
+        width: 5%;
+      }
+      .data-form td:nth-child(2) {
+        width: 95%;
+      }
+      .data-form select,input {
+        width: 100%;
+      }
+      .data-form .ctrl {
+        width: 100%;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-nav">
+      <div class="nav-panel">
+        <span class="band-name">Barney On the move</span>
+        <div class="user-status">
+          <span id="currentUser"></span>
+          <button id="signup">Sign In</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="site-bander">
+      <h1>Where do you want to go?</h1>
+    </div>
+    <div class="data-form">
+    </div>
+    <script>
+
+      var signup = document.getElementById('signup');
+      
+      // Show a popup when the user asks to sign up
+      signup.addEventListener('click', function(evt) {
+
+        var btnText = signup.textContent;
+        
+        if (btnText == 'Sign Out') {
+          signup.textContent = 'Sign In'
+        } else {
+          signup.textContent = 'Sign Out'
+        }
+
+      });
+
+    </script>
+  </body>
+</html>
