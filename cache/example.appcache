@@ -11,5 +11,5 @@ NETWORK:
 
 # static.html will be served if index.html is inaccessible
 FALLBACK:
-/ /static.html
+/ /cache/static.html
 
