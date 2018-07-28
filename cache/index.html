@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" manifest="example.appcache">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Cache Demo</title>
+</head>
+<body>
+    <h2>Cache Demo <span id="status"></span></h2>
+    <p>Simple demo of using app cache</p>
+    <script>
+        function onUpdateReady() {
+            var status = document.getElementById("status");
+            status.innerHTML =  'CACHE:' + appCache.status;
+            console.log('found new version!');
+        }
+
+        window.applicationCache.addEventListener('updateready', onUpdateReady);
+        if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+            onUpdateReady();
+        }
+
+        window.addEventListener('load', function() {
+            var appCache = window.applicationCache;
+            var status = document.getElementById("status");
+
+            //appCache.update(); // Attempt to update the user's cache.
+
+            /*
+            switch (appCache.status) {
+            case appCache.UNCACHED: // UNCACHED == 0
+                //return 'UNCACHED';
+                status.innerHTML =  'UNCACHED';
+                break;
+            case appCache.IDLE: // IDLE == 1
+                //return 'IDLE';
+                status.innerHTML =  'IDLE';
+                break;
+            case appCache.CHECKING: // CHECKING == 2
+                //return 'CHECKING';
+                status.innerHTML =  'CHECKING';
+                break;
+            case appCache.DOWNLOADING: // DOWNLOADING == 3
+                //return 'DOWNLOADING';
+                status.innerHTML =  'DOWNLOADING';
+                break;
+            case appCache.UPDATEREADY:  // UPDATEREADY == 4
+                //return 'UPDATEREADY';
+                status.innerHTML =  'UPDATEREADY';
+                break;
+            case appCache.OBSOLETE: // OBSOLETE == 5
+                //return 'OBSOLETE';
+                status.innerHTML =  'OBSOLETE';
+                break;
+            default:
+                //return 'UKNOWN CACHE STATUS';
+                status.innerHTML =  'UKNOWN CACHE STATUS';
+                break;
+            };
+            */
+        });
+    </script>
+</body>
+</html>
