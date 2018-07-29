@@ -1,0 +1,34 @@
+﻿{
+  "short_name": "TimeSheet",
+  "name": "SHS Welding Timesheet",
+  "background_color": "#96b6d0",
+  "start_url": "index.html?launcher=true",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "images/homescreen16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "images/homescreen48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "images/homescreen96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "images/homescreen128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "images/homescreen192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}

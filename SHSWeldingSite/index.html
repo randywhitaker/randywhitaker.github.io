@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="en-US" data-ng-app="shsWeldingApp" data-ng-controller="siteCtrl">
+<head>
+  <title>Timesheet</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="manifest" href="manifest.txt">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="msapplication-starturl" content="/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/overrides.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-menu">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">
+            <span title="SHS Welding Site" class="glyphicon glyphicon-inbox"></span>
+            &nbsp;SHS Welding
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse-menu">
+          <ul class="nav navbar-nav">
+            <li data-ng-class="[mySheets]">
+              <a data-ng-click="changeMenu('mySheets')">My Sheets</a>
+            </li>
+            <li data-ng-class="[addSheet]">
+              <a data-ng-click="changeMenu('addSheet', '')">Add Sheet</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container body-content">
+    <div class="row" data-ng-hide="(mySheets == '')">
+      <div class="col-sm-12">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead class="tbl-header">
+              <tr>
+                <th></th>
+                <th>Signature</th>
+                <th>Client</th>
+                <th>Sheet Id</th>
+                <th>Date</th>
+                <th>Hours Worked</th>
+                <th class="text-center" colspan="2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-ng-repeat="n in jobs track by $index">
+                <td class="text-center">{{$index +1}}</td>
+                <td><img data-ng-src="{{n.signatureImage}}" alt="signature" height="20px"></td>
+                <td><a data-ng-click="changeMenu('addSheet', n.sheetId)">{{n.client.ClientID}}</a></td>
+                <td>{{n.sheetId}}</td>
+                <td>{{n.date}}</td>
+                <td>{{n.hoursWorked}}</td>
+                <td class="text-center">
+                  <i class="glyphicon glyphicon-remove-circle" data-ng-click="removesheet(n.sheetId)" data-ng-keydown="removesheet(n.sheetId, $event)" tabindex="0"></i>
+                </td>
+                <td class="text-center">
+                  <i class="glyphicon glyphicon-cloud-upload" data-ng-click="uploadToServer(n.sheetId)" data-ng-keydown="uploadToServer(n.sheetId, $event)" tabindex="0"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="feedback" data-ng-hide="(feedback == '')">{{feedback}}</div>
+    <div class="sync-progress" data-ng-hide="(uploadProgress == '')">
+      <img src="images/ajax-loader.gif" alt="spinner" width="150" height="150">
+    </div>
+    <div data-ng-hide="(addSheet == '')">
+      <div class="row">
+        <div class="col-sm-12">
+          <form class="form-horizontal" role="form">
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label for="selClient" class="col-sm-4 control-label">Client</label>
+                  <div class="col-sm-8">
+                    <select class="form-control" id="selClient" data-ng-model="job.client" data-ng-change="updateClientState(job.client)" data-ng-options="x.ClientID for x in clients track by x.ClientID"></select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="selFieldName" class="col-sm-4 control-label">Field Name</label>
+                  <div class="col-sm-8">
+                    <select class="form-control" id="selFieldName" data-ng-model="job.fieldName" data-ng-change="updateProjectState(job.fieldName)" data-ng-options="x.ProjectName for x in projects | filter: filterProjectExpression track by x.ProjectID"></select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="txtLocationWellName" class="col-sm-4 control-label">Location / Well Name</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="txtLocationWellName" data-ng-model="job.locationOrWellName" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="txtAFE" class="col-sm-4 control-label">AFE #</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="txtAFE" data-ng-model="job.afeNumber" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="txtApproval" class="col-sm-4 control-label">Approval #</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="txtApproval" data-ng-model="job.approvalNumber" placeholder="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label for="selState" class="col-sm-4 control-label">State</label>
+                  <div class="col-sm-8">
+                    <select class="form-control" id="selState" data-ng-model="job.state" data-ng-options="x.Name for x in states track by x.Code"></select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="selCounty" class="col-sm-4 control-label">County / Parish</label>
+                  <div class="col-sm-8">
+                    <select class="form-control" id="selCounty" data-ng-model="job.countyOrParish" data-ng-options="x for x in counties track by x"></select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="txtDate" class="col-sm-4 control-label">Date</label>
+                  <div class="col-sm-8">
+                    <input type="date" class="form-control" id="txtDate" data-ng-model="job.date" data-ng-blur="updateWeekName(job.date)" min="2000-01-01" max="2025-12-31" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="txtDayOfWeek" class="col-sm-4 control-label">Day of Week</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="txtDayOfWeek" data-ng-model="job.dayOfWeek" placeholder="" disabled>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th class="btn-th">
+                    <i class="glyphicon glyphicon-plus-sign" data-ng-click="addWorker()" data-ng-keydown="addWorker($event)" tabindex="0"></i>
+                  </th>
+                  <th>Worker</th>
+                  <th>Billing Category</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th>Lunch Hrs.</th>
+                  <th>Reg. Hrs.</th>
+                  <th>O.T. Hrs.</th>
+                  <th>Wrkd. Hrs.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-ng-repeat="n in job.workcrew track by $index">
+                  <td>
+                    <i class="glyphicon glyphicon-remove-circle" data-ng-click="removeWorker($index)" data-ng-keydown="removeWorker($index, $event)" tabindex="0"></i>
+                    {{ $index + 1 }}
+                  </td>
+                  <td>
+                    <select class="form-control" id="selWorker" data-ng-model="n.worker" data-ng-options="x.FullName for x in workers track by x.FullName"></select>
+                  </td>
+                  <td>
+                    <select class="form-control" id="selBillingCategories" data-ng-model="n.billingCategory" data-ng-options="x.ActivityDescription for x in billingCategories track by x.ActivityDescription"></select>
+                  </td>
+                  <td><input type="time" class="form-control" data-ng-model="n.startTime" data-ng-blur="calculateHours(n)"></td>
+                  <td><input type="time" class="form-control" data-ng-model="n.endTime" data-ng-blur="calculateHours(n)"></td>
+                  <td>
+                    <select class="form-control" id="selLunchHour" data-ng-model="n.lunchHour" data-ng-options="x for x in lunchHours track by x" data-ng-change="calculateHours(n)"></select>
+                  </td>
+                  <td>{{n.regularHours}}</td>
+                  <td>{{n.overTimeHours}}</td>
+                  <td>{{n.workedHours}}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4"></td>
+                  <td class="text-right"><strong>Total</strong></td>
+                  <td class="text-center">{{ totalLunch }}</td>
+                  <td class="text-center">{{ totalReg }}</td>
+                  <td class="text-center">{{ totalOt }}</td>
+                  <td class="text-center">{{ totalWkd }}</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th class="btn-th">
+                    <i class="glyphicon glyphicon-plus-sign" data-ng-click="addEquipment()" data-ng-keydown="addEquipment($event)" tabindex="0"></i>
+                  </th>
+                  <th>Equipment, Tools & Material.</th>
+                  <th>Units</th>
+                  <th>Notes:</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-ng-repeat="n in job.equipmentList track by $index">
+                  <td>
+                    <i class="glyphicon glyphicon-remove-circle" data-ng-click="removeEquipment($index)" data-ng-keydown="removeEquipment($index, $event)" tabindex="0"></i>
+                    {{ $index + 1 }}
+                  </td>
+                  <td>
+                    <select class="form-control" id="selEquipment" data-ng-model="n.equipment" data-ng-options="x.ExpLabel for x in equipment track by x.ExpLabel"></select>
+                  </td>
+                  <td><input type="number" class="form-control" data-ng-model="n.units" data-ng-blur="updateTotalQty()"></td>
+                  <td><input type="text" class="form-control" data-ng-model="n.notes"></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td></td>
+                  <td class="text-right"><strong>Total Hours</strong></td>
+                  <td class="text-center">{{ totalQty }}</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h4>Remarks:</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <textarea class="form-control" id="txtRemarks" data-ng-model="job.remarks"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-8">
+          <strong>Representative Signature</strong><br />
+          <div class="sp-wrapper">
+            <canvas id="signature-pad" class="sp-signature-pad"></canvas>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-4">
+          <div class="form-group">
+            <label for="txtDateOfSignature" class="col-sm-12 control-label">Date</label>
+            <div class="col-sm-12">
+              <input type="date" class="form-control" id="txtDateOfSignature" data-ng-model="job.signatureDate" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="txtPrintedName" class="col-sm-12 control-label">Printed Name</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="txtPrintedName" data-ng-model="job.printedName" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="txtPrintedName" class="col-sm-12 control-label"></label>
+            <div class="col-sm-12 text-right">
+              <button class="btn btn-danger" data-ng-click="resetSheet()"><i class="glyphicon glyphicon-remove"></i> Clear</button>
+              <button class="btn btn-primary" data-ng-click="saveSheet()"><i class="glyphicon glyphicon-floppy-disk"></i> Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="text-center">
+    <small>Copyright &copy; 2017 SHS Welding. All rights reserved.</small>
+  </footer>
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-resource.min.js"></script>
+  <script src="js/signature_pad.min.js"></script>
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/shs-welding-app.js"></script>
+  <script src="js/shs-data-source.js"></script>
+</body>
+</html>
