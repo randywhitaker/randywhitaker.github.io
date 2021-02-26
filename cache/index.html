@@ -19,10 +19,10 @@
             console.log('found new version!');
         }
 
-        window.applicationCache.addEventListener('updateready', onUpdateReady);
-        if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
-            onUpdateReady();
-        }
+        //window.applicationCache.addEventListener('updateready', onUpdateReady);
+        //if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+        //    onUpdateReady();
+        //}
 
         window.addEventListener('load', function() {
             var appCache = window.applicationCache;
