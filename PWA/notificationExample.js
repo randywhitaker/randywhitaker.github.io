@@ -2,6 +2,8 @@ window.addEventListener('load', function () {
   var button = document.getElementById('btnTest');
 
   button.addEventListener('click', function () {
+    event.preventDefault();
+    
     // If the user agreed to get notified
     // Let's try to send ten notifications
     if (window.Notification && Notification.permission === "granted") {
@@ -46,7 +48,7 @@ window.addEventListener('load', function () {
       // We can fallback to a regular modal alert
       alert("Hi!");
     }
-  });
+  }, false);
 
   var notificationBtn = document.getElementById('btnEnable');
   notificationBtn.addEventListener('click', function (event) {
