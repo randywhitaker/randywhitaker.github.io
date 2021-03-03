@@ -3,104 +3,115 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barney On the Move</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <style media="screen">
-    
-      body {
-        font-family: Roboto, Arial, sans-serif;
-        background: #ECEFF1;
-        color: rgba(0,0,0,0.87);
-        margin: 0;
-      }
-
-      a {
-        color: rgb(3,155,229);
-      }
-    
-      .site-bander {
-        margin-bottom: 30px;
-        width: 100%;
-        height: 300px;
-        background-image: url('images/Bander.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-      .site-bander h1 {
-        padding: 5%;
-        color: #fff;
-      }
-
-      .fixed-nav { 
-        position: fixed;
-        width: 100%;
-        top: 0;
-        background: #1d59ba;
-        color: white;
-        padding: 5px;
-      }
-      .nav-panel {
-        padding: 0px 15px;
-        overflow: hidden;
-      }
-      .band-name {
-        font-size: 1.2em;
-      }
-      .user-status {
-        float: right;
-        display: inline-block;
-        text-align: right;
-      }
-      
-      .data-form {
-        width: 80%;
-        margin: 1% auto;
-        padding: 5px;
-      }
-      .data-form table {
-        border: 1px solid #000;
-        width: 100%;
-      }
-      .data-form td:first-child {
-        width: 5%;
-      }
-      .data-form td:nth-child(2) {
-        width: 95%;
-      }
-      .data-form select,input {
-        width: 100%;
-      }
-      .data-form .ctrl {
-        width: 100%;
-        text-align: right;
-      }
+    <title>Barney</title>
+    <style>
+        html, 
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .app-content {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            height: 100vh;
+        }
+        .app-content > footer {
+            background-color: #485870;
+            text-align: center;
+            font-weight: normal;
+            font-size: small;
+            color: #ffffff;
+            padding: 5px 0;
+        }
+        .main-nav {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            background-color: #1d59ba;
+        }
+        .main-nav nav {
+            text-align: center;
+            /* border: 1px solid #000; */
+        }
+        .main-nav ul {
+            display: inline-flex;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0;
+            padding: 0 .8rem;
+        }
+        .main-nav nav ul > li {
+            padding: 0 .5rem;
+        }
+        .main-nav a {
+            text-decoration: none;
+            line-height: 30px;
+        }
+        .nav-profile {
+            display: inline-block;
+            margin: 6px 15px;
+            width: 100px;
+            text-align: right;
+        }
+        .nav-profile > button {
+            border: 0;
+            background: none;
+            background-color: #fff;
+            box-shadow: none;
+            border-radius: 0px;
+        }
+        .nav-profile > button:hover {
+            background-color: #ccc;
+        }
+        .nav-profile > button:focus {
+            border: 0;
+            background: none;
+            box-shadow: none;
+            background-color: #ccc;
+        }
+        .main-nav a:link, a:visited {
+            color: white;
+        }
+        .site-name {
+            font-size: large;
+            color: #ffffff;
+            margin: 4px 15px;
+        }
+        .site-bander {
+            background-image: url('images/Bander.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #e2e2e2;
+            background-attachment: fixed;
+        }
+        .site-bander h1 {
+            color: #ffffff;
+            margin: 30px;
+        }
     </style>
   </head>
   <body>
-    <div class="fixed-nav">
-      <div class="nav-panel">
-        <span class="band-name">Barney On the move</span>
-        <div class="user-status">
-          <span id="currentUser"></span>
-          <button id="signup">Sign In</button>
-        </div>
-      </div>
+    <div class="app-content">
+        <header class="main-nav">
+            <div class="site-name">Barney</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <div class="nav-profile">
+                <button id="signup">Sign In</button>
+            </div>
+        </header>
+        <main class="site-bander">
+            <h1>Where do you want to go?</h1>
+        </main>
+        <footer>&copy; 2018 — Owner: Randy Whitaker</footer>
     </div>
-    </div>
-    <div class="site-bander">
-      <h1>Where do you want to go?</h1>
-    </div>
-    <div class="data-form">
-    </div>
-    <!--
-    <br><br><br><br><br><br><br><br><br><br>
-    <form action="index.html" method="POST">
-      <div class="g-recaptcha" data-sitekey="6LdIxu8UAAAAAEK9vRuxc928uFo6Bq2Pbs5H81zY"></div>
-      <br/>
-      <input type="submit" value="Submit">
-    </form>
-    -->
     <script>
 
       var signup = document.getElementById('signup');
