@@ -1,134 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barney</title>
+    <link rel="shortcut icon" href="images/favicon-96x96.png">
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="images/favicon-96x96.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
-        html, 
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .app-content {
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            height: 100vh;
-        }
-        .app-content > footer {
-            background-color: #485870;
-            text-align: center;
-            font-weight: normal;
-            font-size: small;
-            color: #ffffff;
-            padding: 5px 0;
-        }
-        .main-nav {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            background-color: #1d59ba;
-        }
-        .main-nav nav {
-            text-align: center;
-            /* border: 1px solid #000; */
-        }
-        .main-nav ul {
-            display: inline-flex;
-            flex-wrap: wrap;
-            list-style: none;
-            margin: 0;
-            padding: 0 .8rem;
-        }
-        .main-nav nav ul > li {
-            padding: 0 .5rem;
-        }
-        .main-nav a {
-            text-decoration: none;
-            line-height: 30px;
-        }
-        .nav-profile {
-            display: inline-block;
-            margin: 6px 15px;
-            width: 100px;
-            text-align: right;
-        }
-        .nav-profile > button {
-            border: 0;
-            background: none;
-            background-color: #fff;
-            box-shadow: none;
-            border-radius: 0px;
-        }
-        .nav-profile > button:hover {
-            background-color: #ccc;
-        }
-        .nav-profile > button:focus {
-            border: 0;
-            background: none;
-            box-shadow: none;
-            background-color: #ccc;
-        }
-        .main-nav a:link, a:visited {
-            color: white;
-        }
-        .site-name {
-            font-size: large;
-            color: #ffffff;
-            margin: 4px 15px;
-        }
-        .site-bander {
-            background-image: url('images/Bander.jpg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-color: #e2e2e2;
-            background-attachment: fixed;
-        }
-        .site-bander h1 {
-            color: #ffffff;
-            margin: 30px;
-        }
+html, 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.material-icons:hover {
+  cursor: pointer;
+}
+.app-content {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+.site-bander {
+  background-image: url('images/Bander.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #e2e2e2;
+  background-attachment: fixed;
+}
+.site-bander > h1 {
+  color: #ffffff;
+  padding: 0 15px;
+}
+.app-content > header {
+  display: flex;
+  background-color: #485870;
+  color: #ffffff;
+  padding: 2px 15px;
+}
+.app-content > header > div.site-logo {
+  flex: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.app-content > header > div.site-logo > img {
+  height: 30px;
+  padding: 0 15px 0 0;
+}
+.app-content > header > nav.full-nav {
+  flex: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.app-content > header > nav.menu-nav {
+  flex: 70%;
+  display: none;
+}
+.app-content > footer {
+  background-color: #485870;
+  text-align: center;
+  font-weight: normal;
+  font-size: small;
+  color: #ffffff;
+  padding: 5px 0;
+}
+
+@media (max-width: 800px) {
+  .app-content > header > nav.full-nav {
+    display: none;
+  }
+  .app-content > header > nav.menu-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .site-bander > h1 {
+      padding: 0 5px;
+  }
+}
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="app-content">
-        <header class="main-nav">
-            <div class="site-name">Barney</div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </nav>
-            <div class="nav-profile">
-                <button id="signup">Sign In</button>
+        <header>
+            <div class="site-logo">
+                <img src="images/favicon-96x96.png" alt="Barney face"> Barney
             </div>
+            <nav class="full-nav">
+                <input type="text" >
+                <span class="material-icons">search</span>
+                <span class="material-icons">account_circle</span>
+            </nav>
+            <nav class="menu-nav">
+                <span class="material-icons">menu</span>
+            </nav>
         </header>
         <main class="site-bander">
             <h1>Where do you want to go?</h1>
         </main>
         <footer>&copy; 2018 — Owner: Randy Whitaker</footer>
     </div>
-    <script>
-
-      var signup = document.getElementById('signup');
-      
-      // Show a popup when the user asks to sign up
-      signup.addEventListener('click', function(evt) {
-
-        var btnText = signup.textContent;
-        
-        if (btnText == 'Sign Out') {
-          signup.textContent = 'Sign In'
-        } else {
-          signup.textContent = 'Sign Out'
-        }
-
-      });
-
-    </script>
-  </body>
+</body>
 </html>
