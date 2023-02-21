@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" media="print" href="invoice-print.css">
+  <link rel="stylesheet" media="screen" href="invoice-screen.css">
+</head>
+<body>
+  <div id="invoice-app">
+    <select v-model="selectedproperty" required>
+      <option v-for="p in properties" v-bind:value="p">{{p.name}}</option>
+    </select>
+    <div class="invoice-page">
+      <div class="invoice-header">
+        <div>
+          <span class="company-name">{{ company.name }}</span>
+          {{ company.address }}
+          <br>{{ company.cityStateZip }}
+        </div>
+        <div>
+          Rent Invoice: {{ invoiceNumber(selectedproperty.id) }}
+          <br>Phone: {{ company.phone }}
+          <br>Email: {{ company.email }}
+        </div>
+      </div>
+      <div class="tenant-address">
+        <div>
+          {{ selectedproperty.tenant }}
+          <br>{{ selectedproperty.address }}
+          <br>{{ selectedproperty.cityStateZip }}
+        </div>
+        <div>
+          Invoice Date: {{ invoiceDate() }}
+        </div>
+      </div>
+      <div class="payment-info">
+        <table class="payment-detail">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Amount</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="center-align">{{ lastpaidDate(selectedproperty.dueOn) }}</td>
+              <td>{{ lastMonth() }} rent Paid</td>
+              <td class="right-align">-${{ selectedproperty.amount + selectedproperty.paidLateFee }}</td>
+            </tr>
+            <tr>
+              <td class="center-align">{{ dueDate(selectedproperty.dueOn) }}</td>
+              <td>{{ nextMonth() }} rent due</td>
+              <td class="right-align">${{ selectedproperty.amount }}</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="2" class="right-align">Balance due</th>
+              <th class="right-align">${{ selectedproperty.amount }}</th>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="mail-to-info">
+          Thank You for your business
+          <br>Do not send cash or post-dated checks. All checks will be processed upon receipt.
+          <br>Make checks payable to RADI Investments, LLC<br>
+          <br>payment options: money order, personal check, cashier&rsquo;s check, wire transfer, Cash App: $whitakerrandy, Zelle<br>
+          <br>Return the portion below with your payment to the address below.
+          <hr>
+        </div>
+        <div class="invoice-return">
+          <div>
+            {{ selectedproperty.tenant }}
+            <br>{{ selectedproperty.address }}
+            <br>{{ selectedproperty.cityStateZip }}
+          </div>
+          <div>
+            <span>DUE DATE: </span><span>{{ dueDate(selectedproperty.dueOn) }}</span>
+            <br><span>RENT DUE: </span><span>${{ selectedproperty.amount }}</span>
+          </div>
+        </div>
+        <div class="return-address">
+          <span class="company-name">{{ company.name }}</span>
+          {{ company.address }}
+          <br>{{ company.cityStateZip }}
+        </div>  
+      </div>
+    </div>
+  </div>
+  <script src="invoice-app.js"></script>
+</body>
+</html>
