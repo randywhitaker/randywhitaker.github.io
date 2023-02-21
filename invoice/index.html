@@ -15,35 +15,37 @@
       <option v-for="p in properties" v-bind:value="p">{{p.name}}</option>
     </select>
     <div class="invoice-page">
-      <div class="invoice-header">
-        <div>
-          <span class="company-name">{{ company.name }}</span>
-          {{ company.address }}
-          <br>{{ company.cityStateZip }}
+      <div class="fold-a">
+        <div class="invoice-header">
+          <div>
+            <span class="company-name">{{ company.name }}</span>
+            {{ company.address }}
+            <br>{{ company.cityStateZip }}
+          </div>
+          <div>
+            Rent Invoice: {{ invoiceNumber(selectedproperty.id) }}
+            <br>Phone: {{ company.phone }}
+            <br>Email: {{ company.email }}
+          </div>
         </div>
-        <div>
-          Rent Invoice: {{ invoiceNumber(selectedproperty.id) }}
-          <br>Phone: {{ company.phone }}
-          <br>Email: {{ company.email }}
+        <div class="tenant-address">
+          <div>
+            {{ selectedproperty.tenant }}
+            <br>{{ selectedproperty.address }}
+            <br>{{ selectedproperty.cityStateZip }}
+          </div>
+          <div>
+            Invoice Date: {{ invoiceDate() }}
+          </div>
         </div>
       </div>
-      <div class="tenant-address">
-        <div>
-          {{ selectedproperty.tenant }}
-          <br>{{ selectedproperty.address }}
-          <br>{{ selectedproperty.cityStateZip }}
-        </div>
-        <div>
-          Invoice Date: {{ invoiceDate() }}
-        </div>
-      </div>
-      <div class="payment-info">
+      <div class="fold-b">
         <table class="payment-detail">
           <thead>
             <tr>
               <th>Date</th>
               <th>Description</th>
-              <th>Amount</th> 
+              <th>Amount</th>
             </tr>
           </thead>
           <tbody>
@@ -74,10 +76,12 @@
           Thank You for your business
           <br>Do not send cash or post-dated checks. All checks will be processed upon receipt.
           <br>Make checks payable to RADI Investments, LLC<br>
-          <br>payment options: money order, personal check, cashier&rsquo;s check, wire transfer, Cash App: $whitakerrandy, Zelle<br>
+          <br>payment options: money order, personal check, cashier&rsquo;s check, wire transfer, Cash App: $whitakerrandy,
+          Zelle<br>
           <br>Return the portion below with your payment to the address below.
-          <hr>
         </div>
+      </div>
+      <div class="fold-c">
         <div class="invoice-return">
           <div>
             {{ selectedproperty.tenant }}
