@@ -8,6 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <link rel="stylesheet" media="print" href="invoice-print.css?2">
   <link rel="stylesheet" media="screen" href="invoice-screen.css?2">
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
 </head>
 <body>
   <div id="invoice-app">
@@ -15,37 +16,35 @@
       <option v-for="p in properties" v-bind:value="p">{{p.name}}</option>
     </select>
     <div class="invoice-page">
-      <div class="fold-a">
-        <div class="invoice-header">
-          <div>
-            <span class="company-name">{{ company.name }}</span>
-            {{ company.address }}
-            <br>{{ company.cityStateZip }}
-          </div>
-          <div>
-            Rent Invoice: {{ invoiceNumber(selectedproperty.id) }}
-            <br>Phone: {{ company.phone }}
-            <br>Email: {{ company.email }}
-          </div>
+      <div class="invoice-header">
+        <div>
+          <span class="company-name">{{ company.name }}</span>
+          {{ company.address }}
+          <br>{{ company.cityStateZip }}
         </div>
-        <div class="tenant-address">
-          <div>
-            {{ selectedproperty.tenant }}
-            <br>{{ selectedproperty.address }}
-            <br>{{ selectedproperty.cityStateZip }}
-          </div>
-          <div>
-            Invoice Date: {{ invoiceDate() }}
-          </div>
+        <div>
+          Rent Invoice: {{ invoiceNumber(selectedproperty.id) }}
+          <br>Phone: {{ company.phone }}
+          <br>Email: {{ company.email }}
         </div>
       </div>
-      <div class="fold-b">
+      <div class="tenant-address">
+        <div>
+          {{ selectedproperty.tenant }}
+          <br>{{ selectedproperty.address }}
+          <br>{{ selectedproperty.cityStateZip }}
+        </div>
+        <div>
+          Invoice Date: {{ invoiceDate() }}
+        </div>
+      </div>
+      <div class="payment-info">
         <table class="payment-detail">
           <thead>
             <tr>
               <th>Date</th>
               <th>Description</th>
-              <th>Amount</th>
+              <th>Amount</th> 
             </tr>
           </thead>
           <tbody>
@@ -76,12 +75,10 @@
           Thank You for your business
           <br>Do not send cash or post-dated checks. All checks will be processed upon receipt.
           <br>Make checks payable to RADI Investments, LLC<br>
-          <br>payment options: money order, personal check, cashier&rsquo;s check, wire transfer, Cash App: $whitakerrandy,
-          Zelle<br>
+          <br>payment options: money order, personal check, cashier&rsquo;s check, wire transfer, Cash App: $whitakerrandy, Zelle<br>
           <br>Return the portion below with your payment to the address below.
+          <hr>
         </div>
-      </div>
-      <div class="fold-c">
         <div class="invoice-return">
           <div>
             {{ selectedproperty.tenant }}

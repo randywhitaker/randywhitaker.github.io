@@ -1,20 +1,80 @@
 var invoiceApp = new Vue({
   el: '#invoice-app',
+  created() {
+    const dataFileName = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQcvxfsh6iwoa31ZAjQBLg2rO52UCaQ4QWojIoaq2Kp31TuU0G0YGBjUgXUMXd-NKwD2DoLyEM5F_C9/pub?gid=0&single=true&output=csv";
+
+    fetch(dataFileName)
+      .then(response => response.text())
+      .then(data => (this.csvparser(data)))
+      .catch(function (error) {
+        this.errorMessage = `Error when loading tenant ${error.message}`;
+    });
+
+  },
   data: {
+    errorMessage: "",
     company: { name: "RADI Investments, LLC", address: "PO BOX 2127", cityStateZip: "WAXAHACHIE TX 75168", phone: "945-900-6177", email: "whitaker.randy@gmail.com" },
     selectedproperty: {},
-    properties: [
-      { id: 1, name: "101 Truman", tenant: "Adrianne Lewis", address: "101 Truman Dr", cityStateZip: "Henderson, TX 75652-2633", dueOn: 1, amount: 750.00, paidLateFee: 0.00, lastpaid: "02/01/2023" },
-      { id: 2, name: "107 Parnell", tenant: "Allie Morris", address: "107 Parnell Dr", cityStateZip: "Henderson, TX 75654-3334", dueOn: 13, amount: 900.00, paidLateFee: 0.00, lastpaid: "02/01/2023" },
-      { id: 3, name: "208 Christian", tenant: "", address: "208 Christian Dr", cityStateZip: "Henderson, TX 75652", dueOn: 1, amount: 900.00, lateFee: 0.00, paidLateFee: "02/01/2023" },
-      { id: 4, name: "705 N Mill", tenant: "Jason Tribble", address: "705 N Mill St", cityStateZip: "Henderson, TX 75652-6015", dueOn: 3, amount: 770.00, paidLateFee: 40.00, lastpaid: "02/01/2023" },
-      { id: 5, name: "707 N Mill", tenant: "Deanna Dean", address: "707 N Mill St", cityStateZip: "Henderson, TX 75652-6015", dueOn: 4, amount: 600.00, paidLateFee: 0.00, lastpaid: "02/01/2023" },
-      { id: 6, name: "1004 Jones", tenant: "Kevin & Misty Nix", address: "1004 Jones St", cityStateZip: "Henderson, TX 75654", dueOn: 18, amount: 1500.00, paidLateFee: 0.00, lastpaid: "02/01/2023" },
-      { id: 7, name: "6133 HWY 79", tenant: "Robert Hopper", address: "6133 HWY 79 S.", cityStateZip: "Henderson, TX 75654", dueOn: 1, amount: 1600.00, paidLateFee: 0.00, lastpaid: "02/01/2023" }
-    ],
+    properties: [],
     months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   },
   methods: {
+    csvparser: function (csv) {
+      //console.log("parsing csv file data");
+      const lines = csv.split("\n");
+      //console.log("Lines:", lines);
+
+      // NOTE: If your columns contain commas in their values, you'll need
+      // to deal with those before doing the next step by convert them
+      // into ` or something, then covert them back later.
+      var headers = lines[0].split(",");
+      //console.log("Headers:", headers);
+
+      for(var i=1; i<lines.length; i++) {
+        const property = {id: 0, name: "", tenant: "", address: "", cityStateZip: "", dueOn: 1, amount: 0.00, paidLateFee: 0.00, lastpaid: "01/01/2023"};
+        const currentline = lines[i].split(",");
+
+          for(var j=0; j<headers.length; j++) {
+            const headerName = headers[j].replace('\r', '').replace('\t', '');
+            //console.log("Header Name:", headerName);
+
+            switch (headerName) {
+              case 'id':
+                property.id = parseInt(currentline[j].replace('\r', '').replace('\t', ''));
+                break;
+              case 'name':
+                property.name = currentline[j].replace('\r', '').replace('\t', '');
+                break;
+              case 'tenant':
+                property.tenant = currentline[j].replace('\r', '').replace('\t', '');
+                break;
+              case 'address':
+                property.address = currentline[j].replace('\r', '').replace('\t', '');
+                break;
+              case 'cityStateZip':
+                property.cityStateZip = currentline[j].replace('\r', '').replace('\t', '');
+                break;
+              case 'dueOn':
+                property.dueOn = parseInt(currentline[j].replace('\r', '').replace('\t', ''));
+                break;
+              case 'amount':
+                property.amount = parseFloat(currentline[j].replace('\r', '').replace('\t', ''));
+                break;
+              case 'paidLateFee':
+                property.paidLateFee = parseFloat(currentline[j].replace('\r', '').replace('\t', ''));
+                break;
+              case 'lastpaid':
+                property.lastpaid = currentline[j].replace('\r', '').replace('\t', '');
+                break;
+              default:
+                console.log(`Unknown header name: ${headerName}.`);
+                break;
+            }
+          }
+
+          this.properties.push(property);
+      }
+    },
     invoiceNumber: function (id) {
       const date = new Date();
 

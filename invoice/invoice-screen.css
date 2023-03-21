@@ -1,84 +1,32 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-}
-#invoice-app {
-  width: 800px;
-  margin: 0px auto;
-}
-.invoice-page {
-  width: 800px;
-  height: 960px;
-  margin: 0px auto;
-}
-.fold-a {
-  height: 320px;
-  overflow: hidden;
-  border-bottom: 1px solid #000;
-  padding-top: 28px;
-}
-.fold-b {
-  height: 416px;
-  overflow: hidden;
-  border-bottom: 2px solid #000;
-}
-.fold-c {
-  height: 320px;
-  overflow: hidden;
-  padding-top: 48px;
-}
-.company-name {
-  display: block;
-  font-size: 20px;
-  font-weight: bolder;
-}
+body {font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+#invoice-app { width: 800px; margin: 0px auto; }
+.company-name { display: block; font-size: 20px; font-weight: bolder; }
+.invoice-page { width: 800px; margin: 0px auto; }
 .invoice-header {
   background-color: rgb(196, 216, 250);
+  margin: 25px auto 75px auto;
   padding: 10px;
-  display: flex;
+  display : flex;
   justify-content: space-between;
 }
 .tenant-address {
-  padding: 10px;
-  margin: 92px auto 0px auto;
   display: flex;
   justify-content: space-between;
+  margin: 100px auto;
 }
-.payment-detail {
-  width: 100%;
-  border-collapse: collapse;
+.payment-info {
+  margin: 100px auto 100px auto;
 }
-.payment-detail th {
-  border: 1px solid #000;
-  padding: 5px 10px;
-}
-.payment-detail td {
-  border: 1px solid #000;
-  padding: 5px 10px;
-}
-.right-align {
-  text-align: right;
-  width: 10%;
-}
-.center-align {
-  text-align: center;
-  width: 10%;
-}
-.mail-to-info {
-  padding-top: 182px;
-  text-align: center;
-}
+.payment-detail { width: 100%; border-collapse: collapse; }
+.payment-detail th { border: 1px solid #000; padding: 5px 10px; }
+.payment-detail td { border: 1px solid #000; padding: 5px 10px; }
+.right-align { text-align: right; width: 10%; }
+.center-align { text-align: center; width: 10%; }
+.mail-to-info { margin: 100px auto 100px auto; text-align: center; }
 .invoice-return {
-  padding: 10px;
+  margin: 100px auto;
   display: flex;
   justify-content: space-between;
 }
-.invoice-return span {
-  display: inline-block;
-  width: 100px;
-  text-align: right;
-}
-.return-address {
-  padding: 10px;
-  margin: 92px auto 0px auto;
-}
+.invoice-return span { display: inline-block; width: 100px; text-align: right; }
+.return-address { margin: 0px 0px 100px 0px; }
