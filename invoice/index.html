@@ -12,9 +12,15 @@
 </head>
 <body>
   <div id="invoice-app">
-    <select v-model="selectedproperty" required>
-      <option v-for="p in properties" v-bind:value="p">{{p.name}}</option>
-    </select>
+    <div id="selection">
+      <select v-model="selectedproperty" required>
+        <option v-for="p in properties" v-bind:value="p">{{p.name}}</option>
+      </select>&nbsp;&nbsp;
+      <input type="checkbox" id="lateFee" v-model="selectedproperty.addLateFee">&nbsp;
+      <label for="lateFee">Add late fee</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label v-if="selectedproperty.addLateFee" for="feeAmount">Amount:</label>
+      <input v-if="selectedproperty.addLateFee" type="number" id="feeAmount" v-model="selectedproperty.paidLateFee">  
+    </div>
     <div class="invoice-page">
       <div class="invoice-header">
         <div>
@@ -47,11 +53,28 @@
               <th>Amount</th> 
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="selectedproperty.addLateFee">
+            <tr>
+              <td class="center-align">{{ lastpaidDate(selectedproperty.dueOn) }}</td>
+              <td>{{ lastMonth() }} rent due</td>
+              <td class="right-align">${{ selectedproperty.amount }}</td>
+            </tr>
+            <tr>
+              <td class="center-align">{{ lastpaidDate(selectedproperty.dueOn) }}</td>
+              <td>{{ lastMonth() }} late fee</td>
+              <td class="right-align">${{ selectedproperty.paidLateFee }}</td>
+            </tr>
+            <tr>
+              <td class="center-align">{{ dueDate(selectedproperty.dueOn) }}</td>
+              <td>{{ nextMonth() }} rent due</td>
+              <td class="right-align">${{ selectedproperty.amount }}</td>
+            </tr>
+          </tbody>
+          <tbody v-else>
             <tr>
               <td class="center-align">{{ lastpaidDate(selectedproperty.dueOn) }}</td>
               <td>{{ lastMonth() }} rent Paid</td>
-              <td class="right-align">-${{ selectedproperty.amount + selectedproperty.paidLateFee }}</td>
+              <td class="right-align">-${{ selectedproperty.amount }}</td>
             </tr>
             <tr>
               <td class="center-align">{{ dueDate(selectedproperty.dueOn) }}</td>
@@ -64,7 +87,13 @@
               <td>&nbsp;</td>
             </tr>
           </tbody>
-          <tfoot>
+          <tfoot v-if="selectedproperty.addLateFee">
+            <tr>
+              <th colspan="2" class="right-align">Balance due</th>
+              <th class="right-align">${{ selectedproperty.amount + selectedproperty.amount + parseFloat(selectedproperty.paidLateFee) }}</th>
+            </tr>
+          </tfoot>
+          <tfoot v-else>
             <tr>
               <th colspan="2" class="right-align">Balance due</th>
               <th class="right-align">${{ selectedproperty.amount }}</th>
@@ -87,7 +116,7 @@
           </div>
           <div>
             <span>DUE DATE: </span><span>{{ dueDate(selectedproperty.dueOn) }}</span>
-            <br><span>RENT DUE: </span><span>${{ selectedproperty.amount }}</span>
+            <br><span>RENT DUE: </span><span v-if="selectedproperty.addLateFee">${{ selectedproperty.amount + selectedproperty.amount + parseFloat(selectedproperty.paidLateFee) }}</span><span v-else>${{ selectedproperty.amount }}</span>
           </div>
         </div>
         <div class="return-address">

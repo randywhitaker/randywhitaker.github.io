@@ -31,7 +31,7 @@ var invoiceApp = new Vue({
       //console.log("Headers:", headers);
 
       for(var i=1; i<lines.length; i++) {
-        const property = {id: 0, name: "", tenant: "", address: "", cityStateZip: "", dueOn: 1, amount: 0.00, paidLateFee: 0.00, lastpaid: "01/01/2023"};
+        const property = {id: 0, name: "", tenant: "", address: "", cityStateZip: "", dueOn: 1, amount: 0.00, addLateFee: "", paidLateFee: 75.00, lastpaid: "01/01/2023"};
         const currentline = lines[i].split(",");
 
           for(var j=0; j<headers.length; j++) {
