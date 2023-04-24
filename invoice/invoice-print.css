@@ -1,4 +1,4 @@
-body {font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: darkblue; }
+body {font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
 #invoice-app { width: 800px; margin: 0px auto; }
 .company-name { display: block; font-size: 20px; font-weight: bolder; }
 .invoice-page { width: 800px; margin: 0px auto; }
