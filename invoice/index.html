@@ -16,6 +16,8 @@
       <select v-model="selectedproperty" required>
         <option v-for="p in properties" v-bind:value="p">{{p.name}}</option>
       </select>&nbsp;&nbsp;
+      <input type="checkbox" id="pastFee" v-model="selectedproperty.pastFee">&nbsp;
+      <label for="lateFee">Show paid fee</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <input type="checkbox" id="lateFee" v-model="selectedproperty.addLateFee">&nbsp;
       <label for="lateFee">Add late fee</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label v-if="selectedproperty.addLateFee" for="feeAmount">Amount:</label>
@@ -75,6 +77,11 @@
               <td class="center-align">{{ lastpaidDate(selectedproperty.dueOn) }}</td>
               <td>{{ lastMonth() }} rent Paid</td>
               <td class="right-align">-${{ selectedproperty.amount }}</td>
+            </tr>
+            <tr v-if="selectedproperty.pastFee">
+              <td class="center-align">{{ lastpaidDate(selectedproperty.dueOn) }}</td>
+              <td>{{ lastMonth() }} late fee Paid</td>
+              <td class="right-align">-${{ selectedproperty.paidLateFee }}</td>
             </tr>
             <tr>
               <td class="center-align">{{ dueDate(selectedproperty.dueOn) }}</td>
