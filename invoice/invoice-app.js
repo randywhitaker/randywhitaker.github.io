@@ -113,6 +113,11 @@ var invoiceApp = new Vue({
       let month = date.getMonth() + 2;
       let year = date.getFullYear();
 
+      if (month == 13) {
+        year += 1;
+        month = 1;
+      }
+
       if (dueOn != null) {
         day = parseInt(dueOn);
       }
