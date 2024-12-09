@@ -36,32 +36,6 @@ body {
   color: #ffffff;
   padding: 0 15px;
 }
-.app-content > header {
-  display: flex;
-  background-color: #485870;
-  color: #ffffff;
-  padding: 2px 15px;
-}
-.app-content > header > div.site-logo {
-  flex: 30%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.app-content > header > div.site-logo > img {
-  height: 30px;
-  padding: 0 15px 0 0;
-}
-.app-content > header > nav.full-nav {
-  flex: 70%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-.app-content > header > nav.menu-nav {
-  flex: 70%;
-  display: none;
-}
 .app-content > footer {
   background-color: #485870;
   text-align: center;
@@ -72,39 +46,122 @@ body {
 }
 
 @media (max-width: 800px) {
-  .app-content > header > nav.full-nav {
+  .site-search {
     display: none;
-  }
-  .app-content > header > nav.menu-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
   }
   .site-bander > h1 {
       padding: 0 5px;
   }
 }
+.material-icons {
+  vertical-align: middle;
+}
+.site-narbar {
+  display: flex;
+  justify-content: space-between; /* Pushes items to opposite ends */
+  align-items: center; /* Vertically centers the items */
+}
+.site-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+.site-logo > img {
+  height: 30px;
+  padding: 0 15px 0 0;
+}
+.site-search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cdd7ef;
+  border-radius: 30px;
+  padding: 4px 15px;
+}
+#sitesearch {
+  border: 0;
+  background-color: #cdd7ef;
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 8px 10px;
+}
+#sitesearch:focus {
+  outline: none;
+  border: 0;
+}
+.user-anonymous {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  padding: 0px 10px;
+}
+#authenticated { display: none; }
+.site-menu { display: none; }
+#showmenu { display: none;}
+.menu-items { display: none; }
+
+.auth-btn {
+  background-color: #cdd7ef;
+  padding: 4px 8px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.auth-btn:hover {
+  background-color: #adb7cd;
+}
+
+#authenticated:checked ~ .site-menu {
+  display: block;
+}
+#authenticated:checked ~ .auth-btn {
+  display: none;
+}
+#showmenu:checked ~ .menu-items {
+  display: block;
+}
     </style>
 </head>
 <body>
     <div class="app-content">
-        <header>
-            <div class="site-logo">
-                <img src="images/favicon-96x96.png" alt="Barney face"> Barney
-            </div>
-            <nav class="full-nav">
-                <input type="text" >
-                <span class="material-icons">search</span>
-                <span class="material-icons">account_circle</span>
-            </nav>
-            <nav class="menu-nav">
-                <span class="material-icons">menu</span>
-            </nav>
-        </header>
-        <main class="site-bander">
-            <h1>Where do you want to go?</h1>
-        </main>
-        <footer>&copy; 2018 — Owner: Randy Whitaker</footer>
+      <header class="site-narbar">
+        <div class="site-logo">
+            <img src="favicon-96x96.png" alt="Barney face"> Barney
+        </div>
+        <div class="site-search">
+          <span class="material-icons">search</span>  
+          <input type="text" id="sitesearch" placeholder="Search....">
+        </div>
+        <div class="user-anonymous">
+          <!-- user-authenticated -->
+          <input type="checkbox" id="authenticated">  
+          <label  class="auth-btn" for="authenticated">
+            <span class="material-icons">login</span> Login
+          </label>
+          <label  class="auth-btn" for="authenticated">
+            <span class="material-icons">account_circle</span> Sign Up
+          </label>
+          <div class="site-menu">
+            <input type="checkbox" id="showmenu">
+            <label class="show-menu" for="showmenu">
+              <span class="material-icons">menu</span>
+            </label>
+            <ul class="menu-items">
+              <li>
+                <a href="#">Help</a>
+              </li>
+            </ul>
+            <label class="show-menu" for="authenticated">
+              <span class="material-icons">logout</span> Logout
+            </label>
+          </div>
+        </div>
+      </header>
+      <main class="site-bander">
+          <h1>Where do you want to go?</h1>
+      </main>
+      <footer>&copy; 2018 — Owner: Randy Whitaker</footer>
     </div>
 </body>
 </html>
