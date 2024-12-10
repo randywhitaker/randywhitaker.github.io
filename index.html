@@ -9,184 +9,7 @@
   <link rel="icon" type="image/png" href="images/favicon-96x96.png">
   <link rel="apple-touch-icon" href="images/favicon-96x96.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <style>
-    html,
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-
-    .app-content {
-      background-image: url('images/Bander.jpg');
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-color: #e2e2e2;
-      background-attachment: fixed;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    main {
-      margin: 50px;
-    }
-
-    .site-home > h1 {
-      color: #9c8f8f;
-      padding: 10px;
-    }
-    .site-info { display: none; }
-    .site-contact { display: none; }
-    .site-profile { display: none; }
-    .site-settings { display: none; }
-
-    .material-icons {
-      font-size: 1em;
-      vertical-align: middle;
-      cursor: pointer;
-    }
-
-    .site-narbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100; /* Ensure menu stays on top of the page */
-      display: flex;
-      justify-content: space-between;
-      /* Pushes items to opposite ends */
-      align-items: center;
-      /* Vertically centers the items */
-    }
-
-    .site-footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100; /* Ensure footer stays on bottom of the page */
-      background-color: #485870;
-      text-align: center;
-      font-weight: normal;
-      font-size: small;
-      color: #ffffff;
-      padding: 5px 0;
-    }
-
-    .site-logo {
-      position: relative;
-      left: 10px;
-      width: 40px;
-    }
-    .site-logo > span.material-icons {
-      font-size: 40px;
-      color: #000;
-    }
-
-    .site-search {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #cdd7ef;
-      border-radius: 30px;
-      padding: 4px 15px;
-    }
-
-    #sitesearch {
-      border: 0;
-      background-color: #cdd7ef;
-      appearance: none;
-      -webkit-appearance: none;
-      margin: 8px 10px;
-    }
-
-    #sitesearch:focus {
-      outline: none;
-      border: 0;
-    }
-
-    .user-anonymous {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      gap: 10px;
-      padding: 0px 10px;
-    }
-
-    #authenticated {
-      display: none;
-    }
-
-    .site-menu {
-      display: none;
-    }
-
-    #showmenu {
-      display: none;
-    }
-
-    .sub-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      background-color: #ced2d9;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
-    }
-
-    .sub-menu a {
-      display: block;
-      padding: 10px;
-      color: #333;
-      text-decoration: none;
-    }
-
-    /* Hover Effects */
-    .sub-menu a:hover {
-      background-color: #456eb5;
-      color: white;
-    }
-
-    .auth-btn {
-      background-color: #cdd7ef;
-      padding: 4px 8px;
-      border-radius: 30px;
-      cursor: pointer;
-    }
-
-    /* Hover Effects */
-    .auth-btn:hover {
-      background-color: #adb7cd;
-    }
-
-    #authenticated:checked~.site-menu {
-      display: block;
-    }
-
-    #authenticated:checked~.auth-btn {
-      display: none;
-    }
-
-    #showmenu:checked~.sub-menu {
-      display: block;
-    }
-
-    /* Responsiveness */
-    @media (max-width: 768px) {
-      .site-search {
-        display: none;
-      }
-
-      .site-bander>h1 {
-        margin-top: 150px;
-        padding: 0px 5px;
-      }
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -194,13 +17,13 @@
     <div class="site-logo">
       <span class="material-icons">home</span>
     </div>
-    <div class="site-search">
+    <div class="search-container">
       <input type="text" id="sitesearch" placeholder="Search....">
-      <span class="material-icons">search</span>
+      <span class="material-icons" onclick="menuActive('Search for')">search</span>
     </div>
     <div class="user-anonymous">
       <!-- user-authenticated -->
-      <input type="checkbox" id="authenticated">
+      <input class="show-site-flags" type="checkbox" id="authenticated">
       <label class="auth-btn" for="authenticated">
         <span class="material-icons">login</span> Login
       </label>
@@ -208,39 +31,39 @@
         <span class="material-icons">account_circle</span> Sign Up
       </label>
       <div class="site-menu">
-        <input type="checkbox" id="showmenu">
+        <input class="show-site-flags" type="checkbox" id="showmenu">
         <label class="show-menu" for="showmenu">
           <span class="material-icons">menu</span>
         </label>
         <div class="sub-menu">
-          <a href="#"><i class="material-icons">home</i> Home</a>
-          <a href="#"><i class="material-icons">info</i> Info</a>
-          <a href="#"><i class="material-icons">contact_page</i> Contact</a>
-          <a href="#"><i class="material-icons">account_circle</i> Profile</a>
-          <a href="#"><i class="material-icons">settings</i> Settings</a>
-          <a href="#"><i class="material-icons">logout</i> Logout</a>
+          <a href="#hone" onclick="menuActive('Home')">
+            <i class="material-icons">home</i> Home
+          </a>
+          <a href="#info" onclick="menuActive('Information')">
+            <i class="material-icons">info</i> Info
+          </a>
+          <a href="#contact" onclick="menuActive('Contact')">
+            <i class="material-icons">contact_page</i> Contact
+          </a>
+          <a href="#profile" onclick="menuActive('Profile')">
+            <i class="material-icons">account_circle</i> Profile
+          </a>
+          <a href="#settings" onclick="menuActive('Settings')">
+            <i class="material-icons">settings</i> Settings
+          </a>
+          <a href="#logout" onclick="menuActive('logout')">
+            <i class="material-icons">logout</i> Logout
+          </a>
         </div>
       </div>
     </div>
   </header>
-  <div class="app-content">
-    <main class="site-home">
+  <div id="app_content" class="app-content">
+    <main>
       <h1>Where do you want to go?</h1>
-    </main>
-    <main class="site-info">
-      <p>Need to work on this part of the site....</p>
-    </main>
-    <main class="site-contact">
-      <p>Need to work on this part of the site....</p>
-    </main>
-    <main class="site-profile">
-      <p>Need to work on this part of the site....</p>
-    </main>
-    <main class="site-settings">
-      <p>Need to work on this part of the site....</p>
     </main>
   </div>
   <footer class="site-footer">&copy; 2018 — Owner: Randy Whitaker</footer>
 </body>
-
+<script src="script.js"></script>
 </html>
