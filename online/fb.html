@@ -9,8 +9,9 @@
 <body>
     <h3>My Facebook Demo</h3>
     <label id="fb_status">Facebook Users: N/A</label>
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
     <script>
-        const fbUid = document.getElementById("fb_status");
+      const fbUid = document.getElementById("fb_status");
         
       window.fbAsyncInit = function() {
         FB.init({
@@ -19,6 +20,7 @@
           version          : 'v22.0'
         });
 
+        /*
         FB.getLoginStatus(function(response) {
             if (response.status === 'connected') {
                 var uid = response.authResponse.userID;
@@ -40,7 +42,28 @@
                 fbUid.text = "Facebook Users: N/A";
             }
         });
+        */
       };
+
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+      }
+
+      function statusChangeCallback(response) {
+        if (response.status === 'connected') {
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+
+            fbUid.text = `Facebook Users: ${uid}`;
+        } else if (response.status === 'not_authorized') {
+            let status = "NOT AUTHORIZED";
+            fbUid.text = `Facebook Users: ${status}`;
+        } else {
+            fbUid.text = "Facebook Users: N/A";
+        }
+      }
     </script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
