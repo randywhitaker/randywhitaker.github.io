@@ -11,39 +11,26 @@
     <label id="fb_status">Facebook Users: N/A</label>
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
     <script>
-      const fbUid = document.getElementById("fb_status");
+        const fbUid = document.getElementById("fb_status");
         
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId            : '1800627720495829',
-          xfbml            : true,
-          version          : 'v22.0'
-        });
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1800627720495829',
+              cookie     : true,
+              xfbml      : true,
+              version    : 'v22.0'
+            });
 
-        /*
-        FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-                var uid = response.authResponse.userID;
-                var accessToken = response.authResponse.accessToken;
-
-                fbUid.text = `Facebook Users: ${uid}`;
-                // the user is logged in and has authenticated your
-                // app, and response.authResponse supplies
-                // the user's ID, a valid access token, a signed
-                // request, and the time the access token 
-                // and signed request each expire
-            } else if (response.status === 'not_authorized') {
-                // the user is logged in to Facebook, 
-                // but has not authenticated your app
-                let status = "NOT AUTHORIZED";
-                fbUid.text = `Facebook Users: ${status}`;
-            } else {
-                // the user isn't logged in to Facebook.
-                fbUid.text = "Facebook Users: N/A";
-            }
-        });
-        */
-      };
+            FB.AppEvents.logPageView();
+        };
+        
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
 
       function checkLoginState() {
         FB.getLoginStatus(function(response) {
