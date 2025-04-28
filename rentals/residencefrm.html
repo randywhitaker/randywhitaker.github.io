@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residence</title>
+    <link rel="stylesheet" href="residencefrm.css">
+</head>
+<body>
+    <div class="frm-container">
+        <h4>Current Residence</h4>
+        <form method="post" action="" name="residence-form">
+            <input type="hidden" name="sheet_name" value="residence">
+            <label>Property Type: </label>
+            <select name="property_type" aria-placeholder="Property Type">
+                <option value="" disabled selected>Property Type</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Condominium">Condominium</option>
+                <option value="Home">Home</option>
+                <option value="Other">Other</option>
+            </select>
+            <label>Property Address: </label>
+            <input type="text" name="property_address" placeholder="Property Address">
+            <label>Monthly Rent: </label>
+            <input type="text" name="monthly_rent" placeholder="Monthly Rent">
+            <label>Number of Bedrooms: </label>
+            <input type="text" name="bedrooms" placeholder="Number of Bedrooms">
+            <label>Number of Bathrooms: </label>
+            <input type="text" name="bathrooms" placeholder="Number of Bathrooms">
+            <label>Square Feet (SF): </label>
+            <input type="text" name="square_feet" placeholder="Square Feet (SF)">
+            <div class="one-line">
+                <label>Lease Start: </label>
+                <input type="Date" name="lease_start">
+                <label>Lease End: </label>
+                <input type="Date" name="lease_end">
+            </div>
+            <label>Reason for Moving: </label>
+            <input type="text" name="reason_for_moving" placeholder="Reason for Moving">
+            <label>Landlord Name: </label>
+            <input type="text" name="landlord_name" placeholder="Landlord Name">
+            <label>Landlord Email: </label>
+            <input type="email" name="landlord_email" placeholder="Landlord Email">
+            <label>Landlord Phone: </label>
+            <input type="text" name="landlord_phone" placeholder="Landlord Phone">
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+    <script src="residencefrm.js"></script>
+</body>
+</html>
