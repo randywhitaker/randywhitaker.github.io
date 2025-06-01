@@ -4,217 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom font import */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Custom styles for the message box */
-        .message-box {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            display: none; /* Hidden by default */
-            font-weight: 500;
-            text-align: center;
-        }
-        .message-box.success {
-            background-color: #d1fae5; /* green-100 */
-            color: #065f46; /* green-800 */
-        }
-        .message-box.error {
-            background-color: #fee2e2; /* red-100 */
-            color: #991b1b; /* red-800 */
-        }
-    </style>
-    <meta name="theme-color" content="#4F46E5">
+    <link rel="stylesheet" href="l4style.css">
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex flex-col items-center justify-center p-4">
-
-    <div class="w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden md:max-w-lg lg:max-w-xl">
-
-        <header class="bg-indigo-600 text-white p-6 rounded-t-xl text-center">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-2">Create Your Account</h1>
-            <p class="text-indigo-200 text-lg sm:text-xl">Join us today! Fill out the form below to get started.</p>
+<body class="main">
+    <header class="header">
+        <h2><img class="logo" src="icons/L4-65x65-logo.png" alt="L4 Property Group" title="L4 Property Group"> Property Group</h2>
+    </header>
+    <div id="messageBox" class="message-box">messages will be displayed here...</div>
+    <div class="main-panal">
+        <header>
+            <h1>Create Your Account</h1>
+            <p>Join our team today! Fill out the form below to get started.</p>
         </header>
-
-        <main class="p-6 sm:p-8 md:p-10">
-            <form id="signupForm" class="space-y-6">
+        <main>
+            <form id="signupForm">
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        autocomplete="name"
-                        required
-                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-base transition duration-200 ease-in-out"
-                        placeholder="John Doe"
-                    >
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" autocomplete="name" required placeholder="John Doe">
                 </div>
 
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        autocomplete="email"
-                        required
-                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-base transition duration-200 ease-in-out"
-                        placeholder="you@example.com"
-                    >
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@example.com">
                 </div>
 
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        autocomplete="new-password"
-                        required
-                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-base transition duration-200 ease-in-out"
-                        placeholder="••••••••"
-                    >
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" autocomplete="new-password" required placeholder="••••••••">
                 </div>
 
                 <div>
-                    <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
-                    <input
-                        type="password"
-                        id="confirm-password"
-                        name="confirm-password"
-                        autocomplete="new-password"
-                        required
-                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-base transition duration-200 ease-in-out"
-                        placeholder="••••••••"
-                    >
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" autocomplete="new-password" required placeholder="••••••••">
                 </div>
 
                 <div>
-                    <button
-                        type="submit"
-                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200 ease-in-out"
-                    >
+                    <button type="submit">
                         Sign Up
                     </button>
                 </div>
             </form>
 
-            <div class="mt-6 text-center">
-                <p class="text-sm text-gray-600">
+            <div>
+                <p>
                     Already have an account?
-                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-200 ease-in-out">
+                    <a href="index.html">
                         Sign In
                     </a>
                 </p>
             </div>
         </main>
-
-        <footer class="bg-gray-100 text-gray-600 p-4 text-center text-sm rounded-b-xl">
-            &copy; 2025 Your Company. All rights reserved.
-        </footer>
     </div>
-
-    <div id="messageBox" class="message-box"></div>
-
-    <script>
-        // Get a reference to the signup form
-        const signupForm = document.getElementById('signupForm');
-        const messageBox = document.getElementById('messageBox');
-
-        /**
-         * Displays a message box with the given message and type.
-         * @param {string} message - The message to display.
-         * @param {'success'|'error'} type - The type of message ('success' or 'error').
-         */
-        function showMessageBox(message, type) {
-            messageBox.textContent = message;
-            messageBox.className = 'message-box'; // Reset classes
-            messageBox.classList.add(type);
-            messageBox.style.display = 'block';
-
-            // Hide the message box after 3 seconds
-            setTimeout(() => {
-                messageBox.style.display = 'none';
-            }, 3000);
-        }
-
-        /**
-         * Hashes a string using SHA-256.
-         * @param {string} message - The string to hash.
-         * @returns {Promise<string>} - A promise that resolves with the hexadecimal hash.
-         */
-        async function hashString(message) {
-            const textEncoder = new TextEncoder();
-            const data = textEncoder.encode(message);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hexHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            return hexHash;
-        }
-
-        // Add event listener for form submission
-        signupForm.addEventListener('submit', async (event) => {
-            // Prevent the default form submission behavior
-            event.preventDefault();
-
-            // Get input values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-
-            // Basic validation
-            if (password !== confirmPassword) {
-                showMessageBox('Passwords do not match.', 'error');
-                return;
-            }
-
-            // Hash the password
-            // IMPORTANT: Storing password hashes directly in client-side cookies is generally
-            // NOT recommended for production environments due to security risks.
-            // In a real application, password hashing and user authentication should be
-            // handled securely on the server-side. This is for demonstration purposes only.
-            try {
-                const hashedPassword = await hashString(password);
-
-                // Create a user object
-                const userData = {
-                    name: name,
-                    email: email,
-                    passwordHash: hashedPassword // Store the hash, not the plain password
-                };
-
-                // Convert user data to a JSON string
-                const userDataJson = JSON.stringify(userData);
-
-                // Set a cookie with user information
-                // For demonstration, setting a cookie that expires in 7 days.
-                // In a real scenario, you'd send this data to a server for registration.
-                const d = new Date();
-                d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000)); // 7 days
-                let expires = "expires=" + d.toUTCString();
-                document.cookie = `user_data=${encodeURIComponent(userDataJson)}; ${expires}; path=/; Secure; SameSite=Lax`;
-
-                showMessageBox('Account created successfully! User data saved in cookie.', 'success');
-
-                // Optionally, clear the form after successful submission
-                signupForm.reset();
-
-            } catch (error) {
-                console.error('Error during signup:', error);
-                showMessageBox('An error occurred during sign up. Please try again.', 'error');
-            }
-        });
-    </script>
+    <footer class="footer">
+        &copy; 2025 L4 Property Group. All rights reserved.
+    </footer>
 </body>
 </html>

@@ -1,0 +1,99 @@
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    background-color: #a38e8e;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #555;
+    color: #f1f1f1;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #a38e8e;
+    color: black;
+}
+
+.message-box {
+    max-width: 800px; /* Adjust as needed for your desired maximum width */
+    margin: 160px auto 10px;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    background-color: aqua;
+    color: #000;
+}
+
+.main-panal {
+    max-width: 800px; /* Adjust as needed for your desired maximum width */
+    margin: 5px auto;
+    padding: 2px 20px 20px 20px;
+    border: 1px solid #000;
+    border-radius: 8px;
+}
+
+.main-panal label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.main-panal input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: calc(100% - 12px); /* Adjust for padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are inside the element's width */
+    font-size: 16px;
+}
+
+.main-panal button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.main-panal button:hover {
+    background-color: #0056b3;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Media queries for responsiveness */
+
+/* Tablets and larger phones (min-width: 600px) */
+@media (min-width: 600px) {
+    .main-panal {
+        max-width: 500px;
+    }
+}
+
+/* Desktops and laptops (min-width: 992px) - You can add more specific styling if needed */
+@media (min-width: 992px) {
+    .main-panal {
+        max-width: 800px;
+    }
+}
