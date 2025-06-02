@@ -19,15 +19,16 @@
   ],
   "screenshots": [
     {
-      "src": "screenshots/desktop-home.webp",
-      "sizes": "1920x1080",
+      "src": "screenshots/desktop-home.png",
+      "sizes": "1020x796",
       "form_factor": "wide",
       "label": "Desktop view showing L4 Property App homepage"
     },
     {
-      "src": "screenshots/mobile-home.webp",
-      "sizes": "750x1334",
+      "src": "screenshots/mobile-home.png",
+      "sizes": "619x794",
       "form_factor": "narrow",
       "label": "Mobile view showing L4 Property App homepage"
-    
+    }
+  ]
 }

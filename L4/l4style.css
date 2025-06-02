@@ -27,6 +27,7 @@ body {
 }
 
 .message-box {
+    display: none;
     max-width: 800px; /* Adjust as needed for your desired maximum width */
     margin: 160px auto 10px;
     padding: 20px;
@@ -38,7 +39,7 @@ body {
 
 .main-panal {
     max-width: 800px; /* Adjust as needed for your desired maximum width */
-    margin: 5px auto;
+    margin: 160px auto 10px;
     padding: 2px 20px 20px 20px;
     border: 1px solid #000;
     border-radius: 8px;
