@@ -1,0 +1,105 @@
+html,
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul, li {
+    padding: 0;
+    list-style-type: none;
+}
+
+/* hide the sign in, sign up, and forgot password froms for now */
+#signin-form {
+    display: none;
+}
+#signup-form {
+    display: none;
+}
+#forgotpwd-form {
+    display: none;
+}
+
+/* page grid layout */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 15px;
+}
+.page-header {
+    grid-column: span 2;
+    background-color: #555;
+    color: #fff;
+    padding: 8px 0px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+.page-header img, h2 {
+    display: inline;
+    vertical-align: middle;
+}
+.page-footer {
+    grid-column: span 2;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-top: 1px solid #000;
+}
+.left-panel {
+    padding: 15px;
+    border-right: 1px solid #000;
+}
+.left-panel li {
+    text-decoration: underline;
+}
+.main-panel {
+    padding: 15px;
+}
+
+/* responsive layouts */
+@media screen and (max-width: 980px) {
+    .left-panel, .main-panel {
+        grid-column: span 2;
+    }
+    .left-panel {
+        display: none;
+    }
+}
+
+/* responsive forms */
+.frm label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.frm input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: calc(100% - 12px); /* Adjust for padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are inside the element's width */
+    font-size: 16px;
+}
+
+.frm button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.frm button:hover {
+    background-color: #0056b3;
+}
+
+.text-right {
+    text-align: right;
+}
