@@ -12,15 +12,24 @@
 <body>
     <div class="container">
         <header class="page-header">
-            <img src="icons/L4-65x65-logo.png" alt="L4 Property Group" title="L4 Property Group">
-            <h2>Property Group</h2>
+            <div>
+                <img src="icons/L4-65x65-logo.png" alt="L4 Property Group" title="L4 Property Group">
+                <h2>Property Group</h2>
+            </div>
+            <nav class="right-menu">
+                <li id="user_name"></li>
+                <a href="#" id="lnkSignOff" onclick="changePage('signoff')">Sign Off</a>
+                <a href="#" id="lnkSignOn" onclick="changePage('signon')">Sign On</a>
+            </nav>
         </header>
         <nav class="left-panel">
-            <p>Categories</p>
-            <li onclick="changePage('home')">Logout</li>
-            <li onclick="changePage('signin')">Sign In</li>
-            <li onclick="changePage('signup')">Sign Up</li>
-            <li onclick="changePage('forgotpwd')">Forgot Password</li>
+            <p>Test Links</p>
+            <br><a href="#" onclick="changePage('home')">Logout</a>
+            <br><a href="#" onclick="changePage('signin')">Sign In</a>
+            <br><a href="#" onclick="changePage('signup')">Sign Up</a>
+            <br><a href="#" onclick="changePage('forgotpwd')">Forgot Password</a>
+            <br><a href="#" onclick="changePage('signoff')">Sign Off</a>
+            <br><a href="#" onclick="changePage('signon')">Sign On</a>
         </nav>
         <div class="main-panel">
             <div id="main-container">
@@ -32,7 +41,7 @@
             <div id="signin-form">
                 <h2>Sign in to your account</h2>
                 <p></p>
-                <form id="signin" class="frm">
+                <form name="signin" class="frm">
                     <input type="hidden" id="sgn-token" name="token" value="">
                     <div>
                         <label for="sgn-email">Email Address</label>
@@ -43,7 +52,7 @@
                         <input type="password" id="sgn-password" name="password" autocomplete="current-password" required placeholder="••••••••">
                     </div>
                     <div class="text-right">
-                        <li onclick="changePage('forgotpwd')">Forgot your password?</li>
+                        <a href="#" onclick="changePage('forgotpwd')">Forgot your password?</a>
                     </div>
                     <div>
                         <button type="submit">
@@ -51,15 +60,15 @@
                         </button>
                     </div>
                     <div>
-                        <p>Don't have an account? <li onclick="changePage('signup')">Sign Up</li></p>
+                        <p>Don't have an account? <a href="#" onclick="changePage('signup')">Sign Up</a></p>
                     </div>
                 </form>
             </div>
             <div id="signup-form">
                 <h2>Create Your Account</h2>
                 <p>Join our team today! Fill out the form below to get started.</p>
-                <form id="signup" class="frm">
-                    <input type="hidden" id="reg-token" name="token" value="">
+                <form name="signup" class="frm">
+                    <input type="hidden" name="token" value="">
                     <div>
                         <label for="reg-name">Full Name</label>
                         <input type="text" id="reg-name" name="name" autocomplete="name" required placeholder="John Doe">
@@ -82,14 +91,14 @@
                         </button>
                     </div>
                     <div>
-                        <p>Already have an account? <li onclick="changePage('signin')">Sign In</li></p>
+                        <p>Already have an account? <a href="#" onclick="changePage('signin')">Sign In</a></p>
                     </div>
                 </form>
             </div>
             <div id="forgotpwd-form">
                 <h2>Reset Your Password</h2>
                 <p>Enter your email address to receive a reset link.</p>
-                <form id="forgotpwd" class="frm">
+                <form name="forgotpwd" class="frm">
                     <input type="hidden" id="fgp-token" name="token" value="">
                     <div>
                         <label for="fgp-email">Email Address</label>
@@ -101,7 +110,7 @@
                         </button>
                     </div>
                     <div>
-                        <p>Remember your password? <li onclick="changePage('signin')">Sign In</li></p>
+                        <p>Remember your password? <a href="#" onclick="changePage('signin')">Sign In</a></p>
                     </div>
                 </form>
             </div>

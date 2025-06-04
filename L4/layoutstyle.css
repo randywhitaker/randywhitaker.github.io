@@ -9,13 +9,11 @@ ul, li {
 }
 
 /* hide the sign in, sign up, and forgot password froms for now */
-#signin-form {
+#signin-form, #signup-form, #forgotpwd-form {
     display: none;
 }
-#signup-form {
-    display: none;
-}
-#forgotpwd-form {
+
+#user_name, #lnkSignOff {
     display: none;
 }
 
@@ -27,13 +25,23 @@ ul, li {
 }
 .page-header {
     grid-column: span 2;
+    align-content: space-around;
     background-color: #555;
     color: #fff;
     padding: 8px 0px;
     text-align: center;
     border-bottom: 1px solid #000;
 }
-.page-header img, h2 {
+.right-menu {
+    padding: 0px 15px;
+    float: right;
+}
+.right-menu a {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #fff;
+}
+.page-header img, h2, nav {
     display: inline;
     vertical-align: middle;
 }
@@ -50,6 +58,7 @@ ul, li {
 }
 .left-panel li {
     text-decoration: underline;
+    cursor: pointer;
 }
 .main-panel {
     padding: 15px;
