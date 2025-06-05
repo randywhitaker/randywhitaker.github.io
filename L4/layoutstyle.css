@@ -13,11 +13,11 @@ ul, li {
     display: none;
 }
 
-#listing-form, #offer-form,
-#gt_rural-form, #gt_residential-form, #gt_multifamily-form,
-#gt_lots-form, #gt_farm-form, #gt_commercial-form,
-#lv_farm-form, #lv_land-form, #lv_commercial-form,
-#lv_multifamily-form, #lv_residential-form {
+#listing_form, #offer_form,
+#gt_rural_form, #gt_residential_form, #gt_multifamily_form,
+#gt_lots_form, #gt_farm_form, #gt_commercial_form,
+#lv_farm_form, #lv_land_form, #lv_commercial_form,
+#lv_multifamily_form, #lv_residential_form {
     display: none;
 }
 
@@ -79,7 +79,7 @@ ul, li {
 }
 
 /* responsive forms */
-.frm label {
+.frm > div > label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
@@ -89,8 +89,18 @@ ul, li {
 .frm input[type="text"],
 input[type="email"],
 input[type="password"],
-select {
+select, textarea {
     width: calc(100% - 12px); /* Adjust for padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are inside the element's width */
+    font-size: 16px;
+}
+.frm input[type="date"],
+input[type="tel"],
+input[type="number"] {
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ddd;

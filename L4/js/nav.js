@@ -18,6 +18,26 @@ function changePage(pagename) {
         signOffHandler();
     }
 
+    if (pagename.includes('_form')) {
+        toggleReport(pagename);
+    }
+}
+
+function toggleReport(name) {
+    const panel = document.getElementById(name);
+
+    if (panel != null && panel.style != null) {
+        let currentState = panel.style.display;
+        console.log(`${name}: current display value "${panel.style.display}"`);
+
+        if (currentState == '') {
+            panel.style.display = "block";
+        } else if (currentState == 'none') {
+            panel.style.display = "block";
+        } else {
+            panel.style.display = "none";
+        }
+    }
 }
 
 function toggleMenuItems() {
