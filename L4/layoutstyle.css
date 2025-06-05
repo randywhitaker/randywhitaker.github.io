@@ -9,11 +9,15 @@ ul, li {
 }
 
 /* hide the sign in, sign up, and forgot password froms for now */
-#signin-form, #signup-form, #forgotpwd-form {
+#signon-form, #signup-form, #forgotpwd-form {
     display: none;
 }
 
-#user_name, #lnkSignOff {
+#listing-form, #offer-form,
+#gt_rural-form, #gt_residential-form, #gt_multifamily-form,
+#gt_lots-form, #gt_farm-form, #gt_commercial-form,
+#lv_farm-form, #lv_land-form, #lv_commercial-form,
+#lv_multifamily-form, #lv_residential-form {
     display: none;
 }
 

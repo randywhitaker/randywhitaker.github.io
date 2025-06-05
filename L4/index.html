@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L4 Property App</title>
+    <title>Property App</title>
     <link rel="stylesheet" href="layoutstyle.css">
-    <meta name="theme-color" content="#4F46E5">
+    <link rel="icon" href="icons/L4-70x70-logo.png">
+    <link rel="apple-touch-icon" href="icons/L4-70x70-logo.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="theme-color" content="#4F46E5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <base target="_blank">
 </head>
 <body>
     <div class="container">
@@ -17,32 +21,243 @@
                 <h2>Property Group</h2>
             </div>
             <nav class="right-menu">
-                <li id="user_name"></li>
-                <a href="#" id="lnkSignOff" onclick="changePage('signoff')">Sign Off</a>
-                <a href="#" id="lnkSignOn" onclick="changePage('signon')">Sign On</a>
+                <span id="signon_name"></span>
+                <button id="btnSignOff" onclick="changePage('signoff')">Sign Off</button>
+                <button id="btnSignOn" onclick="changePage('signon')">Sign On</button>
+                <button id="btnMenu" onclick="changePage('dropdownmenu')"><span class="material-icons">menu</span></button>
             </nav>
         </header>
         <nav class="left-panel">
-            <p>Test Links</p>
-            <br><a href="#" onclick="changePage('home')">Logout</a>
-            <br><a href="#" onclick="changePage('signin')">Sign In</a>
-            <br><a href="#" onclick="changePage('signup')">Sign Up</a>
-            <br><a href="#" onclick="changePage('forgotpwd')">Forgot Password</a>
-            <br><a href="#" onclick="changePage('signoff')">Sign Off</a>
-            <br><a href="#" onclick="changePage('signon')">Sign On</a>
+            <h4>Henderson Association of Relator information sheets</h4>
+            <ul>
+                <li onclick="changePage('listinfo')">Listing Information</li>
+                <li onclick="changePage('offerinfo')">Offer Information</li>
+            </ul>
+            <h4>Greater Tyler Association of Relator information sheets</h4>
+            <ul>
+                <li onclick="changePage('gt_rural')">Rural Acreage Data</li>
+                <li onclick="changePage('gt_residential')">Residential Data</li>
+                <li onclick="changePage('gt_multifamily')">Multi-Family Data</li>
+                <li onclick="changePage('gt_lots')">Lots Data</li>
+                <li onclick="changePage('gt_farm')">Farm and Ranch Data</li>
+                <li onclick="changePage('gt_commercial')">Commercial Data</li>
+            </ul>
+            <h4>Longview Area Association of Realtors information sheets</h4>
+            <ul>
+                <li onclick="changePage('lv_farm')">Farm and Ranch Data</li>
+                <li onclick="changePage('lv_land')">Land Data</li>
+                <li onclick="changePage('lv_commercial')">MLS - LAAR Commercial Data</li>
+                <li onclick="changePage('lv_multifamily')">MLS - LAAR Multi-Family Data</li>
+                <li onclick="changePage('lv_residential')">Residential Data</li>
+            </ul>
         </nav>
         <div class="main-panel">
+            <div id="listing-form">
+                <h2>Listing Information</h2>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="propAddress">Property Address</label>
+                        <input type="text" id="propAddress" name="property_address" autocomplete="x" required placeholder="">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="offer-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt10">Name</label>
+                        <input type="text" id="txt10" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="gt_rural-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt11">Name</label>
+                        <input type="text" id="txt11" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="gt_residential-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt12">Name</label>
+                        <input type="text" id="txt12" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="gt_multifamily-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt13">Name</label>
+                        <input type="text" id="txt13" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="gt_lots-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt14">Name</label>
+                        <input type="text" id="txt14" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="gt_farm-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt15">Name</label>
+                        <input type="text" id="txt15" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="gt_commercial-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt16">Name</label>
+                        <input type="text" id="txt16" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="lv_farm-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt17">Name</label>
+                        <input type="text" id="txt17" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="lv_land-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt18">Name</label>
+                        <input type="text" id="txt18" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="lv_commercial-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt19">Name</label>
+                        <input type="text" id="txt19" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="lv_multifamily-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt20">Name</label>
+                        <input type="text" id="txt20" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="lv_residential-form">
+                <h2>...</h2>
+                <p>...</p>
+                <form name="tmp" class="frm">
+                    <div>
+                        <label for="txt1">Name</label>
+                        <input type="text" id="txt1" name="x" autocomplete="x" required placeholder="...">
+                    </div>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="message-panel">
+            </div>
             <div id="main-container">
                 <h2>Empowering the Real Estate Agents</h2>
                 <p>By building the next generation of tools for the agents on the go!</p>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam praesentium, illum ab aspernatur eveniet provident perspiciatis necessitatibus, distinctio itaque quidem, voluptate sequi! Totam quod consequatur alias cumque quibusdam dignissimos, earum debitis ut quidem accusantium sint. Itaque aut exercitationem magnam inventore cupiditate iste similique nesciunt, a explicabo culpa ipsa minima. Quas!</p>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam praesentium, illum ab aspernatur eveniet provident perspiciatis necessitatibus, distinctio itaque quidem, voluptate sequi! Totam quod consequatur alias cumque quibusdam dignissimos, earum debitis ut quidem accusantium sint. Itaque aut exercitationem magnam inventore cupiditate iste similique nesciunt, a explicabo culpa ipsa minima. Quas!</p>
             </div>
-            <div id="signin-form">
-                <h2>Sign in to your account</h2>
+            <div id="signon-form">
+                <h2>Sign on to your account</h2>
                 <p></p>
-                <form name="signin" class="frm">
-                    <input type="hidden" id="sgn-token" name="token" value="">
+                <form name="signon" class="frm">
                     <div>
                         <label for="sgn-email">Email Address</label>
                         <input type="email" id="sgn-email" name="email" autocomplete="email" required placeholder="you@example.com">
@@ -56,7 +271,7 @@
                     </div>
                     <div>
                         <button type="submit">
-                            Sign In
+                            Sign On
                         </button>
                     </div>
                     <div>
@@ -68,7 +283,6 @@
                 <h2>Create Your Account</h2>
                 <p>Join our team today! Fill out the form below to get started.</p>
                 <form name="signup" class="frm">
-                    <input type="hidden" name="token" value="">
                     <div>
                         <label for="reg-name">Full Name</label>
                         <input type="text" id="reg-name" name="name" autocomplete="name" required placeholder="John Doe">
@@ -91,7 +305,7 @@
                         </button>
                     </div>
                     <div>
-                        <p>Already have an account? <a href="#" onclick="changePage('signin')">Sign In</a></p>
+                        <p>Already have an account? <a href="#" onclick="changePage('signon')">Sign On</a></p>
                     </div>
                 </form>
             </div>
@@ -99,7 +313,6 @@
                 <h2>Reset Your Password</h2>
                 <p>Enter your email address to receive a reset link.</p>
                 <form name="forgotpwd" class="frm">
-                    <input type="hidden" id="fgp-token" name="token" value="">
                     <div>
                         <label for="fgp-email">Email Address</label>
                         <input type="email" id="fgp-email" name="email" autocomplete="email" required placeholder="you@example.com">
@@ -110,7 +323,7 @@
                         </button>
                     </div>
                     <div>
-                        <p>Remember your password? <a href="#" onclick="changePage('signin')">Sign In</a></p>
+                        <p>Remember your password? <a href="#" onclick="changePage('signon')">Sign On</a></p>
                     </div>
                 </form>
             </div>
@@ -118,7 +331,6 @@
         <footer class="page-footer">
             <small>
                 &copy; 2025 L4 Property Group. All rights reserved.
-                <br><a href="mailto:whitaker.randy@gmial.com">site owner</a>
             </small>
         </footer>
     </div>
