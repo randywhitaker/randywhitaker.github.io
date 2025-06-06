@@ -194,3 +194,11 @@ input[type="number"] {
     border: 1px solid #000;
     padding: 15px;
 }
+.section-block_without_border {
+    display: inline-block;
+    border: none;
+    padding: 15px;
+}
+.red_asterisk {
+    color: red;
+}
