@@ -24,7 +24,27 @@
                 <span id="signon_name"></span>
                 <button id="btnSignOff" onclick="changePage('signoff')">Sign Off</button>
                 <button id="btnSignOn" onclick="changePage('signon')">Sign On</button>
-                <button id="btnMenu" onclick="changePage('dropdownmenu')"><span class="material-icons">menu</span></button>
+                <div class="dropdown">
+                    <button id="btnMenu" class="dropbtn" onclick="changePage('dropdownmenu')"><span class="material-icons">menu</span></button>
+                    <div class="dropdown-content">
+                        <label>Henderson Area</label>
+                        <li onclick="changePage('listing_form')">Listing Information</li>
+                        <li onclick="changePage('offer_form')">Offer Information</li>
+                        <label>Tyler Area</label>
+                        <li onclick="changePage('gt_rural_form')">Rural Acreage Data</li>
+                        <li onclick="changePage('gt_residential_form')">Residential Data</li>
+                        <li onclick="changePage('gt_multifamily_form')">Multi-Family Data</li>
+                        <li onclick="changePage('gt_lots_form')">Lots Data</li>
+                        <li onclick="changePage('gt_farm_form')">Farm and Ranch Data</li>
+                        <li onclick="changePage('gt_commercial_form')">Commercial Data</li>
+                        <label>Longview Area</label>
+                        <li onclick="changePage('lv_farm_form')">Farm and Ranch Data</li>
+                        <li onclick="changePage('lv_land_form')">Land Data</li>
+                        <li onclick="changePage('lv_commercial_form')">MLS - LAAR Commercial Data</li>
+                        <li onclick="changePage('lv_multifamily_form')">MLS - LAAR Multi-Family Data</li>
+                        <li onclick="changePage('lv_residential_form')">Residential Data</li>
+                    </div>
+                </div>
             </nav>
         </header>
         <nav class="left-panel">
@@ -255,11 +275,79 @@
                 </form>
             </div>
             <div id="gt_rural_form">
-                <h2>Rural Acreage Data</h2>
+                <header>
+                    <div class="header-title">
+                        <img src="icons/Greater_Tyler_logo.png" width="150px" alt="report logo">
+                        <div class="block-title">
+                            <label>MULTIPLE LISTING SERVICE&nbsp;&nbsp;&nbsp;RURAL ACREAGE DATA FORM</label>
+                        </div>
+                    </div>
+                    <P>* All Fields Marked with an asterisk (*) and Bold Text are required. (Lookup) fields provide a list from which to select.</P>
+                </header>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt11">Name</label>
-                        <input type="text" id="txt11" name="x" autocomplete="x" required placeholder="...">
+                    <div class="section-title">
+                        <label>Rural Acreage Class Standard</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*Property Type</label><br>
+                        <label><input type="checkbox" name="property_type" required checked> Rural Acreage</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*For Sale Or Rent</label><br>
+                        <label><input type="checkbox" name="for_sale"> For Sale</label><br>
+                        <label><input type="checkbox" name="for_rent"> For Rent</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*Internet</label><br>
+                        <label><input type="checkbox" name="internet_no"> No</label><br>
+                        <label><input type="checkbox" name="internet_yes"> Yes <small>(default)</small></label>
+                    </div>
+                    <div class="section-block">
+                        <label>*IDX Include</label><br>
+                        <label><input type="checkbox" name="idx_include_no"> No</label><br>
+                        <label><input type="checkbox" name="idx_include_yes"> Yes <small>(default)</small></label>
+                    </div>
+                    <!-- ///////////////////// -->
+                    <div class="section-title">
+                        <label>Rural Acreage Class General</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*Waterfront</label><br>
+                        <label><input type="checkbox" name="waterfront_no"> No</label><br>
+                        <label><input type="checkbox" name="waterfront_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*Waterview</label><br>
+                        <label><input type="checkbox" name="waterview_no"> No</label><br>
+                        <label><input type="checkbox" name="waterview_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*Lake Community</label><br>
+                        <label><input type="checkbox" name="lake_community_no"> No</label><br>
+                        <label><input type="checkbox" name="lake_community_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*Security Gate</label><br>
+                        <label><input type="checkbox" name="security_gate_no"> No</label><br>
+                        <label><input type="checkbox" name="security_gate_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*Foreclosure / Bank Owned</label><br>
+                        <label><input type="checkbox" name="foreclosure_bank_owned_no" checked> No <small>(default)</small></label><br>
+                        <label><input type="checkbox" name="foreclosure_bank_owned_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*Short Sale</label><br>
+                        <label><input type="checkbox" name="short_sale_no" checked> No <small>(default)</small></label><br>
+                        <label><input type="checkbox" name="short_sale_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label>*Buyer Photos Allowed</label><br>
+                        <label><input type="checkbox" name="buyer_photos_allowed_no"> No</label><br>
+                        <label><input type="checkbox" name="buyer_photos_allowed_yes"> Yes</label>
+                    </div>
+                    <div class="section-title">
+                        <label>Agent Info</label>
                     </div>
                     <div>
                         <button type="submit">
