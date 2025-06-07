@@ -21,10 +21,29 @@ function changePage(pagename) {
     if (pagename.includes('_form')) {
         toggleReport(pagename);
     }
+
+    if (pagename == 'dropdownmenu') {
+        const menu = document.getElementById("menu-dropdown-content");
+        if (menu != null && menu.style != null) {
+            let currentState = menu.style.display;
+
+            if (currentState == '') {
+                menu.style.display = "block";
+            } else if (currentState == 'none') {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+    }
 }
 
 function toggleReport(name) {
     const panel = document.getElementById(name);
+    const menu = document.getElementById("menu-dropdown-content");
+    if (menu != null && menu.style != null) {
+        menu.style.display = "none";
+    }
 
     if (panel != null && panel.style != null) {
         let currentState = panel.style.display;
