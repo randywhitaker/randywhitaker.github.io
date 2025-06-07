@@ -26,7 +26,7 @@
                 <button id="btnSignOn" onclick="changePage('signon')">Sign On</button>
                 <div class="dropdown">
                     <button id="btnMenu" class="dropbtn" onclick="changePage('dropdownmenu')"><span class="material-icons">menu</span></button>
-                    <div class="dropdown-content">
+                    <div id="dropdown-content">
                         <label>Henderson Area</label>
                         <li onclick="changePage('listing_form')">Listing Information</li>
                         <li onclick="changePage('offer_form')">Offer Information</li>
@@ -274,504 +274,514 @@
                     </div>
                 </form>
             </div>
-    <div id="gt_rural_form">
-        <header>
-            <div class="header-title">
-                <img src="icons/Greater_Tyler_logo.png" width="150px" alt="report logo">
-                <div class="block-title">
-                    <label>MULTIPLE LISTING SERVICE&nbsp;&nbsp;&nbsp;RURAL ACREAGE DATA FORM</label>
-                </div>
-            </div>
-            <P>* All Fields Marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required. (Lookup) fields provide a list from which to select.</P>
-        </header>
-        <form name="tmp" class="frm">
-            <!-- Page One Section One -->
-            <div class="section-title">
-                <label>Rural Acreage Class Standard</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Property Type</label><br>
-                <label><input type="checkbox" name="property_type" required checked> Rural Acreage</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>For Sale Or Rent</label><br>
-                <label><input type="checkbox" name="for_sale"> For Sale</label><br>
-                <label><input type="checkbox" name="for_rent"> For Rent</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>List Price $:</label>
-                <input type="number" step="0.01" min="0" required name="list_price">
-                <label>Rent Price $:</label>
-                <input type="number" step="0.01" min="0" required name="rent_price"><br>
-                <label><span class="red_asterisk">*</span>Address:</label>
-                <input type="text" required name="address"><br>
-                <label><span class="red_asterisk">*</span>City:</label>
-                <input type="text" required name="city"><span>(Lookup)</span><br>
-                <label><span class="red_asterisk">*</span>State:</label>
-                <input type="text" required name="state"><span>(Dropdown)</span><br>
-                <label><span class="red_asterisk">*</span>County:</label>
-                <input type="text" required name="county"><span>(Dropdown)</span><br>
-                <label><span class="red_asterisk">*</span>Zip + 4:</label>
-                <input type="text" required name="zip_plus_4">
-            </div>
-            <div class="section-block">
-                <label>MLS#</label>
-                <input type="text" name="mls_number">
-                <small>(System Assigned)</small>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Internet</label><br>
-                <label><input type="checkbox" name="internet_no"> No</label><br>
-                <label><input type="checkbox" name="internet_yes"> Yes <small>(default)</small></label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>IDX Include</label><br>
-                <label><input type="checkbox" name="idx_include_no"> No</label><br>
-                <label><input type="checkbox" name="idx_include_yes"> Yes <small>(default)</small></label>
-            </div>
-            <div class="section-block">
-                <p>Before Selecting "No" on any of these VOW Options, written authorization from the seller is required</p>
-                <div class="section-block_without_border">
-                    <label><span class="red_asterisk">*</span>VOW Include</label><br>
-                    <label><input type="checkbox" name="vow_include_no"> No</label><br>
-                    <label><input type="checkbox" name="vow_include_yes"> Yes <small>(default)</small></label><br>
-                </div>
-                <div class="section-block_without_border">
-                    <label><span class="red_asterisk">*</span>VOW Address</label><br>
-                    <label><input type="checkbox" name="vow_address_no"> No</label><br>
-                    <label><input type="checkbox" name="vow_address_yes"> Yes <small>(default)</small></label><br>
-                </div>
-                <div class="section-block_without_border">
-                    <label><span class="red_asterisk">*</span>VOW Comment</label><br>
-                    <label><input type="checkbox" name="vow_comment_no"> No</label><br>
-                    <label><input type="checkbox" name="vow_comment_yes"> Yes <small>(default)</small></label><br>
-                </div>
-                <div class="section-block_without_border">
-                    <label><span class="red_asterisk">*</span>VOW AVM</label><br>
-                    <label><input type="checkbox" name="vow_avm_no"> No</label><br>
-                    <label><input type="checkbox" name="vow_avm_yes"> Yes <small>(default)</small></label><br>
-                </div>
-            </div>
+            <!-- Report being worked on --->
+            <div id="gt_rural_form">
+                <header>
+                    <div class="header-title">
+                        <img src="icons/Greater_Tyler_logo.png" width="150px" alt="report logo">
+                        <div class="block-title">
+                            <label>MULTIPLE LISTING SERVICE&nbsp;&nbsp;&nbsp;RURAL ACREAGE DATA FORM</label>
+                        </div>
+                    </div>
+                    <P>* All Fields Marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required. (Lookup) fields provide a list from which to select.</P>
+                </header>
+                <form name="tmp" class="frm">
+                    <!-- Page One Section One -->
+                    <div class="section-title">
+                        <label>Rural Acreage Class Standard</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Property Type</label><br>
+                        <label><input type="checkbox" name="property_type" required checked> Rural Acreage</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>For Sale Or Rent</label><br>
+                        <label><input type="checkbox" name="for_sale"> For Sale</label><br>
+                        <label><input type="checkbox" name="for_rent"> For Rent</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>List Price $:</label>
+                        <input type="number" step="0.01" min="0" required name="list_price">
+                        <label>Rent Price $:</label>
+                        <input type="number" step="0.01" min="0" required name="rent_price"><br>
+                        <label><span class="red_asterisk">*</span>Address:</label>
+                        <input type="text" required name="address"><br>
+                        <label><span class="red_asterisk">*</span>City:</label>
+                        <input type="text" required name="city"><span>(Lookup)</span><br>
+                        <label><span class="red_asterisk">*</span>State:</label>
+                        <input type="text" required name="state"><span>(Dropdown)</span><br>
+                        <label><span class="red_asterisk">*</span>County:</label>
+                        <input type="text" required name="county"><span>(Dropdown)</span><br>
+                        <label><span class="red_asterisk">*</span>Zip + 4:</label>
+                        <input type="text" required name="zip_plus_4">
+                    </div>
+                    <div class="section-block">
+                        <label>MLS#</label>
+                        <input type="text" name="mls_number">
+                        <small>(System Assigned)</small>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Internet</label><br>
+                        <label><input type="checkbox" name="internet_no"> No</label><br>
+                        <label><input type="checkbox" name="internet_yes"> Yes <small>(default)</small></label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>IDX Include</label><br>
+                        <label><input type="checkbox" name="idx_include_no"> No</label><br>
+                        <label><input type="checkbox" name="idx_include_yes"> Yes <small>(default)</small></label>
+                    </div>
+                    <div class="section-block">
+                        <p>Before Selecting "No" on any of these VOW Options, written authorization from the seller is required</p>
+                        <div class="section-block_without_border">
+                            <label><span class="red_asterisk">*</span>VOW Include</label><br>
+                            <label><input type="checkbox" name="vow_include_no"> No</label><br>
+                            <label><input type="checkbox" name="vow_include_yes"> Yes <small>(default)</small></label><br>
+                        </div>
+                        <div class="section-block_without_border">
+                            <label><span class="red_asterisk">*</span>VOW Address</label><br>
+                            <label><input type="checkbox" name="vow_address_no"> No</label><br>
+                            <label><input type="checkbox" name="vow_address_yes"> Yes <small>(default)</small></label><br>
+                        </div>
+                        <div class="section-block_without_border">
+                            <label><span class="red_asterisk">*</span>VOW Comment</label><br>
+                            <label><input type="checkbox" name="vow_comment_no"> No</label><br>
+                            <label><input type="checkbox" name="vow_comment_yes"> Yes <small>(default)</small></label><br>
+                        </div>
+                        <div class="section-block_without_border">
+                            <label><span class="red_asterisk">*</span>VOW AVM</label><br>
+                            <label><input type="checkbox" name="vow_avm_no"> No</label><br>
+                            <label><input type="checkbox" name="vow_avm_yes"> Yes <small>(default)</small></label><br>
+                        </div>
+                    </div>
 
-            <!-- Page One Section Two -->
-            <div class="section-title">
-                <label>Rural Acreage Class General</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Waterfront</label><br>
-                <label><input type="checkbox" name="waterfront_no"> No</label><br>
-                <label><input type="checkbox" name="waterfront_yes"> Yes</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Waterview</label><br>
-                <label><input type="checkbox" name="waterview_no"> No</label><br>
-                <label><input type="checkbox" name="waterview_yes"> Yes</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Lake Community</label><br>
-                <label><input type="checkbox" name="lake_community_no"> No</label><br>
-                <label><input type="checkbox" name="lake_community_yes"> Yes</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Security Gate</label><br>
-                <label><input type="checkbox" name="security_gate_no"> No</label><br>
-                <label><input type="checkbox" name="security_gate_yes"> Yes</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Foreclosure / Bank Owned</label><br>
-                <label><input type="checkbox" name="foreclosure_bank_owned_no" checked> No <small>(default)</small></label><br>
-                <label><input type="checkbox" name="foreclosure_bank_owned_yes"> Yes</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Short Sale</label><br>
-                <label><input type="checkbox" name="short_sale_no" checked> No <small>(default)</small></label><br>
-                <label><input type="checkbox" name="short_sale_yes"> Yes</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Buyer Photos Allowed</label><br>
-                <label><input type="checkbox" name="buyer_photos_allowed_no"> No</label><br>
-                <label><input type="checkbox" name="buyer_photos_allowed_yes"> Yes</label>
-            </div>
+                    <!-- Page One Section Two -->
+                    <div class="section-title">
+                        <label>Rural Acreage Class General</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Waterfront</label><br>
+                        <label><input type="checkbox" name="waterfront_no"> No</label><br>
+                        <label><input type="checkbox" name="waterfront_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Waterview</label><br>
+                        <label><input type="checkbox" name="waterview_no"> No</label><br>
+                        <label><input type="checkbox" name="waterview_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Lake Community</label><br>
+                        <label><input type="checkbox" name="lake_community_no"> No</label><br>
+                        <label><input type="checkbox" name="lake_community_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Security Gate</label><br>
+                        <label><input type="checkbox" name="security_gate_no"> No</label><br>
+                        <label><input type="checkbox" name="security_gate_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Foreclosure / Bank Owned</label><br>
+                        <label><input type="checkbox" name="foreclosure_bank_owned_no" checked> No <small>(default)</small></label><br>
+                        <label><input type="checkbox" name="foreclosure_bank_owned_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Short Sale</label><br>
+                        <label><input type="checkbox" name="short_sale_no" checked> No <small>(default)</small></label><br>
+                        <label><input type="checkbox" name="short_sale_yes"> Yes</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Buyer Photos Allowed</label><br>
+                        <label><input type="checkbox" name="buyer_photos_allowed_no"> No</label><br>
+                        <label><input type="checkbox" name="buyer_photos_allowed_yes"> Yes</label>
+                    </div>
 
-            <!-- Page One Section Three -->
-            <div class="section-title">
-                <label>Agent Info</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Listing Agent:</label>
-                <input type="text" name="listing_agent">
-                <label>Listing Office:</label>
-                <input type="text" name="listing_office"><br>
-                <label>Listing Team:</label>
-                <input type="text" name="listing_team"><br>
-                <label>Listing Agent 2:</label>
-                <input type="text" name="listing_agent_2">
-                <label>Listing Office 2:</label>
-                <input type="text" name="listing_office_2"><br>
-                <label>Listing Agent 3:</label>
-                <input type="text" name="listing_agent_3">
-                <label>Listing Office 3:</label>
-                <input type="text" name="listing_office_3"><br>
-            </div>
+                    <!-- Page One Section Three -->
+                    <div class="section-title">
+                        <label>Agent Info</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Listing Agent:</label>
+                        <input type="text" name="listing_agent">
+                        <label>Listing Office:</label>
+                        <input type="text" name="listing_office"><br>
+                        <label>Listing Team:</label>
+                        <input type="text" name="listing_team"><br>
+                        <label>Listing Agent 2:</label>
+                        <input type="text" name="listing_agent_2">
+                        <label>Listing Office 2:</label>
+                        <input type="text" name="listing_office_2"><br>
+                        <label>Listing Agent 3:</label>
+                        <input type="text" name="listing_agent_3">
+                        <label>Listing Office 3:</label>
+                        <input type="text" name="listing_office_3"><br>
+                    </div>
 
-            <!-- Page Two Section One -->
-            <div class="section-title">
-                <label>Rural Acreage Class General</label>
+                    <!-- Page Two Section One -->
+                    <div class="section-title">
+                        <label>Rural Acreage Class General</label>
+                    </div>
+                    <div class="section-block">
+                        <label>Owner Name:</label>
+                        <input type="text" name="owner_name"><br>
+                        <label>Owner Phone:</label>
+                        <input type="text" name="owner_phone"><br>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Listing Type <small>(dropdown)</small></label><br>
+                        <label><input type="checkbox" name="listing_type_excl_agency"> Excl Agency</label><br>
+                        <label><input type="checkbox" name="listing_type_exclusive_right"> Exclusive Right</label><br>
+                        <label><input type="checkbox" name="listing_type_exemptions"> Exemptions</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Sign On Property</label><br>
+                        <label><input type="checkbox" name="sign_on_property_yes"> Yes</label><br>
+                        <label><input type="checkbox" name="sign_on_property_no"> No</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Agency <small>(dropdown)</small></label><br>
+                        <label><input type="checkbox" name="agency_both"> Both</label><br>
+                        <label><input type="checkbox" name="agency_buyers_agency"> Buyers Agency</label><br>
+                        <label><input type="checkbox" name="agency_sub_agency"> Sub Agency</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Listing Date:</label><br>
+                        <input type="date" name="listing_date" required><br><br>
+                        <label><span class="red_asterisk">*</span>Expiration Date:</label><br>
+                        <input type="date" name="expiration_date" required>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Elementary:</label>
+                        <input type="text" name="elementary" required><br>
+                        <label><span class="red_asterisk">*</span>Middle School:</label>
+                        <input type="text" name="middle_school" required><br>
+                        <label><span class="red_asterisk">*</span>High School:</label>
+                        <input type="text" name="high_school" required><br>
+                        <label>Subdivision Name:</label>
+                        <input type="text" name="subdivision_name"><br>
+                        <label>Phone Available:</label>
+                        <label><input type="checkbox" name="phone_available_yes"> Y</label>
+                        <label><input type="checkbox" name="phone_available_no"> N</label>
+                        <label>Underground Utilities:</label>
+                        <label><input type="checkbox" name="underground_utilities_yes"> Y</label>
+                        <label><input type="checkbox" name="underground_utilities_no"> N</label>
+                        <label>TV/Cable Available:</label>
+                        <label><input type="checkbox" name="tv_cable_available_yes"> Y</label>
+                        <label><input type="checkbox" name="tv_cable_available_no"> N</label><br>
+                        <label>Road Frontage (Feet):</label>
+                        <input type="text" name="road_frontage_feet">
+                    </div>
+                    <div class="section-block">
+                        <label>Acres Bottom %:</label>
+                        <input type="text" name="acres_bottom">
+                        <label>Acres Cultivated %:</label>
+                        <input type="text" name="acres_cultivated"><br>
+                        <label>Acres Pasture %:</label>
+                        <input type="text" name="acres_pasture">
+                        <label>Acres Timber %:</label>
+                        <input type="text" name="acres_timber"><br>
+                        <label><span class="red_asterisk">*</span>Total Number of Acres:</label>
+                        <input type="text" name="total_acres" required>
+                        <label>List Price/Acre: <small>(system calculated)</small></label>
+                        <br><br>
+                        <label>Lake Name:</label>
+                        <input type="text" name="lake_name">
+                        <label>Approx Shore Line:</label>
+                        <input type="text" name="approx_shore_line"><br>
+                        <label>Shore Line Source:</label>
+                        <input type="text" name="shore_line_soucre">
+                        <label>Lease Back:</label>
+                        <label><input type="checkbox" name="lease_back_yes"> Y</label>
+                        <label><input type="checkbox" name="lease_back_no"> N</label><br>
+                        <label>Backup Contract:</label>
+                        <label><input type="checkbox" name="backup_contract_yes"> Y</label>
+                        <label><input type="checkbox" name="backup_contract_no"> N</label>
+                        <label>Mineral Rights Available:</label>
+                        <label><input type="checkbox" name="mineral_rights_available_yes"> Y</label>
+                        <label><input type="checkbox" name="mineral_rights_available_no"> N</label>
+                        <label><input type="checkbox" name="mineral_rights_available_unknown"> Unknown</label><br>
+                        <label>Surface Rights Available:</label>
+                        <label><input type="checkbox" name="surface_rights_available_yes"> Y</label>
+                        <label><input type="checkbox" name="surface_rights_available_no"> N</label>
+                        <label><input type="checkbox" name="surface_rights_available_unknown"> Unknown</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Lot Size:</label><br>
+                        <label><input type="checkbox" name="lot_size_1_to_3_acres"> 1 to 3 Acres</label><br>
+                        <label><input type="checkbox" name="lot_size_10_to_50_acres"> 10 to 50 Acres</label><br>
+                        <label><input type="checkbox" name="lot_size_3_to_5_acres"> 3 to 5 Acres</label><br>
+                        <label><input type="checkbox" name="lot_size_5_to_10_acres"> 5 to 10 Acres</label><br>
+                        <label><input type="checkbox" name="lot_size_50_to_100_acres"> 50 to 100 Acres</label><br>
+                        <label><input type="checkbox" name="lot_size_condo_or_townhouse_lot"> Condo Or Townhouse Lot</label><br>
+                        <label><input type="checkbox" name="lot_size_half_acre_or_less"> Half Acre or Less</label><br>
+                        <label><input type="checkbox" name="lot_size_half_to_1_acre"> Half to 1 Acre</label><br>
+                        <label><input type="checkbox" name="lot_size_over_100_acres"> Over 100 Acres</label><br>
+                        <label><input type="checkbox" name="lot_size_zero_lot"> Zero Lot</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Legal:</label>
+                        <input type="text" name="legal_name"><br>
+                        <label>Possession:</label>
+                        <input type="text" name="possession"><br>
+                        <label>Power Co.:</label>
+                        <input type="text" name="power_company"><br>
+                        <label>Gas Co.:</label>
+                        <input type="text" name="gas_company"><br>
+                        <label>Water Co.:</label>
+                        <input type="text" name="water_company"><br>
+                    </div>
+                    <!-- Page Two Section Two -->
+                    <div class="section-title">
+                        <label>Rural Acreage Class Financial</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Taxes:</label>
+                        <input type="text" name="taxes" required>
+                        <label><span class="red_asterisk">*</span>Tax Year:</label>
+                        <input type="text" name="tax_year" required>
+                        <label>Exemptions:</label>
+                        <label><input type="checkbox" name="exemptions_yes"> Y</label>
+                        <label><input type="checkbox" name="exemptions_no"> N</label><br>
+                        <label><span class="red_asterisk">*</span>Appraisal District Number:</label>
+                        <input type="text" name="appraisal_district_number" required>
+                        <label>Option Pending Date:</label>
+                        <input type="date" name="option_pending_date">
+                    </div>
+                    <!-- Page Three Section One -->
+                    <div class="section-title">
+                        <label>Rural Acreage Class Remarks</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Showing Service <small>(dropdown)</small></label><br>
+                        <label><input type="checkbox" name="showing_service_broker_bay"> Broker Bay</label><br>
+                        <label><input type="checkbox" name="showing_service_none"> None</label><br>
+                        <label><input type="checkbox" name="showing_service_showing_time"> Showing Time</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>ZG-SHOWING INSTRUCTIONS: <small>(lookup)</small></label><br>
+                        <label><input type="checkbox" name="showing_instructions_ZG1"> ZG1-Supral Lock Box</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG2"> ZG2-Combination Lockbox</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG3"> ZG3-Vacant</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG4"> ZG4-Tenant</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG5"> ZG5-Show anytime</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG6"> ZG6-Call but Show</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG7"> ZG7-Call Owner</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG8"> ZG8-Key in Office</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG9"> ZG9-By Appointment Only</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG10"> ZG10-List Agent Must Accompany</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG11"> ZG11-Call Listing Agent</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG12"> ZG12-Pet(s)</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG13"> ZG13-Livestock</label>
+                        <label><input type="checkbox" name="showing_instructions_ZG14"> ZG14-Other/See A-2-A Remarks</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>Showing Remarks: <small>(100 characters)</small></label><br>
+                        <textarea name="showing_remarks" rows="2" maxlength="100"></textarea><br>
+                        <label><span class="red_asterisk">*</span>Directions (NO OFFICES): <small>(512 characters)</small></label><br>
+                        <textarea name="showing_directions" rows="4" maxlength="512"></textarea><br>
+                        <label>Agent Remarks - Private: <small>(1000 characters)</small></label><br>
+                        <textarea name="agent_remarks" rows="4" maxlength="1000"></textarea><br>
+                        <label>Public Remarks - Amenities: <small>(2000 characters)</small></label><br>
+                        <textarea name="public_remarks" rows="6" maxlength="2000"></textarea><br>
+                        <label>Virtual Tour URL:</label>
+                        <input type="url" name="virtual_tour_url"><br>
+                        <label>Video/Drone Tour URL:</label>
+                        <input type="url" name="video_drone_tour_url"><br>
+                        <label>Associated Documents (Online File Storage):</label>
+                        <label><input type="checkbox" name="associated_documents_no"> No</label>
+                        <label><input type="checkbox" name="associated_documents_yes"> Yes</label>
+                    </div>
+                    <p><strong>Features: select all that apply:</strong> All Fields Marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required.</p>
+                    <div class="section-block">
+                        <label>A-AVAILABLE FINANCING:</label><br>
+                        <label><input type="checkbox" name="available_financing_A1"> A1 - Assumption</label><br>
+                        <label><input type="checkbox" name="available_financing_A2"> A2 - Credit Check Required</label><br>
+                        <label><input type="checkbox" name="available_financing_A3"> A3 - Conventional</label><br>
+                        <label><input type="checkbox" name="available_financing_A4"> A4 - FHA</label><br>
+                        <label><input type="checkbox" name="available_financing_A5"> A5 - VA</label><br>
+                        <label><input type="checkbox" name="available_financing_A6"> A6 - Must Qualify</label><br>
+                        <label><input type="checkbox" name="available_financing_A7"> A7 - Cash</label><br>
+                        <label><input type="checkbox" name="available_financing_A8"> A8 - Owner Carry 1st</label><br>
+                        <label><input type="checkbox" name="available_financing_A9"> A9 - Owner Carry 2nd</label><br>
+                        <label><input type="checkbox" name="available_financing_A10"> A10 - Lease Purchase</label><br>
+                        <label><input type="checkbox" name="available_financing_A11"> A11 - Trade or Exchange</label><br>
+                        <label><input type="checkbox" name="available_financing_A12"> A12 - Land Bank</label><br>
+                        <label><input type="checkbox" name="available_financing_A13"> A13 - USDA</label><br>
+                        <label><input type="checkbox" name="available_financing_A14"> A14 - Texas Veteran Land Board</label><br>
+                        <label><input type="checkbox" name="available_financing_A15"> A15 - Other/See Remarks</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>B-CURRENT USE:</label><br>
+                        <label><input type="checkbox" name="current_use_B1"> B1 - Row Crop</label><br>
+                        <label><input type="checkbox" name="current_use_B2"> B2 - Orchard</label><br>
+                        <label><input type="checkbox" name="current_use_B3"> B3 - Livestock</label><br>
+                        <label><input type="checkbox" name="current_use_B4"> B4 - Poultry</label><br>
+                        <label><input type="checkbox" name="current_use_B5"> B5 - Greenhouse</label><br>
+                        <label><input type="checkbox" name="current_use_B6"> B6 - Dairy</label><br>
+                        <label><input type="checkbox" name="current_use_B7"> B7 - Pasture</label><br>
+                        <label><input type="checkbox" name="current_use_B8"> B8 - Timber</label><br>
+                        <label><input type="checkbox" name="current_use_B9"> B9 - Recreational</label><br>
+                        <label><input type="checkbox" name="current_use_B10"> B10 - None</label><br>
+                        <label><input type="checkbox" name="current_use_B11"> B11 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>C-Documents on File:</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C1"> C1 - Survey Plat</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C2"> C2 - Perc Test</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C3"> C3 - Topo Map</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C4"> C4 - Soil Survey</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C5"> C5 - Owner Title Policy</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C6"> C6 - Feasibility</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C7"> C7 - Boundary Survey</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C8"> C8 - Appraisal</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C9"> C9 - Deed Restrictions</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C10"> C10 - Legal Description</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C11"> C11 - Aerial Survey</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C12"> C12 - New Survey Lines Marked</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C13"> C13 - Field Notes</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C14"> C14 - Floor Plan</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C15"> C15 - None</label><br>
+                        <label><input type="checkbox" name="documents_on_file_C16"> C16 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>D-EASEMENTS:</label><br>
+                        <label><input type="checkbox" name="easements_D1"> D1 - Natural Gas</label><br>
+                        <label><input type="checkbox" name="easements_D2"> D2 - Electric</label><br>
+                        <label><input type="checkbox" name="easements_D3"> D3 - Telephone</label><br>
+                        <label><input type="checkbox" name="easements_D4"> D4 - Water Lines</label><br>
+                        <label><input type="checkbox" name="easements_D5"> D5 - Drainage</label><br>
+                        <label><input type="checkbox" name="easements_D6"> D6 - Road</label><br>
+                        <label><input type="checkbox" name="easements_D7"> D7 - Access</label><br>
+                        <label><input type="checkbox" name="easements_D8"> D8 - Unknown</label><br>
+                        <label><input type="checkbox" name="easements_D9"> D9 - Pipeline</label><br>
+                        <label><input type="checkbox" name="easements_D10"> D10 - None</label><br>
+                        <label><input type="checkbox" name="easements_D11"> D11 - Other/See Remarks</label>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>E-ELECTRIC:</label><br>
+                        <label><input type="checkbox" name="electric_E1"> E1 - Electric Available</label><br>
+                        <label><input type="checkbox" name="electric_E2"> E2 - Electric Onsite</label><br>
+                        <label><input type="checkbox" name="electric_E3"> E3 - None</label><br>
+                        <label><input type="checkbox" name="electric_E4"> E4 - Other/See Remarks</label><br>
+                        <label><input type="checkbox" name="electric_E5"> E5 - 100 Amp Service</label><br>
+                        <label><input type="checkbox" name="electric_E6"> E6 - 150 Amp Service</label><br>
+                        <label><input type="checkbox" name="electric_E7"> E7 - 200+ Amp Service</label><br>
+                        <label><input type="checkbox" name="electric_E8"> E8 - 220 Volts</label><br>
+                        <label><input type="checkbox" name="electric_E9"> E9 - 220 Volts for Spa</label><br>
+                        <label><input type="checkbox" name="electric_E10"> E10 - 220 Volts in Garage</label><br>
+                        <label><input type="checkbox" name="electric_E11"> E11 - 220 Volts in Kitchen</label><br>
+                        <label><input type="checkbox" name="electric_E12"> E12 - 220 Volts in Laundry</label><br>
+                        <label><input type="checkbox" name="electric_E13"> E13 - 220 Volts in Workshop</label><br>
+                        <label><input type="checkbox" name="electric_E14"> E14 - 440 Volts</label><br>
+                        <label><input type="checkbox" name="electric_E15"> E15 - Circuit Breakers</label><br>
+                        <label><input type="checkbox" name="electric_E16"> E16 - Energy Storage Device</label><br>
+                        <label><input type="checkbox" name="electric_E17"> E17 - Fuses</label><br>
+                        <label><input type="checkbox" name="electric_E18"> E18 - Generator</label><br>
+                        <label><input type="checkbox" name="electric_E19"> E19 - Net Meter</label><br>
+                        <label><input type="checkbox" name="electric_E20"> E20 - Pre-Wired for Renewables</label><br>
+                        <label><input type="checkbox" name="electric_E21"> E21 - Ready for Renewables</label><br>
+                        <label><input type="checkbox" name="electric_E22"> E22 - Underground</label><br>
+                        <label><input type="checkbox" name="electric_E23"> E23 - Generator Home Backup Sys</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>F-FENCING:</label><br>
+                        <label><input type="checkbox" name="fencing_F1"> F1 - Wood Fence</label><br>
+                        <label><input type="checkbox" name="fencing_F2"> F2 - Netal Fence</label><br>
+                        <label><input type="checkbox" name="fencing_F3"> F3 - Cross Fence</label><br>
+                        <label><input type="checkbox" name="fencing_F4"> F4 - Barbwire Fence</label><br>
+                        <label><input type="checkbox" name="fencing_F5"> F5 - Brick Fence</label><br>
+                        <label><input type="checkbox" name="fencing_F6"> F6 - Partial Fence</label><br>
+                        <label><input type="checkbox" name="fencing_F7"> F7 - Chain Link Fence</label><br>
+                        <label><input type="checkbox" name="fencing_F8"> F8 - Vinyl</label><br>
+                        <label><input type="checkbox" name="fencing_F9"> F9 - Wrought Iron</label><br>
+                        <label><input type="checkbox" name="fencing_F10"> F10 - Stove</label><br>
+                        <label><input type="checkbox" name="fencing_F11"> F11 - Piple</label><br>
+                        <label><input type="checkbox" name="fencing_F12"> F12 - Automatic Gate</label><br>
+                        <label><input type="checkbox" name="fencing_F13"> F13 - Dog Run/Kennel</label><br>
+                        <label><input type="checkbox" name="fencing_F14"> F14 - None</label><br>
+                        <label><input type="checkbox" name="fencing_F15"> F15 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>G-GAS:</label><br>
+                        <label><input type="checkbox" name="gas_G1"> G1 - LP Gas Onsite</label><br>
+                        <label><input type="checkbox" name="gas_G2"> G2 - Natural Gas Onsite</label><br>
+                        <label><input type="checkbox" name="gas_G3"> G3 - Natural Gas Available</label><br>
+                        <label><input type="checkbox" name="gas_G4"> G4 - None</label><br>
+                        <label><input type="checkbox" name="gas_G5"> G5 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>H-Grasses:</label><br>
+                        <label><input type="checkbox" name="grasses_H1"> H1 - Native</label><br>
+                        <label><input type="checkbox" name="grasses_H2"> H2 - Improved</label><br>
+                        <label><input type="checkbox" name="grasses_H3"> H3 - Coastal</label><br>
+                        <label><input type="checkbox" name="grasses_H4"> H4 - Bahia</label><br>
+                        <label><input type="checkbox" name="grasses_H5"> H5 - Bermuda</label><br>
+                        <label><input type="checkbox" name="grasses_H6"> H6 - None</label><br>
+                        <label><input type="checkbox" name="grasses_H7"> H7 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>I-HUNTING:</label><br>
+                        <label><input type="checkbox" name="hunting_I1"> I1 - Deer</label><br>
+                        <label><input type="checkbox" name="hunting_I2"> I2 - Duck</label><br>
+                        <label><input type="checkbox" name="hunting_I3"> I3 - Hog</label><br>
+                        <label><input type="checkbox" name="hunting_I4"> I4 - Squirrel</label><br>
+                        <label><input type="checkbox" name="hunting_I5"> I5 - Turkey</label><br>
+                        <label><input type="checkbox" name="hunting_I6"> I6 - Not Allowed</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>J-LAND FEATURES:</label><br>
+                        <label><input type="checkbox" name="land_features_J1"> J1 - Paved Interior Roads</label><br>
+                        <label><input type="checkbox" name="land_features_J2"> J2 - Lake</label><br>
+                        <label><input type="checkbox" name="land_features_J3"> J3 - Pond</label><br>
+                        <label><input type="checkbox" name="land_features_J4"> J4 - Creek</label><br>
+                        <label><input type="checkbox" name="land_features_J5"> J5 - River</label><br>
+                        <label><input type="checkbox" name="land_features_J6"> J6 - Marsh</label><br>
+                        <label><input type="checkbox" name="land_features_J7"> J7 - Slough`</label><br>
+                        <label><input type="checkbox" name="land_features_J8"> J8 - Flooded Timber</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>K-LOT/LAND DESCRIPTION:</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K1"> K1 - Water/Lakefront</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K2"> K2 - Water View</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K3"> K3 - Cul-de-Sac</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K4"> K4 - Wooded</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K5"> K5 - Golf Course</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K6"> K6 - Corner</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K7"> K7 - Subdivision Lot</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K8"> K8 - Rectangular</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K9"> K9 - Irregular</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K10"> K10 - Zero Lot Line</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K11"> K11 - Pasture</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K12"> K12 - Cultivated</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K13"> K13 - Equestrian</label><br>
+                        <label><input type="checkbox" name="lot_land_desc_K14"> K14 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>L-OUTBUILDINGS:</label><br>
+                        <label><input type="checkbox" name="outbuildings_L1"> L1 - Guest Quarters</label><br>
+                        <label><input type="checkbox" name="outbuildings_L2"> L2 - Cabana</label><br>
+                        <label><input type="checkbox" name="outbuildings_L3"> L3 - Gazebo</label><br>
+                        <label><input type="checkbox" name="outbuildings_L4"> L4 - Storage Building(s)</label><br>
+                        <label><input type="checkbox" name="outbuildings_L5"> L5 - Metal Outbuilding(s)</label><br>
+                        <label><input type="checkbox" name="outbuildings_L6"> L6 - Greenhouse</label><br>
+                        <label><input type="checkbox" name="outbuildings_L7"> L7 - Stables</label><br>
+                        <label><input type="checkbox" name="outbuildings_L8"> L8 - Tack Room</label><br>
+                        <label><input type="checkbox" name="outbuildings_L9"> L9 - Barn</label><br>
+                        <label><input type="checkbox" name="outbuildings_L10"> L10 - Corral(s)</label><br>
+                        <label><input type="checkbox" name="outbuildings_L11"> L11 - Boat Slip</label><br>
+                        <label><input type="checkbox" name="outbuildings_L12"> L12 - Boat House</label><br>
+                        <label><input type="checkbox" name="outbuildings_L13"> L13 - Work Shop</label><br>
+                        <label><input type="checkbox" name="outbuildings_L14"> L14 - Additional Residence/Remarks</label><br>
+                        <label><input type="checkbox" name="outbuildings_L15"> L15 - None</label><br>
+                        <label><input type="checkbox" name="outbuildings_L16"> L16 - Other/See Remarks</label><br>
+                    </div>
+                    <br>
+                    <div>
+                        <button type="submit">
+                            Save
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="section-block">
-                <label>Owner Name:</label>
-                <input type="text" name="owner_name"><br>
-                <label>Owner Phone:</label>
-                <input type="text" name="owner_phone"><br>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Listing Type <small>(dropdown)</small></label><br>
-                <label><input type="checkbox" name="listing_type_excl_agency"> Excl Agency</label><br>
-                <label><input type="checkbox" name="listing_type_exclusive_right"> Exclusive Right</label><br>
-                <label><input type="checkbox" name="listing_type_exemptions"> Exemptions</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Sign On Property</label><br>
-                <label><input type="checkbox" name="sign_on_property_yes"> Yes</label><br>
-                <label><input type="checkbox" name="sign_on_property_no"> No</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Agency <small>(dropdown)</small></label><br>
-                <label><input type="checkbox" name="agency_both"> Both</label><br>
-                <label><input type="checkbox" name="agency_buyers_agency"> Buyers Agency</label><br>
-                <label><input type="checkbox" name="agency_sub_agency"> Sub Agency</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Listing Date:</label><br>
-                <input type="date" name="listing_date" required><br><br>
-                <label><span class="red_asterisk">*</span>Expiration Date:</label><br>
-                <input type="date" name="expiration_date" required>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Elementary:</label>
-                <input type="text" name="elementary" required><br>
-                <label><span class="red_asterisk">*</span>Middle School:</label>
-                <input type="text" name="middle_school" required><br>
-                <label><span class="red_asterisk">*</span>High School:</label>
-                <input type="text" name="high_school" required><br>
-                <label>Subdivision Name:</label>
-                <input type="text" name="subdivision_name"><br>
-                <label>Phone Available:</label>
-                <label><input type="checkbox" name="phone_available_yes"> Y</label>
-                <label><input type="checkbox" name="phone_available_no"> N</label>
-                <label>Underground Utilities:</label>
-                <label><input type="checkbox" name="underground_utilities_yes"> Y</label>
-                <label><input type="checkbox" name="underground_utilities_no"> N</label>
-                <label>TV/Cable Available:</label>
-                <label><input type="checkbox" name="tv_cable_available_yes"> Y</label>
-                <label><input type="checkbox" name="tv_cable_available_no"> N</label><br>
-                <label>Road Frontage (Feet):</label>
-                <input type="text" name="road_frontage_feet">
-            </div>
-            <div class="section-block">
-                <label>Acres Bottom %:</label>
-                <input type="text" name="acres_bottom">
-                <label>Acres Cultivated %:</label>
-                <input type="text" name="acres_cultivated"><br>
-                <label>Acres Pasture %:</label>
-                <input type="text" name="acres_pasture">
-                <label>Acres Timber %:</label>
-                <input type="text" name="acres_timber"><br>
-                <label><span class="red_asterisk">*</span>Total Number of Acres:</label>
-                <input type="text" name="total_acres" required>
-                <label>List Price/Acre: <small>(system calculated)</small></label>
-                <br><br>
-                <label>Lake Name:</label>
-                <input type="text" name="lake_name">
-                <label>Approx Shore Line:</label>
-                <input type="text" name="approx_shore_line"><br>
-                <label>Shore Line Source:</label>
-                <input type="text" name="shore_line_soucre">
-                <label>Lease Back:</label>
-                <label><input type="checkbox" name="lease_back_yes"> Y</label>
-                <label><input type="checkbox" name="lease_back_no"> N</label><br>
-                <label>Backup Contract:</label>
-                <label><input type="checkbox" name="backup_contract_yes"> Y</label>
-                <label><input type="checkbox" name="backup_contract_no"> N</label>
-                <label>Mineral Rights Available:</label>
-                <label><input type="checkbox" name="mineral_rights_available_yes"> Y</label>
-                <label><input type="checkbox" name="mineral_rights_available_no"> N</label>
-                <label><input type="checkbox" name="mineral_rights_available_unknown"> Unknown</label><br>
-                <label>Surface Rights Available:</label>
-                <label><input type="checkbox" name="surface_rights_available_yes"> Y</label>
-                <label><input type="checkbox" name="surface_rights_available_no"> N</label>
-                <label><input type="checkbox" name="surface_rights_available_unknown"> Unknown</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Lot Size:</label><br>
-                <label><input type="checkbox" name="lot_size_1_to_3_acres"> 1 to 3 Acres</label><br>
-                <label><input type="checkbox" name="lot_size_10_to_50_acres"> 10 to 50 Acres</label><br>
-                <label><input type="checkbox" name="lot_size_3_to_5_acres"> 3 to 5 Acres</label><br>
-                <label><input type="checkbox" name="lot_size_5_to_10_acres"> 5 to 10 Acres</label><br>
-                <label><input type="checkbox" name="lot_size_50_to_100_acres"> 50 to 100 Acres</label><br>
-                <label><input type="checkbox" name="lot_size_condo_or_townhouse_lot"> Condo Or Townhouse Lot</label><br>
-                <label><input type="checkbox" name="lot_size_half_acre_or_less"> Half Acre or Less</label><br>
-                <label><input type="checkbox" name="lot_size_half_to_1_acre"> Half to 1 Acre</label><br>
-                <label><input type="checkbox" name="lot_size_over_100_acres"> Over 100 Acres</label><br>
-                <label><input type="checkbox" name="lot_size_zero_lot"> Zero Lot</label><br>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Legal:</label>
-                <input type="text" name="legal_name"><br>
-                <label>Possession:</label>
-                <input type="text" name="possession"><br>
-                <label>Power Co.:</label>
-                <input type="text" name="power_company"><br>
-                <label>Gas Co.:</label>
-                <input type="text" name="gas_company"><br>
-                <label>Water Co.:</label>
-                <input type="text" name="water_company"><br>
-            </div>
-            <!-- Page Two Section Two -->
-            <div class="section-title">
-                <label>Rural Acreage Class Financial</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Taxes:</label>
-                <input type="text" name="taxes" required>
-                <label><span class="red_asterisk">*</span>Tax Year:</label>
-                <input type="text" name="tax_year" required>
-                <label>Exemptions:</label>
-                <label><input type="checkbox" name="exemptions_yes"> Y</label>
-                <label><input type="checkbox" name="exemptions_no"> N</label><br>
-                <label><span class="red_asterisk">*</span>Appraisal District Number:</label>
-                <input type="text" name="appraisal_district_number" required>
-                <label>Option Pending Date:</label>
-                <input type="date" name="option_pending_date">
-            </div>
-            <!-- Page Three Section One -->
-            <div class="section-title">
-                <label>Rural Acreage Class Remarks</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Showing Service <small>(dropdown)</small></label><br>
-                <label><input type="checkbox" name="showing_service_broker_bay"> Broker Bay</label><br>
-                <label><input type="checkbox" name="showing_service_none"> None</label><br>
-                <label><input type="checkbox" name="showing_service_showing_time"> Showing Time</label><br>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>ZG-SHOWING INSTRUCTIONS: <small>(lookup)</small></label><br>
-                <label><input type="checkbox" name="showing_instructions_ZG1"> ZG1-Supral Lock Box</label>
-                <label><input type="checkbox" name="showing_instructions_ZG2"> ZG2-Combination Lockbox</label>
-                <label><input type="checkbox" name="showing_instructions_ZG3"> ZG3-Vacant</label>
-                <label><input type="checkbox" name="showing_instructions_ZG4"> ZG4-Tenant</label>
-                <label><input type="checkbox" name="showing_instructions_ZG5"> ZG5-Show anytime</label>
-                <label><input type="checkbox" name="showing_instructions_ZG6"> ZG6-Call but Show</label>
-                <label><input type="checkbox" name="showing_instructions_ZG7"> ZG7-Call Owner</label>
-                <label><input type="checkbox" name="showing_instructions_ZG8"> ZG8-Key in Office</label>
-                <label><input type="checkbox" name="showing_instructions_ZG9"> ZG9-By Appointment Only</label>
-                <label><input type="checkbox" name="showing_instructions_ZG10"> ZG10-List Agent Must Accompany</label>
-                <label><input type="checkbox" name="showing_instructions_ZG11"> ZG11-Call Listing Agent</label>
-                <label><input type="checkbox" name="showing_instructions_ZG12"> ZG12-Pet(s)</label>
-                <label><input type="checkbox" name="showing_instructions_ZG13"> ZG13-Livestock</label>
-                <label><input type="checkbox" name="showing_instructions_ZG14"> ZG14-Other/See A-2-A Remarks</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>Showing Remarks: <small>(100 characters)</small></label><br>
-                <textarea name="showing_remarks" rows="2" maxlength="100"></textarea><br>
-                <label><span class="red_asterisk">*</span>Directions (NO OFFICES): <small>(512 characters)</small></label><br>
-                <textarea name="showing_directions" rows="4" maxlength="512"></textarea><br>
-                <label>Agent Remarks - Private: <small>(1000 characters)</small></label><br>
-                <textarea name="agent_remarks" rows="4" maxlength="1000"></textarea><br>
-                <label>Public Remarks - Amenities: <small>(2000 characters)</small></label><br>
-                <textarea name="public_remarks" rows="6" maxlength="2000"></textarea><br>
-                <label>Virtual Tour URL:</label>
-                <input type="url" name="virtual_tour_url"><br>
-                <label>Video/Drone Tour URL:</label>
-                <input type="url" name="video_drone_tour_url"><br>
-                <label>Associated Documents (Online File Storage):</label>
-                <label><input type="checkbox" name="associated_documents_no"> No</label>
-                <label><input type="checkbox" name="associated_documents_yes"> Yes</label>
-            </div>
-            <p><strong>Features: select all that apply:</strong> All Fields Marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required.</p>
-            <div class="section-block">
-                <label>A-AVAILABLE FINANCING:</label><br>
-                <label><input type="checkbox" name="available_financing_A1"> A1 - Assumption</label><br>
-                <label><input type="checkbox" name="available_financing_A2"> A2 - Credit Check Required</label><br>
-                <label><input type="checkbox" name="available_financing_A3"> A3 - Conventional</label><br>
-                <label><input type="checkbox" name="available_financing_A4"> A4 - FHA</label><br>
-                <label><input type="checkbox" name="available_financing_A5"> A5 - VA</label><br>
-                <label><input type="checkbox" name="available_financing_A6"> A6 - Must Qualify</label><br>
-                <label><input type="checkbox" name="available_financing_A7"> A7 - Cash</label><br>
-                <label><input type="checkbox" name="available_financing_A8"> A8 - Owner Carry 1st</label><br>
-                <label><input type="checkbox" name="available_financing_A9"> A9 - Owner Carry 2nd</label><br>
-                <label><input type="checkbox" name="available_financing_A10"> A10 - Lease Purchase</label><br>
-                <label><input type="checkbox" name="available_financing_A11"> A11 - Trade or Exchange</label><br>
-                <label><input type="checkbox" name="available_financing_A12"> A12 - Land Bank</label><br>
-                <label><input type="checkbox" name="available_financing_A13"> A13 - USDA</label><br>
-                <label><input type="checkbox" name="available_financing_A14"> A14 - Texas Veteran Land Board</label><br>
-                <label><input type="checkbox" name="available_financing_A15"> A15 - Other/See Remarks</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>B-CURRENT USE:</label><br>
-                <label><input type="checkbox" name="current_use_B1"> B1 - Row Crop</label><br>
-                <label><input type="checkbox" name="current_use_B2"> B2 - Orchard</label><br>
-                <label><input type="checkbox" name="current_use_B3"> B3 - Livestock</label><br>
-                <label><input type="checkbox" name="current_use_B4"> B4 - Poultry</label><br>
-                <label><input type="checkbox" name="current_use_B5"> B5 - Greenhouse</label><br>
-                <label><input type="checkbox" name="current_use_B6"> B6 - Dairy</label><br>
-                <label><input type="checkbox" name="current_use_B7"> B7 - Pasture</label><br>
-                <label><input type="checkbox" name="current_use_B8"> B8 - Timber</label><br>
-                <label><input type="checkbox" name="current_use_B9"> B9 - Recreational</label><br>
-                <label><input type="checkbox" name="current_use_B10"> B10 - None</label><br>
-                <label><input type="checkbox" name="current_use_B11"> B11 - Other/See Remarks</label><br>
-            </div>
-            <div class="section-block">
-                <label>C-Documents on File:</label><br>
-                <label><input type="checkbox" name="documents_on_file_C1"> C1 - Survey Plat</label><br>
-                <label><input type="checkbox" name="documents_on_file_C2"> C2 - Perc Test</label><br>
-                <label><input type="checkbox" name="documents_on_file_C3"> C3 - Topo Map</label><br>
-                <label><input type="checkbox" name="documents_on_file_C4"> C4 - Soil Survey</label><br>
-                <label><input type="checkbox" name="documents_on_file_C5"> C5 - Owner Title Policy</label><br>
-                <label><input type="checkbox" name="documents_on_file_C6"> C6 - Feasibility</label><br>
-                <label><input type="checkbox" name="documents_on_file_C7"> C7 - Boundary Survey</label><br>
-                <label><input type="checkbox" name="documents_on_file_C8"> C8 - Appraisal</label><br>
-                <label><input type="checkbox" name="documents_on_file_C9"> C9 - Deed Restrictions</label><br>
-                <label><input type="checkbox" name="documents_on_file_C10"> C10 - Legal Description</label><br>
-                <label><input type="checkbox" name="documents_on_file_C11"> C11 - Aerial Survey</label><br>
-                <label><input type="checkbox" name="documents_on_file_C12"> C12 - New Survey Lines Marked</label><br>
-                <label><input type="checkbox" name="documents_on_file_C13"> C13 - Field Notes</label><br>
-                <label><input type="checkbox" name="documents_on_file_C14"> C14 - Floor Plan</label><br>
-                <label><input type="checkbox" name="documents_on_file_C15"> C15 - None</label><br>
-                <label><input type="checkbox" name="documents_on_file_C16"> C16 - Other/See Remarks</label><br>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>D-EASEMENTS:</label><br>
-                <label><input type="checkbox" name="easements_D1"> D1 - Natural Gas</label><br>
-                <label><input type="checkbox" name="easements_D2"> D2 - Electric</label><br>
-                <label><input type="checkbox" name="easements_D3"> D3 - Telephone</label><br>
-                <label><input type="checkbox" name="easements_D4"> D4 - Water Lines</label><br>
-                <label><input type="checkbox" name="easements_D5"> D5 - Drainage</label><br>
-                <label><input type="checkbox" name="easements_D6"> D6 - Road</label><br>
-                <label><input type="checkbox" name="easements_D7"> D7 - Access</label><br>
-                <label><input type="checkbox" name="easements_D8"> D8 - Unknown</label><br>
-                <label><input type="checkbox" name="easements_D9"> D9 - Pipeline</label><br>
-                <label><input type="checkbox" name="easements_D10"> D10 - None</label><br>
-                <label><input type="checkbox" name="easements_D11"> D11 - Other/See Remarks</label>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>E-ELECTRIC:</label><br>
-                <label><input type="checkbox" name="electric_E1"> E1 - Electric Available</label><br>
-                <label><input type="checkbox" name="electric_E2"> E2 - Electric Onsite</label><br>
-                <label><input type="checkbox" name="electric_E3"> E3 - None</label><br>
-                <label><input type="checkbox" name="electric_E4"> E4 - Other/See Remarks</label><br>
-                <label><input type="checkbox" name="electric_E5"> E5 - 100 Amp Service</label><br>
-                <label><input type="checkbox" name="electric_E6"> E6 - 150 Amp Service</label><br>
-                <label><input type="checkbox" name="electric_E7"> E7 - 200+ Amp Service</label><br>
-                <label><input type="checkbox" name="electric_E8"> E8 - 220 Volts</label><br>
-                <label><input type="checkbox" name="electric_E9"> E9 - 220 Volts for Spa</label><br>
-                <label><input type="checkbox" name="electric_E10"> E10 - 220 Volts in Garage</label><br>
-                <label><input type="checkbox" name="electric_E11"> E11 - 220 Volts in Kitchen</label><br>
-                <label><input type="checkbox" name="electric_E12"> E12 - 220 Volts in Laundry</label><br>
-                <label><input type="checkbox" name="electric_E13"> E13 - 220 Volts in Workshop</label><br>
-                <label><input type="checkbox" name="electric_E14"> E14 - 440 Volts</label><br>
-                <label><input type="checkbox" name="electric_E15"> E15 - Circuit Breakers</label><br>
-                <label><input type="checkbox" name="electric_E16"> E16 - Energy Storage Device</label><br>
-                <label><input type="checkbox" name="electric_E17"> E17 - Fuses</label><br>
-                <label><input type="checkbox" name="electric_E18"> E18 - Generator</label><br>
-                <label><input type="checkbox" name="electric_E19"> E19 - Net Meter</label><br>
-                <label><input type="checkbox" name="electric_E20"> E20 - Pre-Wired for Renewables</label><br>
-                <label><input type="checkbox" name="electric_E21"> E21 - Ready for Renewables</label><br>
-                <label><input type="checkbox" name="electric_E22"> E22 - Underground</label><br>
-                <label><input type="checkbox" name="electric_E23"> E23 - Generator Home Backup Sys</label><br>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>F-FENCING:</label><br>
-                <label><input type="checkbox" name="fencing_F1"> F1 - Wood Fence</label><br>
-                <label><input type="checkbox" name="fencing_F2"> F2 - Netal Fence</label><br>
-                <label><input type="checkbox" name="fencing_F3"> F3 - Cross Fence</label><br>
-                <label><input type="checkbox" name="fencing_F4"> F4 - Barbwire Fence</label><br>
-                <label><input type="checkbox" name="fencing_F5"> F5 - Brick Fence</label><br>
-                <label><input type="checkbox" name="fencing_F6"> F6 - Partial Fence</label><br>
-                <label><input type="checkbox" name="fencing_F7"> F7 - Chain Link Fence</label><br>
-                <label><input type="checkbox" name="fencing_F8"> F8 - Vinyl</label><br>
-                <label><input type="checkbox" name="fencing_F9"> F9 - Wrought Iron</label><br>
-                <label><input type="checkbox" name="fencing_F10"> F10 - Stove</label><br>
-                <label><input type="checkbox" name="fencing_F11"> F11 - Piple</label><br>
-                <label><input type="checkbox" name="fencing_F12"> F12 - Automatic Gate</label><br>
-                <label><input type="checkbox" name="fencing_F13"> F13 - Dog Run/Kennel</label><br>
-                <label><input type="checkbox" name="fencing_F14"> F14 - None</label><br>
-                <label><input type="checkbox" name="fencing_F15"> F15 - Other/See Remarks</label><br>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>G-GAS:</label><br>
-                <label><input type="checkbox" name="gas_G1"> G1 - LP Gas Onsite</label><br>
-                <label><input type="checkbox" name="gas_G2"> G2 - Natural Gas Onsite</label><br>
-                <label><input type="checkbox" name="gas_G3"> G3 - Natural Gas Available</label><br>
-                <label><input type="checkbox" name="gas_G4"> G4 - None</label><br>
-                <label><input type="checkbox" name="gas_G5"> G5 - Other/See Remarks</label><br>
-            </div>
-            <div class="section-block">
-                <label>H-Grasses:</label><br>
-                <label><input type="checkbox" name="grasses_H1"> H1 - Native</label><br>
-                <label><input type="checkbox" name="grasses_H2"> H2 - Improved</label><br>
-                <label><input type="checkbox" name="grasses_H3"> H3 - Coastal</label><br>
-                <label><input type="checkbox" name="grasses_H4"> H4 - Bahia</label><br>
-                <label><input type="checkbox" name="grasses_H5"> H5 - Bermuda</label><br>
-                <label><input type="checkbox" name="grasses_H6"> H6 - None</label><br>
-                <label><input type="checkbox" name="grasses_H7"> H7 - Other/See Remarks</label><br>
-            </div>
-            <div class="section-block">
-                <label>I-HUNTING:</label><br>
-                <label><input type="checkbox" name="hunting_I1"> I1 - Deer</label><br>
-                <label><input type="checkbox" name="hunting_I2"> I2 - Duck</label><br>
-                <label><input type="checkbox" name="hunting_I3"> I3 - Hog</label><br>
-                <label><input type="checkbox" name="hunting_I4"> I4 - Squirrel</label><br>
-                <label><input type="checkbox" name="hunting_I5"> I5 - Turkey</label><br>
-                <label><input type="checkbox" name="hunting_I6"> I6 - Not Allowed</label><br>
-            </div>
-            <div class="section-block">
-                <label>J-LAND FEATURES:</label><br>
-                <label><input type="checkbox" name="land_features_J1"> J1 - Paved Interior Roads</label><br>
-                <label><input type="checkbox" name="land_features_J2"> J2 - Lake</label><br>
-                <label><input type="checkbox" name="land_features_J3"> J3 - Pond</label><br>
-                <label><input type="checkbox" name="land_features_J4"> J4 - Creek</label><br>
-                <label><input type="checkbox" name="land_features_J5"> J5 - River</label><br>
-                <label><input type="checkbox" name="land_features_J6"> J6 - Marsh</label><br>
-                <label><input type="checkbox" name="land_features_J7"> J7 - Slough`</label><br>
-                <label><input type="checkbox" name="land_features_J8"> J8 - Flooded Timber</label><br>
-            </div>
-            <div class="section-block">
-                <label>K-LOT/LAND DESCRIPTION:</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K1"> K1 - Water/Lakefront</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K2"> K2 - Water View</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K3"> K3 - Cul-de-Sac</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K4"> K4 - Wooded</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K5"> K5 - Golf Course</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K6"> K6 - Corner</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K7"> K7 - Subdivision Lot</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K8"> K8 - Rectangular</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K9"> K9 - Irregular</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K10"> K10 - Zero Lot Line</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K11"> K11 - Pasture</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K12"> K12 - Cultivated</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K13"> K13 - Equestrian</label><br>
-                <label><input type="checkbox" name="lot_land_desc_K14"> K14 - Other/See Remarks</label><br>
-            </div>
-            <div class="section-block">
-                <label><span class="red_asterisk">*</span>L-OUTBUILDINGS:</label><br>
-                <label><input type="checkbox" name="outbuildings_L1"> L1 - Guest Quarters</label><br>
-                <label><input type="checkbox" name="outbuildings_L2"> L2 - Cabana</label><br>
-                <label><input type="checkbox" name="outbuildings_L3"> L3 - Gazebo</label><br>
-                <label><input type="checkbox" name="outbuildings_L4"> L4 - Storage Building(s)</label><br>
-                <label><input type="checkbox" name="outbuildings_L5"> L5 - Metal Outbuilding(s)</label><br>
-                <label><input type="checkbox" name="outbuildings_L6"> L6 - Greenhouse</label><br>
-                <label><input type="checkbox" name="outbuildings_L7"> L7 - Stables</label><br>
-                <label><input type="checkbox" name="outbuildings_L8"> L8 - Tack Room</label><br>
-                <label><input type="checkbox" name="outbuildings_L9"> L9 - Barn</label><br>
-                <label><input type="checkbox" name="outbuildings_L10"> L10 - Corral(s)</label><br>
-                <label><input type="checkbox" name="outbuildings_L11"> L11 - Boat Slip</label><br>
-                <label><input type="checkbox" name="outbuildings_L12"> L12 - Boat House</label><br>
-                <label><input type="checkbox" name="outbuildings_L13"> L13 - Work Shop</label><br>
-                <label><input type="checkbox" name="outbuildings_L14"> L14 - Additional Residence/Remarks</label><br>
-                <label><input type="checkbox" name="outbuildings_L15"> L15 - None</label><br>
-                <label><input type="checkbox" name="outbuildings_L16"> L16 - Other/See Remarks</label><br>
-            </div>
+            <!-- Report being worked on --->
             <div id="gt_residential_form">
                 <h2>Residential Data</h2>
                 <form name="tmp" class="frm">
@@ -789,10 +799,7 @@
             <div id="gt_multifamily_form">
                 <h2>Multi-Family Data</h2>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt13">Name</label>
-                        <input type="text" id="txt13" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
@@ -803,10 +810,7 @@
             <div id="gt_lots_form">
                 <h2>Lots Data</h2>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt14">Name</label>
-                        <input type="text" id="txt14" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
@@ -817,10 +821,7 @@
             <div id="gt_farm_form">
                 <h2>Farm and Ranch Data</h2>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt15">Name</label>
-                        <input type="text" id="txt15" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
@@ -831,10 +832,7 @@
             <div id="gt_commercial_form">
                 <h2>Commercial Data</h2>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt16">Name</label>
-                        <input type="text" id="txt16" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
@@ -845,10 +843,7 @@
             <div id="lv_farm_form">
                 <h2>Farm and Ranch Data</h2>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt17">Name</label>
-                        <input type="text" id="txt17" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
@@ -859,10 +854,7 @@
             <div id="lv_land_form">
                 <h2>Land Data</h2>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt18">Name</label>
-                        <input type="text" id="txt18" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
@@ -873,10 +865,7 @@
             <div id="lv_commercial_form">
                 <h2>MLS - LAAR Commercial Data</h2>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt19">Name</label>
-                        <input type="text" id="txt19" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
@@ -887,10 +876,7 @@
             <div id="lv_multifamily_form">
                 <h2>MLS - LAAR Multi-Family Data</h2>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt20">Name</label>
-                        <input type="text" id="txt20" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
@@ -901,10 +887,7 @@
             <div id="lv_residential_form">
                 <h2>Residential Data</h2>
                 <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt1">Name</label>
-                        <input type="text" id="txt1" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
