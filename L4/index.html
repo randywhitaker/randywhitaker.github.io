@@ -74,7 +74,7 @@
         <div class="main-panel">
             <div id="listing_form">
                 <h2>Listing Information</h2>
-                <form name="listing_sheet" class="frm">
+                <form name="listing_form" class="frm">
                     <div>
                         <label for="listing_property_address">Property Address</label>
                         <input type="text" id="listing_property_address" name="property_address" required>
@@ -173,7 +173,7 @@
             </div>
             <div id="offer_form">
                 <h2>Offer Information</h2>
-                <form name="offer_sheet" class="frm">
+                <form name="offer_form" class="frm">
                     <div>
                         <label for="offer_property_address">Property Address</label>
                         <input type="text" id="offer_property_address" name="property_address" required>
@@ -285,7 +285,7 @@
                     </div>
                     <P>* All Fields Marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required. (Lookup) fields provide a list from which to select.</P>
                 </header>
-                <form name="tmp" class="frm">
+                <form name="gt_rural_form" class="frm">
                     <!-- Page One Section One -->
                     <div class="section-title">
                         <label>Rural Acreage Class Standard</label>
@@ -773,6 +773,121 @@
                         <label><input type="checkbox" name="outbuildings_L15"> L15 - None</label><br>
                         <label><input type="checkbox" name="outbuildings_L16"> L16 - Other/See Remarks</label><br>
                     </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>M-RESTRICTIONS:</label><br>
+                        <label><input type="checkbox" name="restrictions_M1"> M1 - Mobile Home Restricted</label><br>
+                        <label><input type="checkbox" name="restrictions_M2"> M2 - Mobile Home Unrestricted</label><br>
+                        <label><input type="checkbox" name="restrictions_M3"> M3 - Exterior Restrictions</label><br>
+                        <label><input type="checkbox" name="restrictions_M4"> M4 - All Brick Veneer</label><br>
+                        <label><input type="checkbox" name="restrictions_M5"> M5 - Less Than 4/5 Brick Veneer</label><br>
+                        <label><input type="checkbox" name="restrictions_M6"> M6 - No Brick Veneer</label><br>
+                        <label><input type="checkbox" name="restrictions_M7"> M7 - SQFT Restrictions</label><br>
+                        <label><input type="checkbox" name="restrictions_M8"> M8 - No Animals</label><br>
+                        <label><input type="checkbox" name="restrictions_M9"> M9 - No Outbuildings</label><br>
+                        <label><input type="checkbox" name="restrictions_M10"> M10 - Deed Restrictions</label><br>
+                        <label><input type="checkbox" name="restrictions_M11"> M11 - None</label><br>
+                        <label><input type="checkbox" name="restrictions_M12"> M12 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>N-ROAD SURFACE (INTERIOR):</label><br>
+                        <label><input type="checkbox" name="road_surface_N1"> N1 - Concrete</label><br>
+                        <label><input type="checkbox" name="road_surface_N2"> N2 - Asphalt</label><br>
+                        <label><input type="checkbox" name="road_surface_N3"> N3 - Gravel</label><br>
+                        <label><input type="checkbox" name="road_surface_N4"> N4 - Oil</label><br>
+                        <label><input type="checkbox" name="road_surface_N5"> N5 - Dirt</label><br>
+                        <label><input type="checkbox" name="road_surface_N6"> N6 - ?</label><br>
+                        <label><input type="checkbox" name="road_surface_N7"> N7 - All Weather</label><br>
+                        <label><input type="checkbox" name="road_surface_N8"> N8 - Natural</label><br>
+                        <label><input type="checkbox" name="road_surface_N9"> N9 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>O-ROAD TYPE (ACCESS):</label><br>
+                        <label><input type="checkbox" name="road_type_O1"> O1 - City/Town Road</label><br>
+                        <label><input type="checkbox" name="road_type_O2"> O2 - County Maintained Road</label><br>
+                        <label><input type="checkbox" name="road_type_O3"> O3 - State/US Highway</label><br>
+                        <label><input type="checkbox" name="road_type_O4"> O4 - Interstate</label><br>
+                        <label><input type="checkbox" name="road_type_O5"> O5 - Private</label><br>
+                        <label><input type="checkbox" name="road_type_O6"> O6 - Unimproved</label><br>
+                        <label><input type="checkbox" name="road_type_O7"> O7 - All Weather</label><br>
+                        <label><input type="checkbox" name="road_type_O8"> O8 - Easements</label><br>
+                        <label><input type="checkbox" name="road_type_O9"> O9 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>P-SEWER:</label><br>
+                        <label><input type="checkbox" name="sewer_P1"> P1 - Public Sewer</label><br>
+                        <label><input type="checkbox" name="sewer_P2"> P2 - Conventional Septic</label><br>
+                        <label><input type="checkbox" name="sewer_P3"> P3 - Aerobic Septic System</label><br>
+                        <label><input type="checkbox" name="sewer_P4"> P4 - Private Sewer</label><br>
+                        <label><input type="checkbox" name="sewer_P5"> P5 - Sewer Available</label><br>
+                        <label><input type="checkbox" name="sewer_P6"> P6 - None</label><br>
+                        <label><input type="checkbox" name="sewer_P7"> P7 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>R-SOIL TYPE:</label><br>
+                        <label><input type="checkbox" name="soild_type_R1"> R1 - Sandy Loam</label><br>
+                        <label><input type="checkbox" name="soild_type_R2"> R2 - Black</label><br>
+                        <label><input type="checkbox" name="soild_type_R3"> R3 - Rocky</label><br>
+                        <label><input type="checkbox" name="soild_type_R4"> R4 - Clay</label><br>
+                        <label><input type="checkbox" name="soild_type_R5"> R5 - In Flood Plain</label><br>
+                        <label><input type="checkbox" name="soild_type_R6"> R6 - Iron Ore</label><br>
+                        <label><input type="checkbox" name="soild_type_R7"> R7 - Unknown</label><br>
+                        <label><input type="checkbox" name="soild_type_R8"> R8 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label><span class="red_asterisk">*</span>S-SPECIAL CONDITIONS:</label><br>
+                        <label><input type="checkbox" name="special_conditions_S1"> S1 - Owner-Agent</label><br>
+                        <label><input type="checkbox" name="special_conditions_S2"> S2 - Fees/Assessments Required</label><br>
+                        <label><input type="checkbox" name="special_conditions_S3"> S3 - Requires Flood Insurance</label><br>
+                        <label><input type="checkbox" name="special_conditions_S4"> S4 - Planned Unit Development</label><br>
+                        <label><input type="checkbox" name="special_conditions_S5"> S5 - Homeowner's Assn Dues</label><br>
+                        <label><input type="checkbox" name="special_conditions_S6"> S6 - HUD</label><br>
+                        <label><input type="checkbox" name="special_conditions_S7"> S7 - Special Cntrct/Provisions</label><br>
+                        <label><input type="checkbox" name="special_conditions_S8"> S8 - None</label><br>
+                        <label><input type="checkbox" name="special_conditions_S9"> S9 - Other/See Remarks</label><br>
+                        <label><input type="checkbox" name="special_conditions_S99"> S99 - Not Used</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>T-SURVEY AVAILABLE:</label><br>
+                        <label><input type="checkbox" name="survey_available_T1"> T1 - Available in Office</label><br>
+                        <label><input type="checkbox" name="survey_available_T2"> T2 - Plat</label><br>
+                        <label><input type="checkbox" name="survey_available_T3"> T3 - None</label><br>
+                        <label><input type="checkbox" name="survey_available_T4"> T4 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>U-TIMBER TYPE:</label><br>
+                        <label><input type="checkbox" name="timber_type_U1"> U1 - Partial Coverage</label><br>
+                        <label><input type="checkbox" name="timber_type_U2"> U2 - Cluster</label><br>
+                        <label><input type="checkbox" name="timber_type_U3"> U3 - Heavily Wooded</label><br>
+                        <label><input type="checkbox" name="timber_type_U4"> U4 - Hardwood</label><br>
+                        <label><input type="checkbox" name="timber_type_U5"> U5 - Softwood</label><br>
+                        <label><input type="checkbox" name="timber_type_U6"> U6 - Mixed</label><br>
+                        <label><input type="checkbox" name="timber_type_U7"> U7 - None</label><br>
+                        <label><input type="checkbox" name="timber_type_U8"> U8 - Unknown</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>V-TOPOGRAPHY:</label><br>
+                        <label><input type="checkbox" name="topography_V1"> V1 - Level</label><br>
+                        <label><input type="checkbox" name="topography_V2"> V2 - Rolling</label><br>
+                        <label><input type="checkbox" name="topography_V3"> V3 - Sloped</label><br>
+                        <label><input type="checkbox" name="topography_V4"> V4 - Hill Side</label><br>
+                        <label><input type="checkbox" name="topography_V5"> V5 - Steep</label><br>
+                        <label><input type="checkbox" name="topography_V6"> V6 - Fill Needed</label><br>
+                        <label><input type="checkbox" name="topography_V7"> V7 - Filled Land</label><br>
+                        <label><input type="checkbox" name="topography_V8"> V8 - Other/See Remarks</label><br>
+                    </div>
+                    <div class="section-block">
+                        <label>W-WATER:</label><br>
+                        <label><input type="checkbox" name="water_W1"> W1 - Public</label><br>
+                        <label><input type="checkbox" name="water_W2"> W2 - Private</label><br>
+                        <label><input type="checkbox" name="water_W3"> W3 - Well</label><br>
+                        <label><input type="checkbox" name="water_W4"> W4 - Community</label><br>
+                        <label><input type="checkbox" name="water_W5"> W5 - Municipal Utility Distric</label><br>
+                        <label><input type="checkbox" name="water_W6"> W6 - Cooperative</label><br>
+                        <label><input type="checkbox" name="water_W7"> W7 - Water Available</label><br>
+                        <label><input type="checkbox" name="water_W8"> W8 - Water Onsite</label><br>
+                        <label><input type="checkbox" name="water_W9"> W9 - None</label><br>
+                        <label><input type="checkbox" name="water_W10"> W10 - Other/See Remarks</label><br>
+                    </div>
                     <br>
                     <div>
                         <button type="submit">
@@ -784,11 +899,8 @@
             <!-- Report being worked on --->
             <div id="gt_residential_form">
                 <h2>Residential Data</h2>
-                <form name="tmp" class="frm">
-                    <div>
-                        <label for="txt12">Name</label>
-                        <input type="text" id="txt12" name="x" autocomplete="x" required placeholder="...">
-                    </div>
+                <form name="gt_residential_form" class="frm">
+                    <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
                             Save
@@ -798,7 +910,7 @@
             </div>
             <div id="gt_multifamily_form">
                 <h2>Multi-Family Data</h2>
-                <form name="tmp" class="frm">
+                <form name="gt_multifamily_form" class="frm">
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -809,7 +921,7 @@
             </div>
             <div id="gt_lots_form">
                 <h2>Lots Data</h2>
-                <form name="tmp" class="frm">
+                <form name="gt_lots_form" class="frm">
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -820,7 +932,7 @@
             </div>
             <div id="gt_farm_form">
                 <h2>Farm and Ranch Data</h2>
-                <form name="tmp" class="frm">
+                <form name="gt_farm_form" class="frm">
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -831,7 +943,7 @@
             </div>
             <div id="gt_commercial_form">
                 <h2>Commercial Data</h2>
-                <form name="tmp" class="frm">
+                <form name="gt_commercial_form" class="frm">
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -842,7 +954,7 @@
             </div>
             <div id="lv_farm_form">
                 <h2>Farm and Ranch Data</h2>
-                <form name="tmp" class="frm">
+                <form name="lv_farm_form" class="frm">
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -853,7 +965,7 @@
             </div>
             <div id="lv_land_form">
                 <h2>Land Data</h2>
-                <form name="tmp" class="frm">
+                <form name="lv_land_form" class="frm">
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -864,7 +976,7 @@
             </div>
             <div id="lv_commercial_form">
                 <h2>MLS - LAAR Commercial Data</h2>
-                <form name="tmp" class="frm">
+                <form name="lv_commercial_form" class="frm">
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -875,7 +987,7 @@
             </div>
             <div id="lv_multifamily_form">
                 <h2>MLS - LAAR Multi-Family Data</h2>
-                <form name="tmp" class="frm">
+                <form name="lv_multifamily_form" class="frm">
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -886,7 +998,7 @@
             </div>
             <div id="lv_residential_form">
                 <h2>Residential Data</h2>
-                <form name="tmp" class="frm">
+                <form name="lv_residential_form" class="frm">
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
