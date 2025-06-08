@@ -65,11 +65,13 @@ function toggleMenuItems() {
         const btnSignOff = document.getElementById('btnSignOff');
         const btnSignOn = document.getElementById('btnSignOn');
         const signOnName = document.getElementById('signon_name');
+        const btnMenu = document.getElementById('btnMenu');
 
         if (status == 'true') {     
             btnSignOn.style.display = 'none';
             btnSignOff.style.display = 'block';
             signOnName.style.display = 'block';
+            btnMenu.style.display = 'block';
             signOnName.textContent = window.localStorage.getItem("name");
             
         } else {
@@ -77,6 +79,7 @@ function toggleMenuItems() {
             btnSignOff.style.display = 'none';
             signOnName.textContent = "";
             signOnName.style.display = 'none';
+            btnMenu.style.display = 'none'
         }
     }
     catch (ex) {
@@ -329,6 +332,9 @@ function signOffHandler() {
 
         const btnSignOff = document.getElementById('btnSignOff');
         btnSignOff.style.display = 'none';
+
+        const btnMenu = document.getElementById('btnMenu');
+        btnMenu.style.display = 'none'
 
         changePage('home');
     }
