@@ -47,14 +47,19 @@ function toggleReport(name) {
 
     if (panel != null && panel.style != null) {
         let currentState = panel.style.display;
+        let panelForm = document.forms[name];
+
         console.log(`${name}: current display value "${panel.style.display}"`);
 
         if (currentState == '') {
             panel.style.display = "block";
+            panelForm.addEventListener('submit', (event) => { formDataHandler(event, panelForm) } , true);
         } else if (currentState == 'none') {
+            panelForm.addEventListener('submit', (event) => { formDataHandler(event, panelForm) } , true);
             panel.style.display = "block";
         } else {
             panel.style.display = "none";
+            panelForm.removeEventListener('submit', (event) => { formDataHandler(event, panelForm) } , true);
         }
     }
 }
@@ -276,6 +281,7 @@ async function signUpHandler(event, frm) {
             try {
                 hashedcode = await hashString(password);
                 window.localStorage.setItem("hashedcode", hashedcode);
+                window.localStorage.setItem("appToken", "L4-beta-20250608");
             }
             catch (ex) {
                 console.log(`Error saving hash: ${hashedcode} Error Message: ${ex.message}`);
@@ -343,6 +349,30 @@ function signOffHandler() {
     }
 }
 
+function formDataHandler(event, frm) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    if (frm != null && frm.elements != null) {
+        let formData = [];
+        const submittedDate = Date(Date.UTC());
+        const user_name = window.localStorage.getItem("name");
+
+        for (let i=0; i < frm.elements.length-1; i++) {
+            const field = frm.elements[i];
+
+            if (field != null && field.name != null) {
+                formData.push({ "submitted": submittedDate, "owner": user_name, "form_name": frm.name, "field_order": i, "field_name": frm.name, "field_value": field.value });
+            }
+        }
+        // Optionally, clear the form after successful submission
+        frm.reset();
+
+        toggleMessagePanel('msgpanel', JSON.stringify(formData));
+        //console.log("DB Storeage", formData);
+    }
+}
+
 /**
  * Hashes a string using SHA-256.
  * @param {string} message - The string to hash.
@@ -356,3 +386,41 @@ async function hashString(message) {
     const hexHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     return hexHash;
 }
+
+let db;
+let activeIndex;
+
+function openDb() {
+    console.log("Opening database...");
+    const dbreq = window.indexedDB("L4PropertiesListing", 1);
+
+    dbreq.onsuccess = function (event) {
+        db = dbreq.result;
+        console.log("Database is opened!");
+    }
+
+    dbreq.onerror = function (event) {
+        console.error("openDb", event.target.errorCode);
+    }
+
+    dbreq.onupgradeneeded = function (event) {
+        console.log("openDb.onupgradeneeded...");
+        const dbx = event.currentTarget.result;
+
+        let store = db.createObjectStore("propertylistings", { keyPath: 'id', autoIncrement: ture });
+        store.createIndex("owner", { unique: false });
+        store.createIndex("submitted", { unique: false });
+        store.createIndex("form_name", { unique: false });
+        store.createIndex("field_name", { unique: false });
+    }
+}
+
+/**
+ * @param (string) store_name
+ * @param (string) mode either "readonly" or "readwrite"
+ */
+function getObjectStore(store_name, mode) {
+    let tx = db.transaction(store_name, mode);
+    return tx.objectStore(store_name);
+}
+
