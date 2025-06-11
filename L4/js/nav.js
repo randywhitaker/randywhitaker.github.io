@@ -48,22 +48,40 @@ function toggleReport(name) {
     if (panel != null && panel.style != null) {
         let currentState = panel.style.display;
         let panelForm = document.forms[name];
-
-        console.log(`${name}: current display value "${panel.style.display}"`);
+        //console.log(`Name: ${name} Display Value: '${panel.style.display}' Panel Form:`, panelForm);
 
         if (currentState == '') {
+            resetReports();
             panel.style.display = "block";
             panelForm.addEventListener('submit', (event) => { formDataHandler(event, panelForm) } , true);
         } else if (currentState == 'none') {
-            panelForm.addEventListener('submit', (event) => { formDataHandler(event, panelForm) } , true);
+            resetReports();
             panel.style.display = "block";
+            panelForm.addEventListener('submit', (event) => { formDataHandler(event, panelForm) } , true);
         } else {
-            panel.style.display = "none";
             panelForm.removeEventListener('submit', (event) => { formDataHandler(event, panelForm) } , true);
+            document.getElementById('main-container').style.display = "block";
+            panel.style.display = "none";
         }
     }
 }
 
+function resetReports() {
+    document.getElementById("menu-dropdown-content").style.display = "none";
+    document.getElementById("listing_form").style.display = "none";
+    document.getElementById("offer_form").style.display = "none";
+    document.getElementById("gt_rural_form").style.display = "none";
+    document.getElementById("gt_residential_form").style.display = "none";
+    document.getElementById("gt_multifamily_form").style.display = "none";
+    document.getElementById("gt_lots_form").style.display = "none";
+    document.getElementById("gt_farm_form").style.display = "none";
+    document.getElementById("gt_commercial_form").style.display = "none";
+    document.getElementById("lv_farm_form").style.display = "none";
+    document.getElementById("lv_land_form").style.display = "none";
+    document.getElementById("lv_commercial_form").style.display = "none";
+    document.getElementById("lv_multifamily_form").style.display = "none";
+    document.getElementById("lv_residential_form").style.display = "none";
+}
 function toggleMenuItems() {
     try {
         const status = window.localStorage.getItem("name_active");
@@ -349,27 +367,88 @@ function signOffHandler() {
     }
 }
 
+
+function requiredCheckbox(form_name) {
+    let frm = document.forms[form_name];
+    let validationStatus = true;
+
+    const groups = frm.querySelectorAll('div.require-checkbox');
+    if (groups != null && groups.length > 0) {
+
+        for (let i=0; i < groups.length-1; i++) {
+            const item = groups[i];
+
+            let req_name = "Unknown";
+            let lbls = item.querySelectorAll('label > span.red_asterisk');
+            if (lbls != null && lbls.length > 0) {
+                req_name = lbls[0].parentElement.textContent;
+                //console.log(`element: ${req_name}`);
+            }
+
+            const chks = item.querySelectorAll('input[type="checkbox"]');
+            if (chks != null && chks.length > 0) {
+
+                let hasOneChecked = false;
+                chks.forEach((chk) => {
+                    if (chk.checked == true) {
+                        hasOneChecked = true;
+                    }
+                    //console.log(`input: ${chk.name}`, chk.checked);
+                })
+
+                if (hasOneChecked == true) {
+                    //console.log("*** Valid ***");
+                    continue;
+                } else {
+                    let p = document.createElement("p");
+                    p.style.color = "red";
+                    p.style.padding = '15px';
+                    p.style.border = '1px solid red';
+                    p.id='requireMessage';
+                    p.innerHTML = `Atleaset one item must be checked on *${req_name}** before saving data`;
+                    item.addEventListener('click', () => {
+                        const p_msg = document.getElementById('requireMessage');
+                        p_msg.remove();
+                    }, { once: true });
+                    item.append(p);
+                    item.focus();
+                    item.scrollIntoView({ behavior: 'smooth', block: 'center'});
+                    validationStatus = false;
+                    break;
+                }
+            }
+
+        }
+    }
+
+    return validationStatus;
+}
+
 function formDataHandler(event, frm) {
     // Prevent the default form submission behavior
     event.preventDefault();
 
-    if (frm != null && frm.elements != null) {
-        let formData = [];
-        const submittedDate = Date(Date.UTC());
-        const user_name = window.localStorage.getItem("name");
+    if (requiredCheckbox(frm.name) == true) {
 
-        for (let i=0; i < frm.elements.length-1; i++) {
-            const field = frm.elements[i];
+        if (frm != null && frm.elements != null) {
+            let formData = [];
+            const submittedDate = Date(Date.UTC());
+            const user_name = window.localStorage.getItem("name");
 
-            if (field != null && field.name != null) {
-                formData.push({ "submitted": submittedDate, "owner": user_name, "form_name": frm.name, "field_order": i, "field_name": frm.name, "field_value": field.value });
+            for (let i=0; i < frm.elements.length-1; i++) {
+                const field = frm.elements[i];
+
+                if (field != null && field.name != null) {
+                    formData.push({ "submitted": submittedDate, "owner": user_name, "form_name": frm.name, "field_order": i, "field_name": field.name, "field_value": field.value });
+                }
             }
-        }
-        // Optionally, clear the form after successful submission
-        frm.reset();
+            // Optionally, clear the form after successful submission
+            frm.reset();
 
-        toggleMessagePanel('msgpanel', JSON.stringify(formData));
-        //console.log("DB Storeage", formData);
+            storeReportData(formData);
+            //console.log("DB Storeage", formData);
+        }
+
     }
 }
 
@@ -389,10 +468,12 @@ async function hashString(message) {
 
 let db;
 let activeIndex;
+const OBJECT_STORE_NAME = "propertylistings";
+openDb();
 
 function openDb() {
     console.log("Opening database...");
-    const dbreq = window.indexedDB("L4PropertiesListing", 1);
+    const dbreq = window.indexedDB.open("L4PropertiesListing", 1);
 
     dbreq.onsuccess = function (event) {
         db = dbreq.result;
@@ -407,11 +488,10 @@ function openDb() {
         console.log("openDb.onupgradeneeded...");
         const dbx = event.currentTarget.result;
 
-        let store = db.createObjectStore("propertylistings", { keyPath: 'id', autoIncrement: ture });
-        store.createIndex("owner", { unique: false });
-        store.createIndex("submitted", { unique: false });
-        store.createIndex("form_name", { unique: false });
-        store.createIndex("field_name", { unique: false });
+        let store = dbx.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id', autoIncrement: true });
+        //store.createIndex("owner", { unique: false });
+        //store.createIndex("form_name", "form_name", { unique: false });
+        //store.createIndex("submitted", { unique: false });
     }
 }
 
@@ -424,3 +504,23 @@ function getObjectStore(store_name, mode) {
     return tx.objectStore(store_name);
 }
 
+function storeReportData(formData) {
+
+    try {
+        
+        console.log("fetching object store now...");
+
+        if (db != null && db.transaction != null) {
+            let tx = db.transaction(OBJECT_STORE_NAME, "readwrite");
+            console.log("We have a database transaction now!");
+
+            let propObjectStore = tx.objectStore(OBJECT_STORE_NAME);
+            propObjectStore.add(formData);
+        }
+    }
+    catch (ex) {
+        console.log('Error saving form data into database:', ex);
+    }
+
+    toggleMessagePanel('msgpanel', JSON.stringify(formData));
+}
