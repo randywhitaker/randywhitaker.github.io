@@ -108,16 +108,6 @@ ul, li {
     padding: 15px;
 }
 
-/* responsive layouts */
-@media screen and (max-width: 980px) {
-    .left-panel, .main-panel {
-        grid-column: span 2;
-    }
-    .left-panel {
-        display: none;
-    }
-}
-
 /* responsive forms */
 .frm > div > label {
     display: block;
@@ -277,4 +267,44 @@ input[type="number"] {
 
 .rpt button:hover {
     background-color: #0056b3;
+}
+
+/* responsive layouts */
+@media screen and (max-width: 980px) {
+    .left-panel, .main-panel {
+        grid-column: span 2;
+    }
+    .left-panel {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 850px) {
+    .left-panel, .main-panel {
+        grid-column: span 2;
+    }
+    .left-panel {
+        display: none;
+    }
+    .section-container-3col {
+        border: 1px solid #000;
+        margin-bottom: 10px;
+    }
+    .section-container {
+        margin-bottom: 10px;
+    }
+
+    .section-group {
+        grid-column: span 3;
+        padding: 15px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    .section-footer {
+        border: none;
+    }
+    .b-bot {
+        border: none;
+    }
 }
