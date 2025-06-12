@@ -279,7 +279,7 @@ input[type="number"] {
     }
 }
 
-@media screen and (min-width: 480px) and (max-width: 850px) {
+@media screen and (min-width: 300px) and (max-width: 850px) {
     .left-panel, .main-panel {
         grid-column: span 2;
     }
@@ -289,7 +289,6 @@ input[type="number"] {
     .section-container-3col {
         border: 1px solid #000;
         margin-bottom: 10px;
-        background-color: lightgreen;
     }
     .section-container {
         margin-bottom: 10px;
