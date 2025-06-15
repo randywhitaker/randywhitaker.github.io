@@ -308,3 +308,24 @@ input[type="number"] {
         border: none;
     }
 }
+
+@media print {
+    .page-header {
+        display: none !important;
+    }
+    .page-footer {
+        display: none;
+    }
+    .left-panel {
+        display: none;
+    }
+    .main-panel {
+        grid-column: span 2;
+    }
+    button {
+        display: none;
+    }
+    textarea {
+        height: 600px;
+    }
+}
