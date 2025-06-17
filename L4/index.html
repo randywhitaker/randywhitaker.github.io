@@ -166,9 +166,9 @@
                     </div>-->
                     <div>
                         <button type="submit">
-                            Save
+                            Save/Print
                         </button>
-                        &nbsp;&nbsp;<button type="button" onclick="window.print()">Print</button>
+                        <!--&nbsp;&nbsp;<button type="button" onclick="window.print()">Print</button>-->
                     </div>
                 </form>
             </div>
@@ -209,7 +209,7 @@
                         <input type="text" id="offer_county" name="county">
                     </div>
                     <div>
-                        <label for="offer_price">Offer Price</label>
+                        <label for="offer_price"><span class="red_asterisk">*</span><strong>Offer Price</strong></label>
                         <input type="number" id="offer_price" name="offer_price" step="0.01" min="0" required placeholder="0.00">
                     </div>
                     <div>
@@ -271,9 +271,9 @@
                     </div>
                     <div>
                         <button type="submit">
-                            Save
+                            Save/Print
                         </button>
-                        &nbsp;&nbsp;<button type="button" onclick="window.print()">Print</button>
+                        <!--&nbsp;&nbsp;<button type="button" onclick="window.print()">Print</button>-->
                     </div>
                 </form>
             </div>
@@ -311,8 +311,8 @@
                             <input type="number" step="0.01" min="0" required name="list_price">
                             <label>Rent Price $:</label>
                             <input type="number" step="0.01" min="0" name="rent_price"><br>
-                            <label><span class="red_asterisk">*</span><strong>Address:</strong></label>
-                            <input type="text" required name="address"><br>
+                            <label for="gt_rural_address"><span class="red_asterisk">*</span><strong>Address:</strong></label>
+                            <input type="text" id="gt_rural_address" required name="address"><br>
                             <label><span class="red_asterisk">*</span><strong>City:</strong></label>
                             <input type="text" required name="city"><span>(Lookup)</span><br>
                             <label><span class="red_asterisk">*</span><strong>State:</strong></label>
@@ -983,9 +983,9 @@
                     <br>
                     <div>
                         <button type="submit">
-                            Save
+                            Save/Print
                         </button>
-                        &nbsp;&nbsp;<button type="button" onclick="window.print()">Print</button>
+                        <!--&nbsp;&nbsp;<button type="button" onclick="window.print()">Print</button>-->
                     </div>
                 </form>
             </div>

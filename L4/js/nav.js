@@ -45,6 +45,20 @@ function toggleReport(name) {
         menu.style.display = "none";
     }
 
+    switch (name) {
+        case 'listing_form':
+            document.title = "Listing Info";
+            break;
+        case 'offer_form':
+            document.title = "Offer Info";
+            break;
+        case 'gt_rural_form':
+            document.title = "Rural Acreage";
+            break;
+        default:
+            document.title = "Property App";
+    }
+
     if (panel != null && panel.style != null) {
         let currentState = panel.style.display;
         let panelForm = document.forms[name];
@@ -371,7 +385,7 @@ function signOffHandler() {
 function requiredCheckbox(form_name) {
     let frm = document.forms[form_name];
     let validationStatus = true;
-
+ 
     const groups = frm.querySelectorAll('div.require-checkbox');
     if (groups != null && groups.length > 0) {
 
@@ -443,9 +457,49 @@ function formDataHandler(event, frm) {
                 }
             }
             // Optionally, clear the form after successful submission
-            frm.reset();
+            //frm.reset();
 
             storeReportData(formData);
+
+            let print_address = "";
+            let print_title = "";
+
+            if (frm.name == 'listing_form') {
+                print_title = "Listing Info";
+
+                const lst_address = document.getElementById("listing_property_address");
+                if (lst_address != null) {
+                    console.log(`${print_title} - ${lst_address.value}`);
+                    print_address = lst_address.value;
+                }
+                document.title = `${print_title} - ${print_address}`;
+                window.print();
+
+            } else if (frm.name == 'offer_form') {
+                print_title = "Offer Info";
+
+                const lst_address = document.getElementById("offer_property_address");
+                if (lst_address != null) {
+                    console.log(`${print_title} - ${lst_address.value}`);
+                    print_address = lst_address.value;
+                }
+                document.title = `${print_title} - ${print_address}`;
+                window.print();
+
+            } else if (frm.name == 'gt_rural_form') {
+                print_title = "Rural Acreage";
+
+                const lst_address = document.getElementById("gt_rural_address");
+                if (lst_address != null) {
+                    console.log(`${print_title} - ${lst_address.value}`);
+                    print_address = lst_address.value;
+                }
+                document.title = `${print_title} - ${print_address}`;
+                window.print();
+
+            } else {
+                document.title = "Property App";
+            }
             //console.log("DB Storeage", formData);
         }
 
@@ -485,7 +539,7 @@ function openDb() {
     }
 
     dbreq.onupgradeneeded = function (event) {
-        console.log("openDb.onupgradeneeded...");
+        //console.log("openDb.onupgradeneeded...");
         const dbx = event.currentTarget.result;
 
         let store = dbx.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id', autoIncrement: true });
@@ -508,11 +562,11 @@ function storeReportData(formData) {
 
     try {
         
-        console.log("fetching object store now...");
+        //console.log("fetching object store now...");
 
         if (db != null && db.transaction != null) {
             let tx = db.transaction(OBJECT_STORE_NAME, "readwrite");
-            console.log("We have a database transaction now!");
+            //console.log("We have a database transaction now!");
 
             let propObjectStore = tx.objectStore(OBJECT_STORE_NAME);
             propObjectStore.add(formData);
@@ -522,5 +576,6 @@ function storeReportData(formData) {
         console.log('Error saving form data into database:', ex);
     }
 
-    toggleMessagePanel('msgpanel', JSON.stringify(formData));
+    //toggleMessagePanel('msgpanel', JSON.stringify(formData));
+    toggleMessagePanel('msgpanel', "All data saved!");
 }
