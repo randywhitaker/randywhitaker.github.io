@@ -462,17 +462,17 @@ function formDataHandler(event, frm) {
             storeReportData(formData);
 
             let print_address = "";
-            let print_title = "";
+            let print_title = "Missing";
 
             if (frm.name == 'listing_form') {
                 print_title = "Listing Info";
 
                 const lst_address = document.getElementById("listing_property_address");
                 if (lst_address != null) {
-                    console.log(`${print_title} - ${lst_address.value}`);
+                    console.log(`${print_title} ${lst_address.value}`);
                     print_address = lst_address.value;
                 }
-                document.title = `${print_title} - ${print_address}`;
+                document.title = `${print_title} ${print_address}`;
                 window.print();
 
             } else if (frm.name == 'offer_form') {
@@ -480,10 +480,10 @@ function formDataHandler(event, frm) {
 
                 const lst_address = document.getElementById("offer_property_address");
                 if (lst_address != null) {
-                    console.log(`${print_title} - ${lst_address.value}`);
+                    console.log(`${print_title} ${lst_address.value}`);
                     print_address = lst_address.value;
                 }
-                document.title = `${print_title} - ${print_address}`;
+                document.title = `${print_title} ${print_address}`;
                 window.print();
 
             } else if (frm.name == 'gt_rural_form') {
@@ -491,15 +491,17 @@ function formDataHandler(event, frm) {
 
                 const lst_address = document.getElementById("gt_rural_address");
                 if (lst_address != null) {
-                    console.log(`${print_title} - ${lst_address.value}`);
+                    console.log(`${print_title} ${lst_address.value}`);
                     print_address = lst_address.value;
                 }
-                document.title = `${print_title} - ${print_address}`;
+                document.title = `${print_title} ${print_address}`;
                 window.print();
 
             } else {
                 document.title = "Property App";
             }
+
+            toggleMessagePanel('msgpanel', `Updated page title: ${print_title} ${print_address}`);
             //console.log("DB Storeage", formData);
         }
 
