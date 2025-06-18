@@ -473,7 +473,7 @@ function formDataHandler(event, frm) {
                     print_address = lst_address.value;
                 }
                 document.title = `${print_title} ${print_address}`;
-                window.print();
+                setTimeout(function() { window.print(); }, 6000);
 
             } else if (frm.name == 'offer_form') {
                 print_title = "Offer Info";
@@ -484,7 +484,7 @@ function formDataHandler(event, frm) {
                     print_address = lst_address.value;
                 }
                 document.title = `${print_title} ${print_address}`;
-                window.print();
+                setTimeout(function() { window.print(); }, 6000);
 
             } else if (frm.name == 'gt_rural_form') {
                 print_title = "Rural Acreage";
@@ -495,7 +495,7 @@ function formDataHandler(event, frm) {
                     print_address = lst_address.value;
                 }
                 document.title = `${print_title} ${print_address}`;
-                window.print();
+                setTimeout(function() { window.print(); }, 6000);
 
             } else {
                 document.title = "Property App";
