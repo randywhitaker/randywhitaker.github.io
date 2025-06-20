@@ -170,6 +170,7 @@ input[type="number"] {
     font-size: 16px;
     font-weight: 500;
 }
+
 .red_asterisk {
     color: red;
 }
@@ -268,6 +269,52 @@ input[type="number"] {
 .rpt button:hover {
     background-color: #0056b3;
 }
+
+
+/* Longview Page header starts here */
+
+.longview-header {
+    display: flex;
+    align-items: center;
+}
+
+.longview-logo {
+    flex-grow: 1;
+    padding: 0px 15px;
+}
+
+.longview-title {
+    flex-grow: 2;
+    display: inline-block;
+    padding: 20px 60px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.longview-mls {
+    flex-grow: 1;
+    padding: 0px 15px;
+    text-align: right;
+}
+.longview-mls input[type="text"] {
+    width: calc(50% - 12px); /* Adjust for padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are inside the element's width */
+    font-size: 16px;
+}
+
+.section-info {
+    padding: 1px 15px;
+    border: 1px solid #000;
+    text-align: center;
+}
+/* Longview Page header ends here */
+
+
 
 /* responsive layouts */
 @media screen and (max-width: 980px) {

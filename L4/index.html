@@ -1045,10 +1045,29 @@
                     </div>
                 </form>
             </div>
+<!-- longview page starts here -->
             <div id="lv_farm_form">
-                <h2>Farm and Ranch Data</h2>
+                <header class="longview-header">
+                    <div class="longview-logo">
+                        <img src="icons/longview_logo.png" width="150px" alt="report logo">
+                    </div>
+                    <div class="longview-title">
+                        <label>
+                            Mu;tiple Listing Services of the <br>
+                            Longview Area Association of REALTORS&copy;<br>
+                            Farm & Ranch Form
+                        </label><br>
+                        <small>Fields marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required.</small>
+                    </div>
+                    <div class="longview-mls">
+                        <label>MLS #:</label>
+                        <input type="text" name="mls_number">
+                    </div>
+                </header>
+                <div class="section-group">
+                    <p class="section-info">STANDARD SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.</p>
+                </div>
                 <form name="lv_farm_form" class="frm">
-                    <!-- page starts here -->
                     <div class="section-container-3col">
                         <div class="section-group">
                             <div class="section-inline-block">
@@ -1382,9 +1401,112 @@
                     <!-- page ends here -->
                 </form>
             </div>
+<!-- longview page starts here -->
             <div id="lv_land_form">
-                <h2>Land Data</h2>
+                <header class="longview-header">
+                    <div class="longview-logo">
+                        <img src="icons/longview_logo.png" width="150px" alt="report logo">
+                    </div>
+                    <div class="longview-title">
+                        <label>
+                            Mu;tiple Listing Services of the <br>
+                            Longview Area Association of REALTORS&copy;<br>
+                            Land Data Form
+                        </label><br>
+                        <small>Fields marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required.</small>
+                    </div>
+                    <div class="longview-mls">
+                        <label>MLS #:</label>
+                        <input type="text" name="mls_number">
+                    </div>
+                </header>
+                <div class="section-group">
+                    <p class="section-info">STANDARD SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.</p>
+                </div>
                 <form name="lv_land_form" class="frm">
+                    <div class="section-container-3col">
+                        <div class="section-group">
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>Type</strong></label><br>
+                                <label><input type="checkbox" name="property_type_duplex"> Lot</label><br>
+                                <label><input type="checkbox" name="property_type_triplex"> Acreage</label><br>
+                                <label><input type="checkbox" name="property_type_fourplex"> Farm/Ranch</label><br>
+                                <label><input type="checkbox" name="property_type_apts_studio"> Waterfront</label><br>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>IDX</strong></label><br>
+                                <label><input type="checkbox" name="idx_include_yes"> Yes</label><br>
+                                <label><input type="checkbox" name="idx_include_no"> No</label><br>
+                                <label><input type="checkbox" name="idx_include_yes"> Yes - Without Address</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label><br>
+                                <label><input type="checkbox" name="vow_include_yes"> Yes</label><br>
+                                <label><input type="checkbox" name="vow_include_no"> No</label>
+                            </div>
+                        </div>
+                        <div class="section-group">
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Area:</strong></label>
+                                <input type="text" required name="area"><span>(Lookup)</span>
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>List Price $:</strong></label>
+                                <input type="number" step="0.01" min="0" required name="list_price">
+                            </div>
+                            <div>
+                                <label>Lease/Rent Price $:</label>
+                                <input type="number" step="0.01" min="0" required name="rent_price">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Address:</strong></label>
+                                <input type="text" required name="address">
+                            </div>
+                            <div>
+                                <label>Address 2:</label>
+                                <input type="text" required name="address_2">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>City:</strong></label>
+                                <input type="text" required name="city">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>State:</strong></label>
+                                <input type="text" required name="state">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Zip:</strong></label>
+                                <input type="text" required name="zip">
+                            </div>
+                        </div>
+                        <div class="section-group">
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>Status</strong></label><br>
+                                <label><input type="checkbox" name="status_active"> Active</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label><br>
+                                <label><input type="checkbox" name="for_sale"> For Sale</label><br>
+                                <label><input type="checkbox" name="for_rent"> For Rent</label><br>
+                                <label><input type="checkbox" name="for_sale_or_rent"> For Sale or For Rent</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label><br>
+                                <label><input type="checkbox" name="vow_address_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_address_no"> No</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label><br>
+                                <label><input type="checkbox" name="vow_comment_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_comment_no"> No</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label><br>
+                                <label><input type="checkbox" name="vow_avm_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_avm_no"> No</label>
+                            </div>
+                        </div>
+                    </div>
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -1393,9 +1515,112 @@
                     </div>
                 </form>
             </div>
+<!-- longview page starts here -->
             <div id="lv_commercial_form">
-                <h2>MLS - LAAR Commercial Data</h2>
+                <header class="longview-header">
+                    <div class="longview-logo">
+                        <img src="icons/longview_logo.png" width="150px" alt="report logo">
+                    </div>
+                    <div class="longview-title">
+                        <label>
+                            Mu;tiple Listing Services of the <br>
+                            Longview Area Association of REALTORS&copy;<br>
+                            Commercial Data Form
+                        </label><br>
+                        <small>Fields marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required.</small>
+                    </div>
+                    <div class="longview-mls">
+                        <label>MLS #:</label>
+                        <input type="text" name="mls_number">
+                    </div>
+                </header>
+                <div class="section-group">
+                    <p class="section-info">STANDARD SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.</p>
+                </div>
                 <form name="lv_commercial_form" class="frm">
+                    <div class="section-container-3col">
+                        <div class="section-group">
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>Type</strong></label><br>
+                                <label><input type="checkbox" name="property_type_duplex"> Commercial</label><br>
+                                <label><input type="checkbox" name="property_type_triplex"> Industrial</label><br>
+                                <label><input type="checkbox" name="property_type_fourplex"> Office</label><br>
+                                <label><input type="checkbox" name="property_type_apts_studio"> Apartment</label><br>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>IDX</strong></label><br>
+                                <label><input type="checkbox" name="idx_include_yes"> Yes</label><br>
+                                <label><input type="checkbox" name="idx_include_no"> No</label><br>
+                                <label><input type="checkbox" name="idx_include_yes"> Yes - Without Address</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label><br>
+                                <label><input type="checkbox" name="vow_include_yes"> Yes</label><br>
+                                <label><input type="checkbox" name="vow_include_no"> No</label>
+                            </div>
+                        </div>
+                        <div class="section-group">
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Area:</strong></label>
+                                <input type="text" required name="area"><span>(Lookup)</span>
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>List Price $:</strong></label>
+                                <input type="number" step="0.01" min="0" required name="list_price">
+                            </div>
+                            <div>
+                                <label>Lease/Rent Price $:</label>
+                                <input type="number" step="0.01" min="0" required name="rent_price">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Address:</strong></label>
+                                <input type="text" required name="address">
+                            </div>
+                            <div>
+                                <label>Address 2:</label>
+                                <input type="text" required name="address_2">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>City:</strong></label>
+                                <input type="text" required name="city">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>State:</strong></label>
+                                <input type="text" required name="state">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Zip:</strong></label>
+                                <input type="text" required name="zip">
+                            </div>
+                        </div>
+                        <div class="section-group">
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>Status</strong></label><br>
+                                <label><input type="checkbox" name="status_active"> Active</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label><br>
+                                <label><input type="checkbox" name="for_sale"> For Sale</label><br>
+                                <label><input type="checkbox" name="for_rent"> For Rent</label><br>
+                                <label><input type="checkbox" name="for_sale_or_rent"> For Sale or For Rent</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label><br>
+                                <label><input type="checkbox" name="vow_address_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_address_no"> No</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label><br>
+                                <label><input type="checkbox" name="vow_comment_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_comment_no"> No</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label><br>
+                                <label><input type="checkbox" name="vow_avm_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_avm_no"> No</label>
+                            </div>
+                        </div>
+                    </div>
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -1404,9 +1629,113 @@
                     </div>
                 </form>
             </div>
+<!-- longview page starts here -->
             <div id="lv_multifamily_form">
-                <h2>MLS - LAAR Multi-Family Data</h2>
+                <header class="longview-header">
+                    <div class="longview-logo">
+                        <img src="icons/longview_logo.png" width="150px" alt="report logo">
+                    </div>
+                    <div class="longview-title">
+                        <label>
+                            Mu;tiple Listing Services of the <br>
+                            Longview Area Association of REALTORS&copy;<br>
+                            Multi-Family Data Form
+                        </label><br>
+                        <small>Fields marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required.</small>
+                    </div>
+                    <div class="longview-mls">
+                        <label>MLS #:</label>
+                        <input type="text" name="mls_number">
+                    </div>
+                </header>
+                <div class="section-group">
+                    <p class="section-info">STANDARD SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.</p>
+                </div>
                 <form name="lv_multifamily_form" class="frm">
+                    <div class="section-container-3col">
+                        <div class="section-group">
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>Type</strong></label><br>
+                                <label><input type="checkbox" name="property_type_duplex"> Duplex</label><br>
+                                <label><input type="checkbox" name="property_type_triplex"> Triplex</label><br>
+                                <label><input type="checkbox" name="property_type_fourplex"> Fourplex</label><br>
+                                <label><input type="checkbox" name="property_type_apts_studio"> Apts/Studio</label><br>
+                                <label><input type="checkbox" name="property_type_other"> Other</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>IDX</strong></label><br>
+                                <label><input type="checkbox" name="idx_include_yes"> Yes</label><br>
+                                <label><input type="checkbox" name="idx_include_no"> No</label><br>
+                                <label><input type="checkbox" name="idx_include_yes"> Yes - Without Address</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label><br>
+                                <label><input type="checkbox" name="vow_include_yes"> Yes</label><br>
+                                <label><input type="checkbox" name="vow_include_no"> No</label>
+                            </div>
+                        </div>
+                        <div class="section-group">
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Area:</strong></label>
+                                <input type="text" required name="area"><span>(Lookup)</span>
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>List Price $:</strong></label>
+                                <input type="number" step="0.01" min="0" required name="list_price">
+                            </div>
+                            <div>
+                                <label>Lease/Rent Price $:</label>
+                                <input type="number" step="0.01" min="0" required name="rent_price">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Address:</strong></label>
+                                <input type="text" required name="address">
+                            </div>
+                            <div>
+                                <label>Address 2:</label>
+                                <input type="text" required name="address_2">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>City:</strong></label>
+                                <input type="text" required name="city">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>State:</strong></label>
+                                <input type="text" required name="state">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Zip:</strong></label>
+                                <input type="text" required name="zip">
+                            </div>
+                        </div>
+                        <div class="section-group">
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>Status</strong></label><br>
+                                <label><input type="checkbox" name="status_active"> Active</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label><br>
+                                <label><input type="checkbox" name="for_sale"> For Sale</label><br>
+                                <label><input type="checkbox" name="for_rent"> For Rent</label><br>
+                                <label><input type="checkbox" name="for_sale_or_rent"> For Sale or For Rent</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label><br>
+                                <label><input type="checkbox" name="vow_address_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_address_no"> No</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label><br>
+                                <label><input type="checkbox" name="vow_comment_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_comment_no"> No</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label><br>
+                                <label><input type="checkbox" name="vow_avm_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_avm_no"> No</label>
+                            </div>
+                        </div>
+                    </div>
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -1415,9 +1744,112 @@
                     </div>
                 </form>
             </div>
+<!-- longview page starts here -->
             <div id="lv_residential_form">
-                <h2>Residential Data</h2>
+                <header class="longview-header">
+                    <div class="longview-logo">
+                        <img src="icons/longview_logo.png" width="150px" alt="report logo">
+                    </div>
+                    <div class="longview-title">
+                        <label>
+                            Mu;tiple Listing Services of the <br>
+                            Longview Area Association of REALTORS&copy;<br>
+                            Residential Data Form
+                        </label><br>
+                        <small>Fields marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required.</small>
+                    </div>
+                    <div class="longview-mls">
+                        <label>MLS #:</label>
+                        <input type="text" name="mls_number">
+                    </div>
+                </header>
+                <div class="section-group">
+                    <p class="section-info">STANDARD SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.</p>
+                </div>
                 <form name="lv_residential_form" class="frm">
+                    <div class="section-container-3col">
+                        <div class="section-group">
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>Type</strong></label><br>
+                                <label><input type="checkbox" name="property_type_duplex"> Single Family</label><br>
+                                <label><input type="checkbox" name="property_type_triplex"> Townhouse</label><br>
+                                <label><input type="checkbox" name="property_type_fourplex"> Manufactured</label><br>
+                                <label><input type="checkbox" name="property_type_apts_studio"> Condo</label><br>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>IDX</strong></label><br>
+                                <label><input type="checkbox" name="idx_include_yes"> Yes</label><br>
+                                <label><input type="checkbox" name="idx_include_no"> No</label><br>
+                                <label><input type="checkbox" name="idx_include_yes"> Yes - Without Address</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label><br>
+                                <label><input type="checkbox" name="vow_include_yes"> Yes</label><br>
+                                <label><input type="checkbox" name="vow_include_no"> No</label>
+                            </div>
+                        </div>
+                        <div class="section-group">
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Area:</strong></label>
+                                <input type="text" required name="area"><span>(Lookup)</span>
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>List Price $:</strong></label>
+                                <input type="number" step="0.01" min="0" required name="list_price">
+                            </div>
+                            <div>
+                                <label>Lease/Rent Price $:</label>
+                                <input type="number" step="0.01" min="0" required name="rent_price">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Address:</strong></label>
+                                <input type="text" required name="address">
+                            </div>
+                            <div>
+                                <label>Address 2:</label>
+                                <input type="text" required name="address_2">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>City:</strong></label>
+                                <input type="text" required name="city">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>State:</strong></label>
+                                <input type="text" required name="state">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Zip:</strong></label>
+                                <input type="text" required name="zip">
+                            </div>
+                        </div>
+                        <div class="section-group">
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>Status</strong></label><br>
+                                <label><input type="checkbox" name="status_active"> Active</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label><br>
+                                <label><input type="checkbox" name="for_sale"> For Sale</label><br>
+                                <label><input type="checkbox" name="for_rent"> For Rent</label><br>
+                                <label><input type="checkbox" name="for_sale_or_rent"> For Sale or For Rent</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label><br>
+                                <label><input type="checkbox" name="vow_address_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_address_no"> No</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label><br>
+                                <label><input type="checkbox" name="vow_comment_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_comment_no"> No</label>
+                            </div>
+                            <div class="section-inline-block">
+                                <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label><br>
+                                <label><input type="checkbox" name="vow_avm_yes"> Yes </label><br>
+                                <label><input type="checkbox" name="vow_avm_no"> No</label>
+                            </div>
+                        </div>
+                    </div>
                     <strong>report coming soon</strong>
                     <div>
                         <button type="submit">
@@ -1426,6 +1858,7 @@
                     </div>
                 </form>
             </div>
+<!-- longview page end here -->
             <div id="message-panel">
             </div>
             <div id="main-container">
