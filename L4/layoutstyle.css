@@ -274,17 +274,16 @@ input[type="number"] {
 /* Longview Page header starts here */
 
 .longview-header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
     align-items: center;
 }
 
 .longview-logo {
-    flex-grow: 1;
     padding: 0px 15px;
 }
 
 .longview-title {
-    flex-grow: 2;
     display: inline-block;
     padding: 20px 60px;
     font-size: 16px;
@@ -293,7 +292,6 @@ input[type="number"] {
 }
 
 .longview-mls {
-    flex-grow: 1;
     padding: 0px 15px;
     text-align: right;
 }
@@ -327,6 +325,18 @@ input[type="number"] {
 }
 
 @media screen and (min-width: 300px) and (max-width: 850px) {
+    .longview-logo {
+        grid-column: span 3;
+        text-align: center;
+    }
+    .longview-title {
+        grid-column: span 3;
+        text-align: center;
+    }
+    .longview-mls {
+        grid-column: span 3;
+        text-align: center;
+    }
     .left-panel, .main-panel {
         grid-column: span 2;
     }
@@ -374,5 +384,18 @@ input[type="number"] {
     }
     textarea {
         height: 600px;
+    }
+
+    .longview-logo {
+        grid-column: span 1;
+        text-align: left;
+    }
+    .longview-title {
+        grid-column: span 1;
+        text-align: center;
+    }
+    .longview-mls {
+        grid-column: span 1;
+        text-align: right;
     }
 }
