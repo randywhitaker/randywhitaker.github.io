@@ -293,7 +293,6 @@
                     <div class="section-container-3col">
                         <div class="section-title">
                             <label>Rural Acreage Class Standard</label>
-                            <!--<button type="button" onclick="requiredCheckbox('gt_rural_form')">Required checkbox</button>-->
                         </div>
                         <div class="section-group b-top b-left b-right">
                             <div class="section-block require-checkbox">
@@ -1070,23 +1069,23 @@
                 <form name="lv_farm_form" class="frm">
                     <div class="section-container-3col">
                         <div class="section-group">
-                            <div class="section-inline-block">
-                                <label><span class="red_asterisk">*</span><strong>Type</strong></label>
-                                <label><input type="checkbox" name="property_type_duplex"> Duplex</label>
-                                <label><input type="checkbox" name="property_type_triplex"> Triplex</label>
-                                <label><input type="checkbox" name="property_type_fourplex"> Fourplex</label>
-                                <label><input type="checkbox" name="property_type_apts_studio"> Apts/Studio</label>
+                            <div class="section-inline-block require-checkbox">
+                                <label><span class="red_asterisk">*</span><strong>Type</strong></label><br>
+                                <label><input type="checkbox" name="property_type_duplex"> Duplex</label><br>
+                                <label><input type="checkbox" name="property_type_triplex"> Triplex</label><br>
+                                <label><input type="checkbox" name="property_type_fourplex"> Fourplex</label><br>
+                                <label><input type="checkbox" name="property_type_apts_studio"> Apts/Studio</label><br>
                                 <label><input type="checkbox" name="property_type_other"> Other</label>
                             </div>
-                            <div class="section-inline-block">
-                                <label><span class="red_asterisk">*</span><strong>IDX</strong></label>
-                                <label><input type="checkbox" name="idx_include_yes"> Yes</label>
-                                <label><input type="checkbox" name="idx_include_no"> No</label>
+                            <div class="section-inline-block require-checkbox">
+                                <label><span class="red_asterisk">*</span><strong>IDX</strong></label><br>
+                                <label><input type="checkbox" name="idx_include_yes"> Yes</label><br>
+                                <label><input type="checkbox" name="idx_include_no"> No</label><br>
                                 <label><input type="checkbox" name="idx_include_yes"> Yes - Without Address</label>
                             </div>
-                            <div class="section-inline-block">
-                                <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label>
-                                <label><input type="checkbox" name="vow_include_yes"> Yes</label>
+                            <div class="section-inline-block require-checkbox">
+                                <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label><br>
+                                <label><input type="checkbox" name="vow_include_yes"> Yes</label><br>
                                 <label><input type="checkbox" name="vow_include_no"> No</label>
                             </div>
                         </div>
@@ -1125,63 +1124,63 @@
                             </div>
                         </div>
                         <div class="section-group">
-                            <div class="section-inline-block">
-                                <label><span class="red_asterisk">*</span><strong>Status</strong></label>
+                            <div class="section-inline-block require-checkbox">
+                                <label><span class="red_asterisk">*</span><strong>Status</strong></label><br>
                                 <label><input type="checkbox" name="status_active"> Active</label>
                             </div>
-                            <div class="section-inline-block">
-                                <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label>
-                                <label><input type="checkbox" name="for_sale"> For Sale</label>
-                                <label><input type="checkbox" name="for_rent"> For Rent</label>
+                            <div class="section-inline-block require-checkbox">
+                                <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label><br>
+                                <label><input type="checkbox" name="for_sale"> For Sale</label><br>
+                                <label><input type="checkbox" name="for_rent"> For Rent</label><br>
                                 <label><input type="checkbox" name="for_sale_or_rent"> For Sale or For Rent</label>
                             </div>
-                            <div class="section-inline-block">
-                                <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label>
-                                <label><input type="checkbox" name="vow_address_yes"> Yes </label>
+                            <div class="section-inline-block require-checkbox">
+                                <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label><br>
+                                <label><input type="checkbox" name="vow_address_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_address_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
-                                <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label>
-                                <label><input type="checkbox" name="vow_comment_yes"> Yes </label>
+                            <div class="section-inline-block require-checkbox">
+                                <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label><br>
+                                <label><input type="checkbox" name="vow_comment_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_comment_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
-                                <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label>
-                                <label><input type="checkbox" name="vow_avm_yes"> Yes </label>
+                            <div class="section-inline-block require-checkbox">
+                                <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label><br>
+                                <label><input type="checkbox" name="vow_avm_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_avm_no"> No</label>
                             </div>
                         </div>
                     </div>
                     <div class="section-group">
                         <p>KEYWORDS SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED</p>
-                        <div class="section-inline-block">
-                            <label><span class="red_asterisk">*</span><strong>Construction</strong></label>
-                            <label><input type="checkbox" name="construction_brick"> Brick</label>
-                            <label><input type="checkbox" name="construction_frame"> Frame</label>
-                            <label><input type="checkbox" name="construction_vinyl"> Vinyl</label>
-                            <label><input type="checkbox" name="construction_log"> Log</label>
-                            <label><input type="checkbox" name="construction_stone_concrete"> Stone/Concrete</label>
+                        <div class="section-inline-block require-checkbox">
+                            <label><span class="red_asterisk">*</span><strong>Construction</strong></label><br>
+                            <label><input type="checkbox" name="construction_brick"> Brick</label><br>
+                            <label><input type="checkbox" name="construction_frame"> Frame</label><br>
+                            <label><input type="checkbox" name="construction_vinyl"> Vinyl</label><br>
+                            <label><input type="checkbox" name="construction_log"> Log</label><br>
+                            <label><input type="checkbox" name="construction_stone_concrete"> Stone/Concrete</label><br>
                             <label><input type="checkbox" name="construction_other"> Other</label>
                         </div>
-                        <div class="section-inline-block">
-                            <label><span class="red_asterisk">*</span><strong>Roof</strong></label>
-                            <label><input type="checkbox" name="roof_gable"> Gable</label>
-                            <label><input type="checkbox" name="roof_hip"> Hip</label>
-                            <label><input type="checkbox" name="roof_flat"> Flat</label>
-                            <label><input type="checkbox" name="roof_mansard"> Mansard</label>
+                        <div class="section-inline-block require-checkbox">
+                            <label><span class="red_asterisk">*</span><strong>Roof</strong></label><br>
+                            <label><input type="checkbox" name="roof_gable"> Gable</label><br>
+                            <label><input type="checkbox" name="roof_hip"> Hip</label><br>
+                            <label><input type="checkbox" name="roof_flat"> Flat</label><br>
+                            <label><input type="checkbox" name="roof_mansard"> Mansard</label><br>
                             <label><input type="checkbox" name="roof_other"> Other</label>
                         </div>
-                        <div class="section-inline-block">
-                            <label><span class="red_asterisk">*</span><strong>Electricity</strong></label>
-                            <label><input type="checkbox" name="electricity_master_meter"> Master Meter</label>
-                            <label><input type="checkbox" name="electricity_separate_meter"> Separate Meter</label>
+                        <div class="section-inline-block require-checkbox">
+                            <label><span class="red_asterisk">*</span><strong>Electricity</strong></label><br>
+                            <label><input type="checkbox" name="electricity_master_meter"> Master Meter</label><br>
+                            <label><input type="checkbox" name="electricity_separate_meter"> Separate Meter</label><br>
                             <label><input type="checkbox" name="electricity_meter_unknown"> Meter Unknown</label>
                         </div>
-                        <div class="section-inline-block">
-                            <label><span class="red_asterisk">*</span><strong>Garage Type</strong></label>
-                            <label><input type="checkbox" name="garage_type_garage"> Garage</label>
-                            <label><input type="checkbox" name="garage_type_carport"> Carport</label>
-                            <label><input type="checkbox" name="garage_type_open"> Open</label>
+                        <div class="section-inline-block require-checkbox">
+                            <label><span class="red_asterisk">*</span><strong>Garage Type</strong></label><br>
+                            <label><input type="checkbox" name="garage_type_garage"> Garage</label><br>
+                            <label><input type="checkbox" name="garage_type_carport"> Carport</label><br>
+                            <label><input type="checkbox" name="garage_type_open"> Open</label><br>
                             <label><input type="checkbox" name="garage_type_none"> None</label>
                         </div>
                         <div class="section-inline-block">
@@ -1394,6 +1393,7 @@
                     </div>
                     <br>
                     <div>
+                        <button type="button" onclick="requiredCheckbox('lv_farm_form')">Test Required checkbox</button>&nbsp;&nbsp;&nbsp;
                         <button type="submit">
                             Save/Print
                         </button>
@@ -1426,20 +1426,20 @@
                 <form name="lv_land_form" class="frm">
                     <div class="section-container-3col">
                         <div class="section-group">
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>Type</strong></label><br>
                                 <label><input type="checkbox" name="property_type_duplex"> Lot</label><br>
                                 <label><input type="checkbox" name="property_type_triplex"> Acreage</label><br>
                                 <label><input type="checkbox" name="property_type_fourplex"> Farm/Ranch</label><br>
-                                <label><input type="checkbox" name="property_type_apts_studio"> Waterfront</label><br>
+                                <label><input type="checkbox" name="property_type_apts_studio"> Waterfront</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>IDX</strong></label><br>
                                 <label><input type="checkbox" name="idx_include_yes"> Yes</label><br>
                                 <label><input type="checkbox" name="idx_include_no"> No</label><br>
                                 <label><input type="checkbox" name="idx_include_yes"> Yes - Without Address</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label><br>
                                 <label><input type="checkbox" name="vow_include_yes"> Yes</label><br>
                                 <label><input type="checkbox" name="vow_include_no"> No</label>
@@ -1480,35 +1480,59 @@
                             </div>
                         </div>
                         <div class="section-group">
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>Status</strong></label><br>
                                 <label><input type="checkbox" name="status_active"> Active</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label><br>
                                 <label><input type="checkbox" name="for_sale"> For Sale</label><br>
                                 <label><input type="checkbox" name="for_rent"> For Rent</label><br>
                                 <label><input type="checkbox" name="for_sale_or_rent"> For Sale or For Rent</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label><br>
                                 <label><input type="checkbox" name="vow_address_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_address_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label><br>
                                 <label><input type="checkbox" name="vow_comment_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_comment_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label><br>
                                 <label><input type="checkbox" name="vow_avm_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_avm_no"> No</label>
                             </div>
                         </div>
                     </div>
+                    <div class="section-group">
+                        <p class="section-info">KEYWORDS SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED</p>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Usage</strong></label><br>
+                            <label><input type="checkbox" name="usage_other"> Other</label><br>
+                            <label><input type="checkbox" name="usage_residential"> Residential</label><br>
+                            <label><input type="checkbox" name="usage_multi-family"> Multi-Family</label><br>
+                            <label><input type="checkbox" name="usage_commercial"> Commercial</label><br>
+                            <label><input type="checkbox" name="usage_industrial"> Industrial</label><br>
+                            <label><input type="checkbox" name="usage_agricultural"> Agricultural</label>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Lot Size</strong></label><br>
+                            <label><input type="checkbox" name="lot_size_less_than_one_acre"> Less Than One Acre</label><br>
+                            <label><input type="checkbox" name="lot_size_1-5"> 1-5</label><br>
+                            <label><input type="checkbox" name="lot_size_6-10"> 6-10</label><br>
+                            <label><input type="checkbox" name="lot_size_11-25"> 11-25</label><br>
+                            <label><input type="checkbox" name="lot_size_26-49"> 26-49</label><br>
+                            <label><input type="checkbox" name="lot_size_50-99"> 50-99</label><br>
+                            <label><input type="checkbox" name="lot_size_100-500"> 100-500</label><br>
+                            <label><input type="checkbox" name="lot_size_500+"> 500+</label>
+                        </div>
+                    </div>
                     <strong>report coming soon</strong>
                     <div>
+                        <button type="button" onclick="requiredCheckbox('lv_land_form')">Test Required checkbox</button>&nbsp;&nbsp;&nbsp;
                         <button type="submit">
                             Save
                         </button>
@@ -1540,20 +1564,20 @@
                 <form name="lv_commercial_form" class="frm">
                     <div class="section-container-3col">
                         <div class="section-group">
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>Type</strong></label><br>
                                 <label><input type="checkbox" name="property_type_duplex"> Commercial</label><br>
                                 <label><input type="checkbox" name="property_type_triplex"> Industrial</label><br>
                                 <label><input type="checkbox" name="property_type_fourplex"> Office</label><br>
-                                <label><input type="checkbox" name="property_type_apts_studio"> Apartment</label><br>
+                                <label><input type="checkbox" name="property_type_apts_studio"> Apartment</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>IDX</strong></label><br>
                                 <label><input type="checkbox" name="idx_include_yes"> Yes</label><br>
                                 <label><input type="checkbox" name="idx_include_no"> No</label><br>
                                 <label><input type="checkbox" name="idx_include_yes"> Yes - Without Address</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label><br>
                                 <label><input type="checkbox" name="vow_include_yes"> Yes</label><br>
                                 <label><input type="checkbox" name="vow_include_no"> No</label>
@@ -1594,35 +1618,72 @@
                             </div>
                         </div>
                         <div class="section-group">
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>Status</strong></label><br>
                                 <label><input type="checkbox" name="status_active"> Active</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label><br>
                                 <label><input type="checkbox" name="for_sale"> For Sale</label><br>
                                 <label><input type="checkbox" name="for_rent"> For Rent</label><br>
                                 <label><input type="checkbox" name="for_sale_or_rent"> For Sale or For Rent</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label><br>
                                 <label><input type="checkbox" name="vow_address_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_address_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label><br>
                                 <label><input type="checkbox" name="vow_comment_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_comment_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label><br>
                                 <label><input type="checkbox" name="vow_avm_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_avm_no"> No</label>
                             </div>
                         </div>
                     </div>
+                    <div class="section-group">
+                        <p class="section-info">KEYWORDS SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED</p>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Present Use</strong></label><br>
+                            <label><input type="checkbox" name="present_use_retail"> Retail</label><br>
+                            <label><input type="checkbox" name="present_use_hotel_motel"> Hotel/Motel</label><br>
+                            <label><input type="checkbox" name="present_use_residential"> Residential</label><br>
+                            <label><input type="checkbox" name="present_use_office"> Office</label><br>
+                            <label><input type="checkbox" name="present_use_services"> Services</label><br>
+                            <label><input type="checkbox" name="present_use_warehouse"> Warehouse</label><br>
+                            <label><input type="checkbox" name="present_use_industrial"> Industrial</label><br>
+                            <label><input type="checkbox" name="present_use_shopping_center"> Shopping Center</label><br>
+                            <label><input type="checkbox" name="present_use_apartment"> Apartment</label>
+                            <label><input type="checkbox" name="present_use_other"> Other</label><br>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Availability</strong></label><br>
+                            <label><input type="checkbox" name="availability_sell"> Sell</label><br>
+                            <label><input type="checkbox" name="availability_lease"> Lease</label><br>
+                            <label><input type="checkbox" name="availability_both"> Both</label><br>
+                        </div>
+                        <div class="section-inline-block">
+                            <div>
+                                <label>Number of Acres:</label>
+                                <input type="text" name="number_of_acres">
+                            </div>
+                            <div>
+                                <label>Price Per Acre:</label>
+                                <input type="text" name="price_per_acre">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Number of Units:</strong></label>
+                                <input type="text" name="number_of_units">
+                            </div>
+                        </div>
+                    </div>
                     <strong>report coming soon</strong>
                     <div>
+                        <button type="button" onclick="requiredCheckbox('lv_commercial_form')">Test Required checkbox</button>&nbsp;&nbsp;&nbsp;
                         <button type="submit">
                             Save
                         </button>
@@ -1654,7 +1715,7 @@
                 <form name="lv_multifamily_form" class="frm">
                     <div class="section-container-3col">
                         <div class="section-group">
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>Type</strong></label><br>
                                 <label><input type="checkbox" name="property_type_duplex"> Duplex</label><br>
                                 <label><input type="checkbox" name="property_type_triplex"> Triplex</label><br>
@@ -1662,13 +1723,13 @@
                                 <label><input type="checkbox" name="property_type_apts_studio"> Apts/Studio</label><br>
                                 <label><input type="checkbox" name="property_type_other"> Other</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>IDX</strong></label><br>
                                 <label><input type="checkbox" name="idx_include_yes"> Yes</label><br>
                                 <label><input type="checkbox" name="idx_include_no"> No</label><br>
                                 <label><input type="checkbox" name="idx_include_yes"> Yes - Without Address</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label><br>
                                 <label><input type="checkbox" name="vow_include_yes"> Yes</label><br>
                                 <label><input type="checkbox" name="vow_include_no"> No</label>
@@ -1709,35 +1770,86 @@
                             </div>
                         </div>
                         <div class="section-group">
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>Status</strong></label><br>
                                 <label><input type="checkbox" name="status_active"> Active</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label><br>
                                 <label><input type="checkbox" name="for_sale"> For Sale</label><br>
                                 <label><input type="checkbox" name="for_rent"> For Rent</label><br>
                                 <label><input type="checkbox" name="for_sale_or_rent"> For Sale or For Rent</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label><br>
                                 <label><input type="checkbox" name="vow_address_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_address_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label><br>
                                 <label><input type="checkbox" name="vow_comment_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_comment_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label><br>
                                 <label><input type="checkbox" name="vow_avm_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_avm_no"> No</label>
                             </div>
                         </div>
                     </div>
+                    <div class="section-group">
+                        <p class="section-info">KEYWORDS SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED</p>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Construction</strong></label><br>
+                            <label><input type="checkbox" name="construction_brick"> Brick</label><br>
+                            <label><input type="checkbox" name="construction_frame"> Frame</label><br>
+                            <label><input type="checkbox" name="construction_vinyl"> Vinyl</label><br>
+                            <label><input type="checkbox" name="construction_log"> Log</label><br>
+                            <label><input type="checkbox" name="construction_stone_concrete"> Stone/Concrete</label><br>
+                            <label><input type="checkbox" name="construction_other"> Other</label>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Roof</strong></label><br>
+                            <label><input type="checkbox" name="roof_gable"> Gable</label><br>
+                            <label><input type="checkbox" name="roof_hip"> Hip</label><br>
+                            <label><input type="checkbox" name="roof_flat"> Flat</label><br>
+                            <label><input type="checkbox" name="roof_mansard"> Mansard</label><br>
+                            <label><input type="checkbox" name="roof_other"> Other</label>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Electricity</strong></label><br>
+                            <label><input type="checkbox" name="electricity_master_meter"> Master Meter</label><br>
+                            <label><input type="checkbox" name="electricity_separate_meter"> Separate Meter</label><br>
+                            <label><input type="checkbox" name="electricity_meter_unknown"> Meter Unknown</label>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Garage Type</strong></label><br>
+                            <label><input type="checkbox" name="garage_type_garage"> Garage</label><br>
+                            <label><input type="checkbox" name="garage_type_carport"> Carport</label><br>
+                            <label><input type="checkbox" name="garage_type_open"> Open</label><br>
+                            <label><input type="checkbox" name="garage_type_none"> None</label>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><strong>Age Range:</strong></label>
+                            <label><input type="checkbox" name="age_range_new_never_occupied"> New Never Occupied</label><br>
+                            <label><input type="checkbox" name="age_range_1_5"> 1-5</label><br>
+                            <label><input type="checkbox" name="age_range_6_10"> 6-10</label><br>
+                            <label><input type="checkbox" name="age_range_11_15"> 11-15</label><br>
+                            <label><input type="checkbox" name="age_range_16_25"> 16-25</label><br>
+                            <label><input type="checkbox" name="age_range_26_40"> 26-40</label><br>
+                            <label><input type="checkbox" name="age_range_41_50"> 41-50</label><br>
+                            <label><input type="checkbox" name="age_range_50+"> 50+</label><br>
+                            <label><input type="checkbox" name="age_range_unknown"> Unknown</label><br>
+                            <label><input type="checkbox" name="age_range_newly_occupied"> Newly Occupied</label>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><strong># of Units</strong></label><br>
+                            <input type="text" name="units_count">
+                        </div>
+                    </div>
                     <strong>report coming soon</strong>
                     <div>
+                        <button type="button" onclick="requiredCheckbox('lv_multifamily_form')">Test Required checkbox</button>&nbsp;&nbsp;&nbsp;
                         <button type="submit">
                             Save
                         </button>
@@ -1769,20 +1881,20 @@
                 <form name="lv_residential_form" class="frm">
                     <div class="section-container-3col">
                         <div class="section-group">
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>Type</strong></label><br>
                                 <label><input type="checkbox" name="property_type_duplex"> Single Family</label><br>
                                 <label><input type="checkbox" name="property_type_triplex"> Townhouse</label><br>
                                 <label><input type="checkbox" name="property_type_fourplex"> Manufactured</label><br>
                                 <label><input type="checkbox" name="property_type_apts_studio"> Condo</label><br>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>IDX</strong></label><br>
                                 <label><input type="checkbox" name="idx_include_yes"> Yes</label><br>
                                 <label><input type="checkbox" name="idx_include_no"> No</label><br>
                                 <label><input type="checkbox" name="idx_include_yes"> Yes - Without Address</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Include</strong></label><br>
                                 <label><input type="checkbox" name="vow_include_yes"> Yes</label><br>
                                 <label><input type="checkbox" name="vow_include_no"> No</label>
@@ -1823,35 +1935,100 @@
                             </div>
                         </div>
                         <div class="section-group">
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>Status</strong></label><br>
                                 <label><input type="checkbox" name="status_active"> Active</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>For Sale or Rent</strong></label><br>
                                 <label><input type="checkbox" name="for_sale"> For Sale</label><br>
                                 <label><input type="checkbox" name="for_rent"> For Rent</label><br>
                                 <label><input type="checkbox" name="for_sale_or_rent"> For Sale or For Rent</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Address</strong></label><br>
                                 <label><input type="checkbox" name="vow_address_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_address_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW Comment</strong></label><br>
                                 <label><input type="checkbox" name="vow_comment_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_comment_no"> No</label>
                             </div>
-                            <div class="section-inline-block">
+                            <div class="section-inline-block require-checkbox">
                                 <label><span class="red_asterisk">*</span><strong>VOW AVM</strong></label><br>
                                 <label><input type="checkbox" name="vow_avm_yes"> Yes </label><br>
                                 <label><input type="checkbox" name="vow_avm_no"> No</label>
                             </div>
                         </div>
                     </div>
+                    <div class="section-group">
+                        <p class="section-info">KEYWORDS SECTION - SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED</p>
+                        <div class="section-inline-block">
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Total Bedrooms:</strong></label>
+                                <input type="text" name="total_bedrooms">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Full Baths:</strong></label>
+                                <input type="text" name="full_baths">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Half Baths:</strong></label>
+                                <input type="text" name="half_baths">
+                            </div>
+                            <div>
+                                <label><span class="red_asterisk">*</span><strong>Garage Capacity:</strong></label>
+                                <input type="text" name="garage_capacity">
+                            </div>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Garage Type</strong></label><br>
+                            <label><input type="checkbox" name="garage_type_none"> None</label><br>
+                            <label><input type="checkbox" name="garage_type_garage"> Garage</label><br>
+                            <label><input type="checkbox" name="garage_type_carport"> Carport</label><br>
+                            <label><input type="checkbox" name="garage_type_both"> Both</label>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>SqFt Range</strong></label><br>
+                            <label><input type="checkbox" name="sqft_range_0000-0999"> 0000 - 0999</label><br>
+                            <label><input type="checkbox" name="sqft_range_1000-1500"> 1000 - 1500</label><br>
+                            <label><input type="checkbox" name="sqft_range_1501-2000"> 1501 - 2000</label><br>
+                            <label><input type="checkbox" name="sqft_range_2001-2500"> 2001 - 2500</label><br>
+                            <label><input type="checkbox" name="sqft_range_2501-3000"> 2501 - 3000</label><br>
+                            <label><input type="checkbox" name="sqft_range_3001-4000"> 3001 - 4000</label><br>
+                            <label><input type="checkbox" name="sqft_range_4000+"> 4000 +</label>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><strong>Age Range:</strong></label>
+                            <label><input type="checkbox" name="age_range_new_never_occupied"> New Never Occupied</label><br>
+                            <label><input type="checkbox" name="age_range_1_5"> 1-5</label><br>
+                            <label><input type="checkbox" name="age_range_6_10"> 6-10</label><br>
+                            <label><input type="checkbox" name="age_range_11_15"> 11-15</label><br>
+                            <label><input type="checkbox" name="age_range_16_25"> 16-25</label><br>
+                            <label><input type="checkbox" name="age_range_26_40"> 26-40</label><br>
+                            <label><input type="checkbox" name="age_range_41_50"> 41-50</label><br>
+                            <label><input type="checkbox" name="age_range_50+"> 50+</label><br>
+                            <label><input type="checkbox" name="age_range_unknown"> Unknown</label><br>
+                            <label><input type="checkbox" name="age_range_newly_occupied"> Newly Occupied</label>
+                        </div>
+                        <div class="section-inline-block">
+                            <label><span class="red_asterisk">*</span><strong>Lot Size</strong></label><br>
+                            <label><input type="checkbox" name="lot_size_less_than_0.5"> Less Than 0.5</label><br>
+                            <label><input type="checkbox" name="lot_size_0.5-1"> 0.5 - 1</label><br>
+                            <label><input type="checkbox" name="lot_size_1-5"> 1 - 5</label><br>
+                            <label><input type="checkbox" name="lot_size_5-10"> 5 - 10</label><br>
+                            <label><input type="checkbox" name="lot_size_10-15"> 10 - 15</label><br>
+                            <label><input type="checkbox" name="lot_size_15-30"> 15 - 30</label><br>
+                            <label><input type="checkbox" name="lot_size_30-100"> 30 -100</label><br>
+                            <label><input type="checkbox" name="lot_size_100-500"> 100 - 500</label><br>
+                            <label><input type="checkbox" name="lot_size_500+"> 500 +</label>
+                            <label><input type="checkbox" name="age_range_unknown"> Unknown</label><br>
+                        </div>
+                    </div>
                     <strong>report coming soon</strong>
                     <div>
+                        <button type="button" onclick="requiredCheckbox('lv_residential_form')">Test Required checkbox</button>&nbsp;&nbsp;&nbsp;
                         <button type="submit">
                             Save
                         </button>
