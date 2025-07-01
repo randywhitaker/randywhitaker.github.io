@@ -1259,19 +1259,19 @@
                         </div>
                         <div>
                             <label><span class="red_asterisk">*</span><strong>County:</strong></label>
-                            <input type="text" name="county" maxlength="10"><small>(10)</small>
+                            <input type="text" name="county" maxlength="10" required><small>(10)</small>
                         </div>
                         <div>
                             <label><span class="red_asterisk">*</span><strong>Water System:</strong></label>
-                            <input type="text" name="water_system" maxlength="10"><small>(10)</small>
+                            <input type="text" name="water_system" maxlength="10" required><small>(10)</small>
                         </div>
                         <div>
                             <label><span class="red_asterisk">*</span><strong>Legal:</strong></label>
-                            <input type="text" name="legal" maxlength="50"><small>(50)</small>
+                            <input type="text" name="legal" maxlength="50" required><small>(50)</small>
                         </div>
                         <div>
                             <label><span class="red_asterisk">*</span><strong>Parcel #:</strong></label>
-                            <input type="text" name="parcel_number" maxlength="50"><small>(50)</small>
+                            <input type="text" name="parcel_number" maxlength="50" required><small>(50)</small>
                         </div>
                         <div>
                             <label>Homeowners Fee:</label>
@@ -1386,6 +1386,130 @@
                             <label>Hot Tub/Spa:</label>
                             <label><input type="checkbox" name="hot_tub_spa_yes"> Yes</label>
                             <label><input type="checkbox" name="hot_tub_spa_no"> No</label>
+                        </div>
+                    </div>
+                    <div class="section-group">
+                        <div>
+                            <label><span class="red_asterisk">*</span><strong>Directions:</strong></label>
+                            <input type="text" name="directions" maxlength="225" required>
+                            <small>(225)</small>
+                        </div>
+                        <div class="section-inline-block require-checkbox">
+                            <label><span class="red_asterisk">*</span><strong>Foreclosure/Bank Owned:</strong></label>
+                            <label><input type="checkbox" name="foreclosure_yes"> Yes</label>
+                            <label><input type="checkbox" name="foreclosure_no"> No</label>
+                        </div>
+                        <div>
+                            <label>Escrow To:</label>
+                            <input type="text" name="escrow_to" maxlength="25">
+                            <small>(25)</small>
+                        </div>
+                        <div>
+                            <label><span class="red_asterisk">*</span><strong>Escrow Amt:</strong></label>
+                            <input type="text" name="escrow_amt" maxlength="15" required>
+                            <small>(15)</small>
+                        </div>
+                        <div>
+                            <label><span class="red_asterisk">*</span><strong>Year Built:</strong></label>
+                            <input type="text" name="year_built" maxlength="4" required>
+                            <small>(4)</small>
+                        </div>
+                        <div>
+                            <label>Mineral Rts Available:</label>
+                            <input type="text" name="mineral_rts_available">
+                        </div>
+                        <div>
+                            <label>Surface Rts Available:</label>
+                            <input type="text" name="surface_rts_available">
+                        </div>
+                        <div>
+                            <label>Acres Bottom %:</label>
+                            <input type="text" name="acres_bottom_%">
+                        </div>
+                        <div>
+                            <label>Acres Cultivated %:</label>
+                            <input type="text" name="acres_cultivated_%">
+                        </div>
+                        <div>
+                            <label>Acres Pasture %:</label>
+                            <input type="text" name="acres_pasture_%">
+                        </div>
+                        <div>
+                            <label>Acres Timber %:</label>
+                            <input type="text" name="acres_timber_%">
+                        </div>
+                    </div>
+                    <div class="section-group">
+                        <p>FINANCIAL SECTION - NUMBERS IN PARENTHESES INDICATE HOW MANY CHARACTERS A FIELD HAS - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.</p>
+                        <div>
+                            <strong>
+                            <label>Assumable:</label>
+                            <label><input type="checkbox" name="assumable_yes"> Yes</label>
+                            <label><input type="checkbox" name="assumable_no"> No</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <label>Assumption Amount</label>
+                            <input type="text" name="assumption_amount" maxlength="4">
+                            <small>(4)</small>
+                        </div>
+                        <div>
+                            <strong>
+                            <label>Escalate:</label>
+                            <label><input type="checkbox" name="escalate_yes"> Yes</label>
+                            <label><input type="checkbox" name="escalate_no"> No</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <strong>
+                            <label>Qualify:</label>
+                            <label><input type="checkbox" name="qualify_yes"> Yes</label>
+                            <label><input type="checkbox" name="qualify_no"> No</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <label>Assumption Payment Amount:</label>
+                            <input type="text" name="assumption_payment_amount" maxlength="15">
+                            <small>(15)</small>
+                        </div>
+                        <div>
+                            <label>Existing Financing:</label>
+                            <input type="text" name="existing_financing">
+                            <small>(LOOKUP)</small>
+                        </div>
+                        <div>
+                            <label>Loan Balance:</label>
+                            <input type="text" name="loan_balance" maxlength="10">
+                            <small>(10)</small>
+                        </div>
+                        <div>
+                            <label>Present Int Rate:</label>
+                            <input type="text" name="present_int_rate" maxlength="10">
+                            <small>(10)</small>
+                        </div>
+                        <div>
+                            <label>Financing Remarks:</label>
+                            <input type="text" name="financing_remarks" maxlength="25">
+                            <small>(25)</small>
+                        </div>
+                    </div>
+                    <div class="section-group">
+                        <div>
+                            <label><span class="red_asterisk">*</span><strong>PUBLIC REMARKS:</strong> <small>(2000)</small></label>
+                            <textarea name="public_remarks" maxlength="2000"></textarea>
+                        </div>
+                        <div>
+                            <label>Confidential Agent Remarks <small>(1000)</small></label>
+                            <textarea name="confidential_agent_remarks" maxlength="1000"></textarea>
+                        </div>
+                        <div>
+                            <label>Additional Showing Instructions</label>
+                            <input type="text" name="additional_showing_instructions" maxlength="100">
+                            <small>(100)</small>
+                        </div>
+                        <div>
+                            <label>Addendum <small>(4000)</small></label>
+                            <textarea name="addendum_remarks" maxlength="4000"></textarea>
                         </div>
                     </div>
                     <div>
