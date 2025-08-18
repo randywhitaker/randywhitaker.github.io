@@ -1,7 +1,7 @@
 {
   "name": "L4 Property App",
   "short_name": "L4 App",
-  "start_url": "/L4/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4F46E5",
@@ -19,13 +19,13 @@
   ],
   "screenshots": [
     {
-      "src": "screenshots/desktop-home.png",
+      "src": "images/desktop-home.png",
       "sizes": "1020x796",
       "form_factor": "wide",
       "label": "Desktop view showing L4 Property App homepage"
     },
     {
-      "src": "screenshots/mobile-home.png",
+      "src": "images/mobile-home.png",
       "sizes": "619x794",
       "form_factor": "narrow",
       "label": "Mobile view showing L4 Property App homepage"

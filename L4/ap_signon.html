@@ -1,0 +1,25 @@
+<div id="signon-form">
+    <h2>Sign on to your account</h2>
+    <p>Put something here...</p>
+    <form name="signon" class="frm">
+        <div>
+            <label for="sgn-email">Email Address</label>
+            <input type="email" id="sgn-email" name="email" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div>
+            <label for="sgn-password">Password</label>
+            <input type="password" id="sgn-password" name="password" autocomplete="current-password" required placeholder="••••••••">
+        </div>
+        <div class="text-right">
+            <a href="#" onclick="changePage('ap_forgotpwd.html')">Forgot your password?</a>
+        </div>
+        <div>
+            <button type="submit">
+                Sign On
+            </button>
+        </div>
+        <div>
+            <p>Don't have an account? <a href="#" onclick="changePage('ap_signup.html')">Sign Up</a></p>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,152 @@
+html,
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul, li {
+    padding: 0;
+    list-style-type: none;
+}
+
+/* page grid layout */
+.container {
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 15px;
+}
+.page-header {
+    grid-column: span 2;
+    align-content: space-around;
+    background-color: #555;
+    color: #fff;
+    padding: 8px 0px;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+.right-menu {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0px 15px;
+    float: right;
+}
+.right-menu button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+}
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+.dropdown-menu {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #555;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content label {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    padding: 14px;
+}
+.dropdown-content li {
+    width: 100%;
+    padding: 16px;
+    text-align: left;
+    color: #000;
+    background-color: #fff;
+}
+.dropdown-content li:hover { background-color: #ddd; }
+/*.dropdown:hover .dropdown-content { display: block; } */
+.dropdown:hover .dropbtn { background-color: #3e8e41; }
+
+.page-header img, h2, nav {
+    display: inline;
+    vertical-align: middle;
+}
+.page-footer {
+    grid-column: span 2;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-top: 1px solid #000;
+}
+.left-panel {
+    padding: 15px;
+    border-right: 1px solid #000;
+}
+.left-panel li {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.main-panel {
+    padding: 10px 25px;
+}
+.text-right {
+    text-align: right;
+}
+
+logon-status {
+    padding: 5px;
+    /*border: 3px dashed red;*/
+}
+logon-status:state(hidden) {
+    border: none;
+}
+
+/* Control styles for each of the application Forms */
+.frm textarea {
+    width: calc(100% - 12px); /* Adjust for padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are inside the element's width */
+    font-size: 16px;
+}
+.frm input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"] {
+    width: calc(80% - 12px); /* Adjust for padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are inside the element's width */
+    font-size: 16px;
+}
+.frm input[type="date"],
+input[type="tel"],
+input[type="number"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are inside the element's width */
+    font-size: 16px;
+}
+.frm button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.frm button:hover {
+    background-color: #0c1161;
+}

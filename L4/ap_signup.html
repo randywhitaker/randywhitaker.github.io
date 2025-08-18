@@ -1,0 +1,30 @@
+<div id="signup-form">
+    <h2>Create Your Account</h2>
+    <p>Join our team today! Fill out the form below to get started.</p>
+    <form name="signup" class="frm">
+        <div>
+            <label for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" name="name" autocomplete="name" required placeholder="John Doe">
+        </div>
+        <div>
+            <label for="reg-email">Email Address</label>
+            <input type="email" id="reg-email" name="email" autocomplete="email" required placeholder="you@example.com">
+        </div>
+        <div>
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" name="password" autocomplete="new-password" required placeholder="••••••••">
+        </div>
+        <div>
+            <label for="reg-confirm-password">Confirm Password</label>
+            <input type="password" id="reg-confirm-password" name="confirm-password" autocomplete="new-password" required placeholder="••••••••">
+        </div>
+        <div>
+            <button type="submit">
+                Sign Up
+            </button>
+        </div>
+        <div>
+            <p>Already have an account? <a href="#" onclick="changePage('ap_signon.html')">Sign On</a></p>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,100 @@
+<div id="listing_form">
+    <h2>Listing Information</h2>
+    <P>All Fields Marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required.</P>
+    <form name="listing_form" class="frm">
+        <div>
+            <label for="listing_property_address"><span class="red_asterisk">*</span><strong>Property Address</strong></label>
+            <input type="text" id="listing_property_address" name="property_address" required>
+        </div>
+        <div>
+            <label for="listing_seller_name"><span class="red_asterisk">*</span><strong>Sellers Name</strong></label>
+            <input type="text" id="listing_seller_name" name="seller_name" required>
+        </div>
+        <div>
+            <label for="listing_seller_address"><span class="red_asterisk">*</span><strong>Seller Address</strong></label>
+            <input type="text" id="listing_seller_address" name="seller_address" required>
+        </div>
+        <div>
+            <label for="listing_seller_phone"><span class="red_asterisk">*</span><strong>Seller Phone Number</strong></label>
+            <input type="tel" id="listing_seller_phone" name="seller_phone" required>
+        </div>
+        <div>
+            <label for="listing_secondary_phone">Secondary Number</label>
+            <input type="tel" id="listing_secondary_phone" name="secondary_phone">
+        </div>
+        <div>
+            <label for="listing_seller_email">Seller Email</label>
+            <input type="email"  id="listing_seller_email" name="seller_email">
+        </div>
+        <div>
+            <label for="listing_second_email">Second Email</label>
+            <input type="email" id="listing_second_email" name="second_email">
+        </div>
+        <div>
+            <label for="listing_parcel_id">Parcel ID</label>
+            <input type="text" id="listing_parcel_id" name="parcel_id">
+        </div>
+        <div>
+            <label for="listing_county">County</label>
+            <input type="text" id="listing_county" name="county">
+        </div>
+        <div>
+            <label for="listing_length">Length of Listing</label>
+            <input type="number" id="listing_length" name="listing_length">
+        </div>
+        <div>
+            <label for="listing_sales_price"><span class="red_asterisk">*</span><strong>Sales Price</strong></label>
+            <input type="number" id="listing_sales_price" name="sales_price" step="0.01" min="0" required placeholder="0.00">
+        </div>
+        <div>
+            <label for="listing_on_site_sewer">On Site Sewer</label>
+            <p id="listing_on_site_sewer">
+                <input type="radio" id="sewer_yes" name="on_site_sewer" value="Yes">
+                <label for="sewer_yes">Yes</label>&nbsp;&nbsp;
+                <input type="radio" id="sewer_no" name="on_site_sewer" value="No">
+                <label for="sewer_no">No</label>
+            </p>
+        </div>
+        <div>
+            <label for="listing_built_before">Built before 1978</label>
+            <p id="listing_built_before">
+                <input type="radio" id="before_1978_yes" name="built_before_1978" value="Yes">
+                <label for="before_1978_yes">Yes</label>&nbsp;&nbsp;
+                <input type="radio" id="before_1978_no" name="built_before_1978" value="No">
+                <label for="before_1978_no">No</label>
+            </p>
+        </div>
+        <div>
+            <label for="listing_have_survey">Survey</label>
+            <p id="listing_have_survey">
+                <input type="radio" id="listing_have_survey_yes" name="have_survey" value="Yes">
+                <label for="listing_have_survey_yes">Yes</label>&nbsp;&nbsp;
+                <input type="radio" id="listing_have_survey_no" name="have_survey" value="No">
+                <label for="listing_have_survey_no">No</label>
+            </p>
+        </div>
+        <div>
+            <label for="listing_commission">Commission %</label>
+            <input type="text" id="listing_commission" name="commission">
+        </div>
+        <div>
+            <label for="listing_agent_name">Agent</label>
+            <input type="text" id="listing_agent_name" name="agent_name">
+        </div>
+        <div>
+            <label for="listing_notes">Notes / Comments</label>
+            <textarea id="listing_notes" name="listing_notes" rows="4"></textarea>
+        </div>
+        <!--<div>
+            <label for="attachments">Attach MLS Data Sheet and any additional documents</label>
+            <p id="attachments">
+                <input type="file" name="attach_file" accept="image/png">
+            </p>
+        </div>-->
+        <div>
+            <button type="submit">
+                Save/Print
+            </button>
+        </div>
+    </form>
+</div>

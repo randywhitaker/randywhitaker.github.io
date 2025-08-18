@@ -1,0 +1,105 @@
+<div id="offer_form">
+    <h2>Offer Information</h2>
+    <P>All Fields Marked with an asterisk (<span class="red_asterisk">*</span>) and <strong>Bold Text</strong> are required.</P>
+    <form name="offer_form" class="frm">
+        <div>
+            <label for="offer_property_address"><span class="red_asterisk">*</span><strong>Property Address</strong></label>
+            <input type="text" id="offer_property_address" name="property_address" required>
+        </div>
+        <div>
+            <label for="offer_buyer_name"><span class="red_asterisk">*</span><strong>Buyers Name</strong></label>
+            <input type="text" id="offer_buyer_name" name="buyer_name" required>
+        </div>
+        <div>
+            <label for="offer_buyer_address"><span class="red_asterisk">*</span><strong>Buyers Address</strong></label>
+            <input type="text" id="offer_buyer_address" name="buyer_address" required>
+        </div>
+        <div>
+            <label for="offer_buyer_phone"><span class="red_asterisk">*</span><strong>Buyers Phone Number</strong></label>
+            <input type="tel" id="offer_buyer_phone" name="buyer_phone" required>
+        </div>
+        <div>
+            <label for="offer_buyer_email">Buyers Email</label>
+            <input type="email" id="offer_buyer_email" name="buyer_email">
+        </div>
+        <div>
+            <label for="offer_address">Address</label>
+            <input type="text" id="offer_address" name="offer_address">
+        </div>
+        <div>
+            <label for="offer_parcel_id">Parcel ID</label>
+            <input type="text" id="offer_parcel_id" name="parcel_id">
+        </div>
+        <div>
+            <label for="offer_county">County</label>
+            <input type="text" id="offer_county" name="county">
+        </div>
+        <div>
+            <label for="offer_price"><span class="red_asterisk">*</span><strong>Offer Price</strong></label>
+            <input type="number" id="offer_price" name="offer_price" step="0.01" min="0" required placeholder="0.00">
+        </div>
+        <div>
+            <label for="offer_down_payment">Down Payment</label>
+            <input type="number" id="offer_down_payment" name="down_payment" step="0.01" min="0" placeholder="0.00">
+        </div>
+        <div>
+            <label for="offer_financing_type">Type of Financing</label>
+            <input type="text" id="offer_financing_type" name="financing_type">
+        </div>
+        <div>
+            <label for="offer_option_period">Option Period</label>
+            <input type="text" id="offer_option_period" name="option_period">
+        </div>
+        <div>
+            <label for="offer_option_amount">Option Amount</label>
+            <input type="number" id="offer_option_amount" name="option_amount" step="0.01" min="0" placeholder="0.00">
+        </div>
+        <div>
+            <label for="offer_earnest_money">Earnest Money</label>
+            <input type="number" id="offer_earnest_money" name="earnest_money" step="0.01" min="0" placeholder="0,00">
+        </div>
+        <div>
+            <label for="offer_title_comany">Title Company</label>
+            <input type="text" id="offer_title_comany" name="title_comany">
+        </div>
+        <div>
+            <label for="offer_mls_number">MLS #</label>
+            <input type="text" id="offer_mls_number" name="mls_number">
+        </div>
+        <div>
+            <label for="offer_mls_association">MLS Association</label>
+            <input type="text" id="offer_mls_association" name="mls_association">
+        </div>
+        <div>
+            <label for="offer_commission">Commission %</label>
+            <input type="text" id="offer_commission" name="commission">
+        </div>
+        <div>
+            <label for="offer_closing_date">Closing Date</label>
+            <input type="date" id="offer_closing_date" name="closing_date">
+        </div>
+        <div>
+            <label for="offer_contingency">Contingency</label>
+            <input type="text" id="offer_contingency" name="contingency">
+        </div>
+        <div>
+            <label for="offer_have_survey">Survey</label>
+            <p id="offer_have_survey">
+                <input type="radio" id="offer_have_survey_yes" name="have_survey" value="Yes">
+                <label for="offer_have_survey_yes">Yes</label>&nbsp;&nbsp;
+                <input type="radio" id="offer_have_survey_no" name="have_survey" value="No">
+                <label for="offer_have_survey_no">No</label>
+            </p>
+        </div>
+        <div>
+            <label for="offer_notes">Notes / Comments</label>
+            <textarea id="offer_notes" name="offer_notes" rows="4"></textarea>
+        </div>
+        <div>
+            <button type="submit">
+                Save/Print
+            </button>
+            <!--&nbsp;&nbsp;<button type="button" onclick="window.print()">Print</button>-->
+        </div>
+    </form>
+</div>
