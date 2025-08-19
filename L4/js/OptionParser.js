@@ -1,5 +1,6 @@
 
 const myCtrls = document.createElement('div');
+const myPreview = document.createElement('pre');
 myCtrls.classList.add('section-group');
 //myCtrls.innerHTML = `<p>Loading HTML fragment and building HTML source code </p>`;
 const frdata = document.body;
@@ -12,22 +13,58 @@ if (frdata != null && true == true) {
     //class="f-form-required feature-panel"
     let panels = frdata.querySelectorAll('div.feature-panel');
     //console.log(`located ${panels.length} panels`);
+    let jsonString = "";
 
-    for (let i=0; i < headers.length-1; i++) {
-        //console.log(headers[i].textContent);
+    for (let i=0; i < headers.length; i++) {
         let head =  headers[i]
+        let req = head.classList.contains('f-form-required');
+
+        if (i+1 === headers.length) {
+            jsonString += loadString(req, headers[i], panels[i]) + "\n";
+        } else {
+            jsonString += loadString(req, headers[i], panels[i]) + ",\n";
+        }
+        console.log(headers[i].textContent);
+        /*
         if (head.classList.contains('f-form-required')) {
             loadReqHeaders(myCtrls, headers[i], panels[i])
         } else {
             loadHeaders(myCtrls, headers[i], panels[i])
-        }
+        } */
     }
 
+    myPreview.innerHTML = jsonString;
     frdata.innerHTML = "";
-    frdata.appendChild(myCtrls);
+    frdata.appendChild(myPreview);
+    //frdata.appendChild(myCtrls);
     //let htmldata = myCtrls.innerHTML;
     //saveTextToFile(p_link, 'fr.txt', htmldata);
 }
+
+function loadString(req, header, panel) {
+    let options = "[]";
+    if (panel != null) {
+        let lbls = panel.querySelectorAll('label');
+        let optionList = "";
+
+        for (let i=0; i < lbls.length; i++) {
+            let selected = lbls[i];
+
+            if (selected != null) {
+                if (i === 0) {
+                    optionList += `"${selected.textContent}"`;
+                } else {
+                    optionList += `, "${selected.textContent}"`;
+                }
+            }
+        }
+
+        options = "[" + optionList + "]";
+    }
+
+    return `{ type: "checkbox", name: "${header.textContent}", required: ${req}, options: ${options} }`;
+}
+
 
 function loadHeaders(myCtrls, header, panel) {
     let name = header.textContent;
