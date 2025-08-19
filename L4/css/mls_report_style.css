@@ -120,3 +120,34 @@
     border: 1px solid #000;
     padding: 5px;
 }
+
+/* Mobile Phone Layout */
+@media screen and (min-width: 300px) and (max-width: 850px) {
+    .tyler-header {
+        display: none;
+    }
+    .longview-header {
+        display: none;
+    }
+    .section-container-2col {
+        display: block;
+    }   
+    .section-container-3col {
+        display: block;
+    }
+    .b-left {
+        border-left: none;
+    }
+    .b-right {
+        border-right: none;
+    }
+    .section-flex2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .section-flex3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .section-flex4 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
