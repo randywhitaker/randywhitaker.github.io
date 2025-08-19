@@ -1,6 +1,6 @@
 /* Longview MSL data forms */
 const longview_msl_questionaires = [
-    { id: "lv_residential", name: "Residential", title: "Residential Data Form",
+    { id: "lv_residential", name: "Residential", title: "Residential Data Form", printcode: "L4LVRL_",
         sections: [
             { name: "STANDARD SECTION", class: "section-container-3col b-full", title: "SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.",
                 questions: [
@@ -160,7 +160,7 @@ const longview_msl_questionaires = [
             }
         ]
     },
-    { id: "lv_land", name: "Land", title: "Land Data Form",
+    { id: "lv_land", name: "Land", title: "Land Data Form", printcode: "L4LVLD_",
         sections: [
             { name: "STANDARD SECTION", class: "section-container-3col b-full", title: "SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.",
                 questions: [
@@ -257,7 +257,7 @@ const longview_msl_questionaires = [
             }
         ]
     },
-    { id: "lv_commercial", name: "Commercial", title: "Commercial Data Form",
+    { id: "lv_commercial", name: "Commercial", title: "Commercial Data Form", printcode: "L4LVCL_",
         sections: [
             { name: "STANDARD SECTION", class: "section-container-3col b-full", title: "SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.",
                 questions: [
@@ -397,7 +397,7 @@ const longview_msl_questionaires = [
             }
         ]
     },
-    { id: "lv_multifamily", name: "Multi-Family", title: "Multi-Family Data Form",
+    { id: "lv_multifamily", name: "Multi-Family", title: "Multi-Family Data Form", printcode: "L4LVMF_",
         sections: [
             { name: "STANDARD SECTION", class: "section-container-3col b-full", title: "SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.",
                 questions: [
@@ -558,7 +558,7 @@ const longview_msl_questionaires = [
             }
         ]
     },
-    { id: "lv_farm_ranch", name: "Farm & Ranch", title: "Farm & Ranch Data Form",
+    { id: "lv_farm_ranch", name: "Farm & Ranch", title: "Farm & Ranch Data Form", printcode: "L4LVFR_",
         sections: [
             { name: "STANDARD SECTION", class: "section-container-3col b-full", title: "SELECT ONLY ONE OPTION WHERE MULTIPLE OPTIONS ARE PROVIDED - (LOOKUP) FIELDS HAVE A LIST OF SPECIFIC OPTIONS TO CHOOSE FROM IN THE MLS.", tablelayout: "section-3col",
                 questions: [
@@ -732,7 +732,7 @@ const longview_msl_questionaires = [
 
 /* Tyler MSL data forms */
 const tyler_msl_questionaires = [
-    { id: "gt_residential", name: "Residential", title: "Residential Data Form",
+    { id: "gt_residential", name: "Residential", title: "Residential Data Form", printcode: "L4GTRL_",
         sections: [
             { name: "Residential", title: "Class Standard", class: "section-container-3col b-full",
                 questions: [
@@ -980,7 +980,7 @@ const tyler_msl_questionaires = [
             }
         ]
     },
-    { id: "gt_rural_acreage", name: "Rural Acreage", title: "Rural Acreage Data Form",
+    { id: "gt_rural_acreage", name: "Rural Acreage", title: "Rural Acreage Data Form", printcode: "L4GTRA_",
         sections: [
             { name: "Rural Acreage", title: "Class Standard", class: "section-container-3col b-full",
                 questions: [
@@ -1150,7 +1150,7 @@ const tyler_msl_questionaires = [
             }
         ]
     },
-    { id: "gt_lots", name: "Lots", title: "Lots Data Form",
+    { id: "gt_lots", name: "Lots", title: "Lots Data Form", printcode: "L4GTLT_",
         sections: [
             { name: "Lots", title: "Class Standard", class: "section-container-3col b-full",
                 questions: [
@@ -1321,7 +1321,7 @@ const tyler_msl_questionaires = [
             }
         ]
     },
-    { id: "gt_commercial", name: "Commercial", title: "Commercial Building/Land Data Form",
+    { id: "gt_commercial", name: "Commercial", title: "Commercial Building/Land Data Form", printcode: "L4GTCL_",
         sections: [
             { name: "Commercial Building/Land", title: "Class Standard", class: "section-container-3col b-full",
                 questions: [
@@ -1533,7 +1533,7 @@ const tyler_msl_questionaires = [
             }
         ]
     },
-    { id: "gt_multifamily", name: "Multi-Family", title: "Multi-Family Data Form",
+    { id: "gt_multifamily", name: "Multi-Family", title: "Multi-Family Data Form", printcode: "L4GTMF_",
         sections: [
             { name: "Multi-Family", title: "Class Standard", class: "section-container-3col b-full",
                 questions: [
@@ -1790,7 +1790,7 @@ const tyler_msl_questionaires = [
             }
         ]
     },
-    { id: "gt_farm_ranch", name: "Farm and Ranch", title: "Farm and Ranch Data Form",
+    { id: "gt_farm_ranch", name: "Farm and Ranch", title: "Farm and Ranch Data Form", printcode: "L4GTFR_",
         sections: [
             { name: "Farm and Ranch", title: "Class Standard", class: "section-container-3col b-full",
                 questions: [

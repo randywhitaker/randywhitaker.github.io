@@ -90,21 +90,21 @@ class LogOnStatus extends HTMLElement {
                 <button class="dropbtn" onclick="showMenuPanel()"><span class="material-icons">menu</span></button>
                 <div id="menu-dropdown-content" class="dropdown-content">
                     <label>Henderson Area</label>
-                    <li onclick="changePage('l4_listing.html')">Listing Information</li>
-                    <li onclick="changePage('l4_offer.html')">Offer Information</li>
+                    <li onclick="changePage('l4_listing.html','L4LT')">Listing Information</li>
+                    <li onclick="changePage('l4_offer.html','L4OF')">Offer Information</li>
                     <label>Tyler Area</label>
-                    <li onclick="changePage('gt_residential.html')">Residential Data</li>
-                    <li onclick="changePage('gt_rural_acreage.html')">Rural Acreage Data</li>
-                    <li onclick="changePage('gt_lots.html')">Lots Data</li>
-                    <li onclick="changePage('gt_commercial.html')">Commercial Data</li>
-                    <li onclick="changePage('gt_multifamily.html')">Multi-Family Data</li>
-                    <li onclick="changePage('gt_farm_ranch.html')">Farm and Ranch Data</li>
+                    <li onclick="changePage('gt_residential.html','L4GTRL')">Residential Data</li>
+                    <li onclick="changePage('gt_rural_acreage.html','L4GTRA')">Rural Acreage Data</li>
+                    <li onclick="changePage('gt_lots.html','L4GTLT')">Lots Data</li>
+                    <li onclick="changePage('gt_commercial.html','L4GTCL')">Commercial Data</li>
+                    <li onclick="changePage('gt_multifamily.html','L4GTML')">Multi-Family Data</li>
+                    <li onclick="changePage('gt_farm_ranch.html','L4GTFR')">Farm and Ranch Data</li>
                     <label>Longview Area</label>
-                    <li onclick="changePage('lv_residential.html')">Residential Data</li>
-                    <li onclick="changePage('lv_land.html')">Land Data</li>
-                    <li onclick="changePage('lv_commercial.html')">MLS - LAAR Commercial Data</li>
-                    <li onclick="changePage('lv_multifamily.html')">MLS - LAAR Multi-Family Data</li>
-                    <li onclick="changePage('lv_farm_ranch.html')">Farm and Ranch Data</li>
+                    <li onclick="changePage('lv_residential.html','L4LVRL')">Residential Data</li>
+                    <li onclick="changePage('lv_land.html','L4LVLD')">Land Data</li>
+                    <li onclick="changePage('lv_commercial.html','L4LVCL')">MLS - LAAR Commercial Data</li>
+                    <li onclick="changePage('lv_multifamily.html','L4LVMF')">MLS - LAAR Multi-Family Data</li>
+                    <li onclick="changePage('lv_farm_ranch.html','L4LVFR')">Farm and Ranch Data</li>
                 </div>
             </div>
             <button onclick="signOffHandler()">Sign Off</button>`;
@@ -133,10 +133,16 @@ function findInfo() {
 }
 
 // initial state and default values
-function changePage(page) {
+function changePage(page, printcode) {
     // Prevent the default behavior
     if (this.event != null) {
         this.event.preventDefault();
+    }
+
+    if (printcode != null) {
+        document.title = printcode;
+    } else {
+        document.title = 'Property App';
     }
 
     const menu = document.getElementById("menu-dropdown-content");
@@ -455,23 +461,30 @@ function formDataHandler(event, frm) {
     if (requiredCheckbox(frm.name) == true) {
 
         if (frm != null && frm.elements != null) {
-            let formData = [];
-            const submittedDate = Date(Date.UTC());
+            //let formData = [];
+            //const submittedDate = Date(Date.UTC());
             const user_name = window.localStorage.getItem("name");
+            let printName = ""
 
             for (let i=0; i < frm.elements.length-1; i++) {
                 const field = frm.elements[i];
 
                 if (field != null && field.name != null) {
-                    formData.push({ "submitted": submittedDate, "owner": user_name, "form_name": frm.name, "field_order": i, "field_name": field.name, "field_value": field.value });
+                    //console.log(`${field.name} ${field.value}`);
+
+                    if (field.name === 'Address') {
+                        printName = clearFileName(field.value);
+                        document.title += `_${printName}`;
+                    } else if (field.name === 'property_address') {
+                        printName = clearFileName(field.value);
+                        document.title += `_${printName}`;
+                    }
                 }
             }
             // Optionally, clear the form after successful submission
             //frm.reset();
 
-            //storeReportData(formData);
             setTimeout(function() { window.print(); }, 6000);
-            //console.log("DB Storeage", formData);
         }
 
     }
@@ -849,4 +862,10 @@ function renderTable(data) {
 
     fragment += "</table>"
     return fragment
+}
+
+function clearFileName(val) {
+    let value = (val === null) ? "" : val;
+
+    return value.replaceAll('<','').replaceAll('>','').replaceAll(':','').replaceAll('"','').replaceAll('/','').replaceAll('\\','').replaceAll('|','').replaceAll('?','').replaceAll('*','');
 }
