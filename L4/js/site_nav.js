@@ -193,7 +193,7 @@ function changePage(page) {
 
     } else {
         // If not cached, fetch the page
-        fetch('../' + page)
+        fetch(page)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
