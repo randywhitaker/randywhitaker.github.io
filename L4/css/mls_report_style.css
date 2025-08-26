@@ -142,12 +142,15 @@
         border-right: none;
     }
     .section-flex2 {
+        display: block;
         grid-template-columns: repeat(1, 1fr);
     }
     .section-flex3 {
+        display: block;
         grid-template-columns: repeat(1, 1fr);
     }
     .section-flex4 {
+        display: block;
         grid-template-columns: repeat(1, 1fr);
     }
 }
