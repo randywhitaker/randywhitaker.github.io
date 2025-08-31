@@ -11,50 +11,70 @@
       align-items: flex-start;
       padding: 40px;
     }
+
+    .container, .dropzone {
+      width: 300px;
+      min-height: 300px;
+      border: 3px dashed #999;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    .dropzone.over, .container.over {
+      border-color: #333;
+      background: #f0f0f0;
+    }
+
     .box {
-      width: 100px;
-      height: 100px;
-      margin: 10px;
+      width: 80px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
       font-weight: bold;
       cursor: grab;
+      -webkit-user-drag: element;
+      user-select: none;
     }
+    .box:active {
+      cursor: grabbing;
+    }
+
     #red   { background: crimson; }
     #blue  { background: steelblue; }
     #green { background: seagreen; }
 
-    .dropzone {
-      width: 300px;
-      height: 300px;
-      border: 3px dashed #999;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: #666;
-    }
-
-    .dropzone.over {
-      border-color: #333;
-      background: #f0f0f0;
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
 
-  <div id="red" class="box" draggable="true">Red</div>
-  <div id="blue" class="box" draggable="true">Blue</div>
-  <div id="green" class="box" draggable="true">Green</div>
+  <div>
+    <h2>Available Items</h2>
+    <div class="container" id="source">
+      <div id="red" class="box" draggable="true">Red</div>
+      <div id="blue" class="box" draggable="true">Blue</div>
+      <div id="green" class="box" draggable="true">Green</div>
+    </div>
+  </div>
 
-  <div class="dropzone" id="dropzone">Drop Here</div>
+  <div>
+    <h2>Drop Zone</h2>
+    <div class="dropzone" id="dropzone">Drop Here</div>
+  </div>
 
   <script>
     const boxes = document.querySelectorAll(".box");
-    const dropzone = document.getElementById("dropzone");
+    const containers = document.querySelectorAll(".container, .dropzone");
 
     boxes.forEach(box => {
       box.addEventListener("dragstart", e => {
@@ -62,21 +82,23 @@
       });
     });
 
-    dropzone.addEventListener("dragover", e => {
-      e.preventDefault();
-      dropzone.classList.add("over");
-    });
+    containers.forEach(zone => {
+      zone.addEventListener("dragover", e => {
+        e.preventDefault();
+        zone.classList.add("over");
+      });
 
-    dropzone.addEventListener("dragleave", () => {
-      dropzone.classList.remove("over");
-    });
+      zone.addEventListener("dragleave", () => {
+        zone.classList.remove("over");
+      });
 
-    dropzone.addEventListener("drop", e => {
-      e.preventDefault();
-      const id = e.dataTransfer.getData("text/plain");
-      const draggedElement = document.getElementById(id);
-      dropzone.appendChild(draggedElement);
-      dropzone.classList.remove("over");
+      zone.addEventListener("drop", e => {
+        e.preventDefault();
+        const id = e.dataTransfer.getData("text/plain");
+        const draggedElement = document.getElementById(id);
+        zone.appendChild(draggedElement);
+        zone.classList.remove("over");
+      });
     });
   </script>
 
