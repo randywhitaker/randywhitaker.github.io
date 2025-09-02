@@ -8,7 +8,6 @@
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: space-around;
-      align-items: flex-start;
       padding: 40px;
     }
 
@@ -28,6 +27,13 @@
     .dropzone.over, .container.over {
       border-color: #333;
       background: #f0f0f0;
+    }
+    .word {
+      padding: 20px;
+      font-weight: bold;
+      cursor: grab;
+      -webkit-user-drag: element;
+      user-select: none;
     }
 
     .box {
@@ -63,7 +69,7 @@
   <div>
     <h2>Available Words</h2>
     <div class="container" id="source">
-      <label draggable="true">teeth</label>
+      <label class="word" draggable="true">teeth</label>
       <div id="red" class="box" draggable="true">Red</div>
       <div id="blue" class="box" draggable="true">Blue</div>
       <div id="green" class="box" draggable="true">Green</div>
@@ -90,9 +96,16 @@
   </div>
 
   <script>
+    const words = document.querySelectonAll(".word");
     const boxes = document.querySelectorAll(".box");
     const containers = document.querySelectorAll(".container, .dropzone");
 
+    words.forEach(word => {
+      word.addEventListener("dragstart", e => {
+        e.dataTransfer.setData("text/plain", word.innerText);
+      });
+    });
+    
     boxes.forEach(box => {
       box.addEventListener("dragstart", e => {
         e.dataTransfer.setData("text/plain", box.id);
