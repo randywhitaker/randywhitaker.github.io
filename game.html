@@ -15,8 +15,9 @@
     }
 
     .dropzone {
-      width: 90%;
+      width: 95%;
       min-height: 200px;
+      margin: 0 auto;
       border: 3px dashed #999;
       border-radius: 10px;
       display: flex;
@@ -62,6 +63,11 @@
       padding: 5px;
       font-size: large;
     }
+    .gamezone {
+      padding: 10px;
+      width: 90%;
+      margin: 5px auto;
+    }
     /* Mobile Phone Layout */
     @media screen and (min-width: 300px) and (max-width: 850px) {
       body {
@@ -75,55 +81,39 @@
   <header class="pageHeader">
     <img src="./Reading_Roots.JPG" width="50px" title="Reading Roots">&nbsp;&nbsp; Reading Roots Game
   </header>
-  <table>
-    <tr>
-      <td colspan="2">
-        <h2>Available Words</h2>
-        <div class="dropzone" id="availablewords">
-          <label id="teeth" class="word" draggable="true">teeth</label>
-          <label id="these" class="word" draggable="true">these</label>
-          <label id="real" class="word" draggable="true">real</label>
-          <label id="streets" class="word" draggable="true">streets</label>
-          <label id="shield" class="word" draggable="true">shield</label>
-          <label id="peanuts" class="word" draggable="true">peanuts</label>
-          <label id="between" class="word" draggable="true">between</label>
-          <label id="dreaming" class="word" draggable="true">dreaming</label>
-          <label id="weekend" class="word" draggable="true">weekend</label>
-          <label id="leaf" class="word" draggable="true">leaf</label>
-          <label id="wheels" class="word" draggable="true">wheels</label>
-          <label id="fields" class="word" draggable="true">fields</label>
-          <label id="please" class="word" draggable="true">please</label>
-          <label id="keeping" class="word" draggable="true">keeping</label>
-          <label id="asleep" class="word" draggable="true">asleep</label>
-          <label id="leave" class="word" draggable="true">leave</label>
-          <label id="praise" class="word" draggable="true">praise</label>
-          <label id="great" class="word" draggable="true">great</label>
-          <label id="once" class="word" draggable="true">once</label>
-          <label id="want" class="word" draggable="true">want</label>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h2>ee Words</h2>
-        <div class="dropzone" id="ee-dropzone"></div>
-      </td>
-      <td>
-        <h2>ea Words</h2>
-        <div class="dropzone" id="ea-dropzone"></div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h2>e_e Words</h2>
-        <div class="dropzone" id="e_e-dropzone"></div>
-      </td>
-      <td>
-        <h2>ie Words</h2>
-        <div class="dropzone" id="ie-dropzone"></div>
-      </td>
-    </tr>
-  </table>
+  <div class="gamezone">
+    <h2>Available Words</h2>
+    <div class="dropzone" id="availablewords">
+      <label id="teeth" class="word" draggable="true">teeth</label>
+      <label id="these" class="word" draggable="true">these</label>
+      <label id="real" class="word" draggable="true">real</label>
+      <label id="streets" class="word" draggable="true">streets</label>
+      <label id="shield" class="word" draggable="true">shield</label>
+      <label id="peanuts" class="word" draggable="true">peanuts</label>
+      <label id="between" class="word" draggable="true">between</label>
+      <label id="dreaming" class="word" draggable="true">dreaming</label>
+      <label id="weekend" class="word" draggable="true">weekend</label>
+      <label id="leaf" class="word" draggable="true">leaf</label>
+      <label id="wheels" class="word" draggable="true">wheels</label>
+      <label id="fields" class="word" draggable="true">fields</label>
+      <label id="please" class="word" draggable="true">please</label>
+      <label id="keeping" class="word" draggable="true">keeping</label>
+      <label id="asleep" class="word" draggable="true">asleep</label>
+      <label id="leave" class="word" draggable="true">leave</label>
+      <label id="praise" class="word" draggable="true">praise</label>
+      <label id="great" class="word" draggable="true">great</label>
+      <label id="once" class="word" draggable="true">once</label>
+      <label id="want" class="word" draggable="true">want</label>
+    </div>
+    <h2>ee Words</h2>
+    <div class="dropzone" id="ee-dropzone"></div>
+    <h2>ea Words</h2>
+    <div class="dropzone" id="ea-dropzone"></div>
+    <h2>e_e Words</h2>
+    <div class="dropzone" id="e_e-dropzone"></div>
+    <h2>ie Words</h2>
+    <div class="dropzone" id="ie-dropzone"></div>
+  </div>
 
   <script>
     //for (let t of ev.touches) {
