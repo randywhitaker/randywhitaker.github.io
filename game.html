@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Drag and Drop Example</title>
+  <title>Word Game</title>
+  <link rel="icon" href="ReadingRoots70x70.png">
+  <link rel="apple-touch-icon" href="ReadingRoots70x70.png">
   <style>
     body {
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: space-around;
-      padding: 40px;
     }
 
-    .container, .dropzone {
-      width: 300px;
-      min-height: 300px;
+    .dropzone {
+      width: 90%;
+      min-height: 200px;
       border: 3px dashed #999;
       border-radius: 10px;
       display: flex;
@@ -24,7 +23,7 @@
       gap: 10px;
     }
 
-    .dropzone.over, .container.over {
+    .dropzone.over {
       border-color: #333;
       background: #f0f0f0;
     }
@@ -34,85 +33,107 @@
       cursor: grab;
       -webkit-user-drag: element;
       user-select: none;
+      border: 1px solid #000;
     }
 
-    .box {
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: bold;
-      cursor: grab;
-      -webkit-user-drag: element;
-      user-select: none;
-    }
-    .box:active {
+    .word:active {
       cursor: grabbing;
     }
-
-    #red   { background: crimson; }
-    #blue  { background: steelblue; }
-    #green { background: seagreen; }
-    #black { background: black; border: 1px solid #000; }
-    #yellow { background: yellow; }
 
     h2 {
       text-align: center;
       margin-bottom: 10px;
     }
+    .selectedword {
+      border-color: #333;
+      background: #9bc4a7;
+    }
+    .pageHeader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: darkblue;
+      color: white;
+      font-weight: bold;
+      padding: 5px;
+    }
   </style>
 </head>
 <body>
-
-  <div>
-    <h2>Available Words</h2>
-    <div class="container" id="source">
-      <label class="word" draggable="true">teeth</label>
-      <div id="red" class="box" draggable="true">Red</div>
-      <div id="blue" class="box" draggable="true">Blue</div>
-      <div id="green" class="box" draggable="true">Green</div>
-      <div id="black" class="box" draggable="true">Black</div>
-      <div id="yellow" class="box" draggable="true">Yellow</div>
-    </div>
-  </div>
-
-  <div>
-    <h2>ee Words</h2>
-    <div class="dropzone" id="ee-dropzone"></div>
-  </div>
-  <div>
-    <h2>ea Words</h2>
-    <div class="dropzone" id="ea-dropzone"></div>
-  </div>
-  <div>
-    <h2>e_e Words</h2>
-    <div class="dropzone" id="e_e-dropzone"></div>
-  </div>
-  <div>
-    <h2>ie Words</h2>
-    <div class="dropzone" id="ie-dropzone"></div>
-  </div>
+  <header class="pageHeader">
+    <img src="./Reading_Roots.JPG" width="50px" title="Reading Roots">&nbsp;&nbsp; Reading Roots Game
+  </header>
+  <table>
+    <tr>
+      <td colspan="2">
+        <h2>Available Words</h2>
+        <div class="dropzone" id="availablewords">
+          <label id="teeth" class="word" draggable="true">teeth</label>
+          <label id="these" class="word" draggable="true">these</label>
+          <label id="real" class="word" draggable="true">real</label>
+          <label id="streets" class="word" draggable="true">streets</label>
+          <label id="shield" class="word" draggable="true">shield</label>
+          <label id="peanuts" class="word" draggable="true">peanuts</label>
+          <label id="between" class="word" draggable="true">between</label>
+          <label id="dreaming" class="word" draggable="true">dreaming</label>
+          <label id="weekend" class="word" draggable="true">weekend</label>
+          <label id="leaf" class="word" draggable="true">leaf</label>
+          <label id="wheels" class="word" draggable="true">wheels</label>
+          <label id="fields" class="word" draggable="true">fields</label>
+          <label id="please" class="word" draggable="true">please</label>
+          <label id="keeping" class="word" draggable="true">keeping</label>
+          <label id="asleep" class="word" draggable="true">asleep</label>
+          <label id="leave" class="word" draggable="true">leave</label>
+          <label id="praise" class="word" draggable="true">praise</label>
+          <label id="great" class="word" draggable="true">great</label>
+          <label id="once" class="word" draggable="true">once</label>
+          <label id="want" class="word" draggable="true">want</label>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2>ee Words</h2>
+        <div class="dropzone" id="ee-dropzone"></div>
+      </td>
+      <td>
+        <h2>ea Words</h2>
+        <div class="dropzone" id="ea-dropzone"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2>e_e Words</h2>
+        <div class="dropzone" id="e_e-dropzone"></div>
+      </td>
+      <td>
+        <h2>ie Words</h2>
+        <div class="dropzone" id="ie-dropzone"></div>
+      </td>
+    </tr>
+  </table>
 
   <script>
-    const words = document.querySelectonAll(".word");
-    const boxes = document.querySelectorAll(".box");
-    const containers = document.querySelectorAll(".container, .dropzone");
+    //for (let t of ev.touches) {
+    //  p.innerText += `Touched Started at ${t.clientX} x ${t.clientY}\n`;
+    //}
 
-    words.forEach(word => {
-      word.addEventListener("dragstart", e => {
-        e.dataTransfer.setData("text/plain", word.innerText);
-      });
-    });
-    
-    boxes.forEach(box => {
-      box.addEventListener("dragstart", e => {
-        e.dataTransfer.setData("text/plain", box.id);
-      });
-    });
+    const words = document.querySelectorAll("label.word");
+    const dropzones = document.querySelectorAll("div.dropzone");
 
-    containers.forEach(zone => {
+    dropzones.forEach(zone => {
+      zone.addEventListener("touchstart", ev => {
+        ev.preventDefault();
+        let selectedWords = document.querySelectorAll("label.selectedword");
+
+        for (let w of selectedWords) {
+          if (w.parentNode != zone) {
+            w.classList.remove("selectedword");
+            zone.appendChild(w);
+          }
+        }
+      });
+
       zone.addEventListener("dragover", e => {
         e.preventDefault();
         zone.classList.add("over");
@@ -125,11 +146,34 @@
       zone.addEventListener("drop", e => {
         e.preventDefault();
         const id = e.dataTransfer.getData("text/plain");
+        console.log("drop id: ", id);
         const draggedElement = document.getElementById(id);
         zone.appendChild(draggedElement);
         zone.classList.remove("over");
       });
+
     });
+
+    words.forEach(word => {
+      word.addEventListener("dragstart", ev => {
+        // Add the target element's id to the data transfer object
+        ev.dataTransfer.setData("text/plain", ev.target.id);
+        //console.log(ev.target.innerText);
+      });
+
+      word.addEventListener("touchstart", ev => {
+        ev.preventDefault();
+        for (let t of ev.touches) {
+          if (word.classList.contains("selectedword")) {
+            word.classList.remove("selectedword");
+          } else {
+            word.classList.add("selectedword");
+          }
+        }
+      });
+
+    });
+
   </script>
 
 </body>
