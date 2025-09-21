@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Word Game</title>
   <link rel="icon" href="ReadingRoots70x70.png">
   <link rel="apple-touch-icon" href="ReadingRoots70x70.png">
   <style>
+    html,
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      font-size: 18px;
+      font-size: large;
     }
 
     .dropzone {
@@ -57,6 +60,14 @@
       color: white;
       font-weight: bold;
       padding: 5px;
+      font-size: large;
+    }
+    /* Mobile Phone Layout */
+    @media screen and (min-width: 300px) and (max-width: 850px) {
+      body {
+        font-size: xxx-large;
+      }
+
     }
   </style>
 </head>
