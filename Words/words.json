@@ -1,0 +1,22 @@
+[
+    { "name": "Asleep", "audio_source": "Asleep.mp3" },
+    { "name": "Between", "audio_source": "Between.mp3" },
+    { "name": "Dreaming", "audio_source": "Dreaming.mp3" },
+    { "name": "Fields", "audio_source": "Fields.mp3" },
+    { "name": "Great", "audio_source": "Great.mp3" },
+    { "name": "Keeping", "audio_source": "Keeping.mp3" },
+    { "name": "Leaf", "audio_source": "Leaf.mp3" },
+    { "name": "Leave", "audio_source": "Leave.mp3" },
+    { "name": "Once", "audio_source": "Once.mp3" },
+    { "name": "Peanuts", "audio_source": "Peanuts.mp3" },
+    { "name": "Please", "audio_source": "Please.mp3" },
+    { "name": "Praise", "audio_source": "Praise.mp3" },
+    { "name": "Real", "audio_source": "Real.mp3" },
+    { "name": "Shield", "audio_source": "Shield.mp3" },
+    { "name": "Street", "audio_source": "Street.mp3" },
+    { "name": "Teeth", "audio_source": "Teeth.mp3" },
+    { "name": "These", "audio_source": "These.mp3" },
+    { "name": "Want", "audio_source": "Want.mp3" },
+    { "name": "Weekend", "audio_source": "Weekend.mp3" },
+    { "name": "Wheels", "audio_source": "Wheels.mp3" }
+]

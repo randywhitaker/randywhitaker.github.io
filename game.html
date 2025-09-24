@@ -73,7 +73,6 @@
       body {
         font-size: large;
       }
-
     }
   </style>
 </head>
@@ -84,26 +83,6 @@
   <div class="gamezone">
     <h2>Available Words</h2>
     <div class="dropzone" id="availablewords">
-      <label id="teeth" class="word" draggable="true">teeth</label>
-      <label id="these" class="word" draggable="true">these</label>
-      <label id="real" class="word" draggable="true">real</label>
-      <label id="streets" class="word" draggable="true">streets</label>
-      <label id="shield" class="word" draggable="true">shield</label>
-      <label id="peanuts" class="word" draggable="true">peanuts</label>
-      <label id="between" class="word" draggable="true">between</label>
-      <label id="dreaming" class="word" draggable="true">dreaming</label>
-      <label id="weekend" class="word" draggable="true">weekend</label>
-      <label id="leaf" class="word" draggable="true">leaf</label>
-      <label id="wheels" class="word" draggable="true">wheels</label>
-      <label id="fields" class="word" draggable="true">fields</label>
-      <label id="please" class="word" draggable="true">please</label>
-      <label id="keeping" class="word" draggable="true">keeping</label>
-      <label id="asleep" class="word" draggable="true">asleep</label>
-      <label id="leave" class="word" draggable="true">leave</label>
-      <label id="praise" class="word" draggable="true">praise</label>
-      <label id="great" class="word" draggable="true">great</label>
-      <label id="once" class="word" draggable="true">once</label>
-      <label id="want" class="word" draggable="true">want</label>
     </div>
     <h2>ee Words</h2>
     <div class="dropzone" id="ee-dropzone"></div>
@@ -116,11 +95,62 @@
   </div>
 
   <script>
-    //for (let t of ev.touches) {
-    //  p.innerText += `Touched Started at ${t.clientX} x ${t.clientY}\n`;
-    //}
+    const wordlist = document.getElementById("availablewords");
 
-    const words = document.querySelectorAll("label.word");
+    async function getWords() {
+      try {
+        const response = await fetch("./Words/words.json");
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+
+        return await response.json();
+      } catch (error) {
+        //return [{ name: error.message, audio_source: '' }];
+        return [];
+      }
+    }
+
+    getWords()
+      .then(words => {
+        words.forEach(itm => {
+          let lbl = document.createElement('label');
+          lbl.setAttribute('id', itm.name);
+          lbl.setAttribute('draggable', "true");
+          lbl.classList.add('word');
+          //lbl.innerText = itm.name;
+          lbl.innerHTML = `${itm.name}<audio controls><source src="./Words/${itm.audio_source}" type="audio/mpeg">No Sound Support!</audio>`;
+
+          lbl.addEventListener("touchstart", ev => {
+            ev.preventDefault();
+
+            const audio = ev.target.querySelector('audio');
+            if (audio != null) {
+              //console.log("audio playing", audio);
+              audio.play();
+            }
+
+            for (let t of ev.touches) {
+              if (ev.target.classList.contains("selectedword")) {
+                ev.target.classList.remove("selectedword");
+              } else {
+                ev.target.classList.add("selectedword");
+              }
+            }
+          });
+
+          lbl.addEventListener("dragstart", ev => {
+            // Add the target element's id to the data transfer object
+            ev.dataTransfer.setData("text/plain", ev.target.id);
+            //console.log(ev.target.innerText);
+          });
+
+          wordlist.appendChild(lbl);
+        });
+      })
+      .catch(error => console.log("Error:", error));
+
+
     const dropzones = document.querySelectorAll("div.dropzone");
 
     dropzones.forEach(zone => {
@@ -148,30 +178,10 @@
       zone.addEventListener("drop", e => {
         e.preventDefault();
         const id = e.dataTransfer.getData("text/plain");
-        console.log("drop id: ", id);
+        //console.log("drop id: ", id);
         const draggedElement = document.getElementById(id);
         zone.appendChild(draggedElement);
         zone.classList.remove("over");
-      });
-
-    });
-
-    words.forEach(word => {
-      word.addEventListener("dragstart", ev => {
-        // Add the target element's id to the data transfer object
-        ev.dataTransfer.setData("text/plain", ev.target.id);
-        //console.log(ev.target.innerText);
-      });
-
-      word.addEventListener("touchstart", ev => {
-        ev.preventDefault();
-        for (let t of ev.touches) {
-          if (word.classList.contains("selectedword")) {
-            word.classList.remove("selectedword");
-          } else {
-            word.classList.add("selectedword");
-          }
-        }
       });
 
     });
